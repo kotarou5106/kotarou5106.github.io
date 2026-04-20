@@ -18,7 +18,6 @@ SortBy              = "default"
     lastUpdated = ":date_full"
 
 [sidebar]
-    emoji    = "🍥"
     subtitle = "Student | DeFi Research"
     avatar   = "img/kotarou.jpeg"
 
