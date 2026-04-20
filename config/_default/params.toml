@@ -20,7 +20,7 @@ SortBy              = "default"
 [sidebar]
     emoji    = "🍥"
     subtitle = "Student | DeFi Research"
-    avatar   = "img/avatar.png"
+    avatar   = "img/kotarou.jpg"
 
 [article]
     headingAnchor = false
