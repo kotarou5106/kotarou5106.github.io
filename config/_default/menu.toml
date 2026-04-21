@@ -1,0 +1,24 @@
+[[main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    layout = "main"
+    weight = 1
+    params:
+        icon: home
+
+[[main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 2
+    params:
+        icon: archives
+
+[[main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 3
+    params:
+        icon: search

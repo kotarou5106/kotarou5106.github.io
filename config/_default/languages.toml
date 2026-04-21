@@ -1,0 +1,6 @@
+# Rename this file to languages.toml to enable multilingual support
+[zh-cn]
+    languageName = "中文"
+    title = "kotarou"
+    weight = 1
+    hasCJKLanguage = true
