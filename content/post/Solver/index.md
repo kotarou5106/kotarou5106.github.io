@@ -2,9 +2,9 @@
 title: "DeFi 交易架构演进：从聚合器 (Aggregator) 到求解器 (Solver)"
 date: 2026-04-21
 description: "本文梳理 DeFi 交易架构从 Aggregator 到 Solver 的演进逻辑，比较路径路由与意图执行的差异。"
-tags: 
-    — AMM
-    - MEV
+tags:
+  - AMM
+  - MEV
 math: true
 categories:     
     - DeFi
