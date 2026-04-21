@@ -1,31 +1,30 @@
-# Rename this file to languages.toml to enable multilingual support
-[zh-cn]
+[en]
     languageName = "中文"
     title = "kotarou"
     weight = 1
     hasCJKLanguage = true
 
-    # 在这里定义菜单的翻译
-    [[zh-cn.menu.main]]
+    # 在这里定义菜单的翻译 (将 zh-cn 改为 en)
+    [[en.menu.main]]
         identifier = "home"
         name = "首页"
         url = "/"
         weight = 1
-        [zh-cn.menu.main.params]
+        [en.menu.main.params]
             icon = "home"
 
-    [[zh-cn.menu.main]]
+    [[en.menu.main]]
         identifier = "archives"
         name = "归档"
         url = "/archives/"
         weight = 2
-        [zh-cn.menu.main.params]
+        [en.menu.main.params]
             icon = "archives"
 
-    [[zh-cn.menu.main]]
+    [[en.menu.main]]
         identifier = "search"
         name = "搜索"
         url = "/search/"
         weight = 3
-        [zh-cn.menu.main.params]
+        [en.menu.main.params]
             icon = "search"
