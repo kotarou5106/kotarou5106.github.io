@@ -5,10 +5,8 @@ date: 2026-04-21
 math: true
 categories:
     - DeFi
-    - MEV
 tags:
     - MEV
-    - Ethereum
 ---
 
 # MEV：定义、本质与共识层风险
