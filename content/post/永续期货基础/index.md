@@ -147,10 +147,8 @@ $$
 
 $$
 NPV_t
-=
-\int_0^t e^{-rs}(-dF_s+\lambda\,dS_s)
-\;+\;
-\int_0^t e^{-rs}\big[\lambda r' S_s - \lambda r S_s + \kappa(F_s-S_s)\big]\,ds
+= \int_0^t e^{-rs}(-dF_s+\lambda\,dS_s)
+\;+\; \int_0^t e^{-rs}\big[\lambda r' S_s - \lambda r S_s + \kappa(F_s-S_s)\big]\,ds
 $$
 
 在“均衡猜想” \(F_s=\lambda S_s\) 下，有 \(dF_s=\lambda\,dS_s\)，第一项随机波动被完美对冲为 0。为了避免无风险套利，剩余漂移项必须恒为 0，从而得到：
@@ -171,10 +169,8 @@ $$
 
 $$
 \text{Payoff}
-=
--\int_0^t e^{-rs}\,du_s
-\;+\;
-\kappa\int_0^t e^{-rs}u_s\,ds
+= -\int_0^t e^{-rs}\,du_s
+\;+\; \kappa\int_0^t e^{-rs}u_s\,ds
 $$
 
 接着对贴现基差 \(e^{-rs}u_s\) 做分部积分（Ito 乘积法则在确定性贴现因子下退化为普通分部积分）：
@@ -187,12 +183,9 @@ $$
 
 $$
 \text{Payoff}
-=
--e^{-rt}u_t
-\;+\;
-u_0
-\;+\;
-(\kappa-r)\int_0^t e^{-rs}u_s\,ds
+= -e^{-rt}u_t
+\;+\; u_0
+\;+\; (\kappa-r)\int_0^t e^{-rs}u_s\,ds
 $$
 
 ### 7.3 反证：若初始偏离 \(u_0>0\)，则存在随机期限套利
@@ -310,10 +303,8 @@ $$
 
 $$
 \frac{\kappa}{\kappa-r}
-=
-\frac{1}{1-r/\kappa}
-\approx
-1+\frac{r}{\kappa}
+= \frac{1}{1-r/\kappa}
+\approx 1+\frac{r}{\kappa}
 \quad(\kappa\gg r)
 $$
 
@@ -334,10 +325,7 @@ $$
 论文在包含偏离度 \(\rho\) 的表达式中，会出现形如
 
 $$
-F
-=
-S\cdot
-\frac{\kappa}{\kappa-(r+\rho-r')}
+F = S\cdot\frac{\kappa}{\kappa-(r+\rho-r')}
 $$
 
 直接用分式比例做计量回归不方便。令
@@ -350,8 +338,7 @@ $$
 
 $$
 f-s=\log(F/S)
-=
--\log\!\left(1-\frac{r+\rho-r'}{\kappa}\right)
+= -\log\!\left(1-\frac{r+\rho-r'}{\kappa}\right)
 $$
 
 当 \(\kappa\) 很大、\(\frac{r+\rho-r'}{\kappa}\) 是小量时，用一阶泰勒展开（\(x\to 0\) 时 \(-\log(1-x)\approx x\)）得到：
