@@ -289,11 +289,8 @@ $$
 论文最后把理论连接到 LP 商业可持续性。对 LP 总收益做分解并在对冲框架下剥离方向性风险后，关键恒等式可写为：
 
 $$
-\mathbb{E}[\text{delta-hedged LP P\&L}]
-=
-\mathbb{E}[\text{NT\_FEE}]
--
-\mathbb{E}[\text{ARB}].
+\mathbb{E}[\mathrm{delta\text{-}hedged\ LP\ PnL}]
+= \mathbb{E}[\mathrm{NT\_FEE}] - \mathbb{E}[\mathrm{ARB}].
 $$
 
 含义非常直接：
@@ -306,4 +303,4 @@ $$
 
 ---
 
-最终收束：从 LVR、稳态分布、$P_{trade}$ 到 ARB/FEE/GAS 与 LP 对冲后 P\&L，这篇论文给出的是一套完整的“损失生成—触发过滤—链上分账”统一框架。对协议设计者而言，真正可调的是分配结构与参数区间，而不是“让结构性损失凭空消失”。  
+最终收束：从 LVR、稳态分布、$P_{trade}$ 到 ARB/FEE/GAS 与 LP 对冲后 PnL，这篇论文给出的是一套完整的“损失生成—触发过滤—链上分账”统一框架。对协议设计者而言，真正可调的是分配结构与参数区间，而不是“让结构性损失凭空消失”。  
