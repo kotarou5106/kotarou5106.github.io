@@ -183,9 +183,9 @@ TEDM 重申其 **定性、基于设计命题** 的定位，优先 **可操作性
 
 论文中的 **TEDM 总图**（文中 **图 4**）将复杂系统降维为三条并行的决策链，沿 **Step** 递进。下图即该总览：**激励机制（Incentivism）** 五步、**治理（Governance）** 七步、**代币经济学（Tokenomics）** 五步，对应文中 Step 与表格要点。
 
-![图 4：代币经济设计方法（TEDM）](tedm-figure4.png)
+![图 4：代币经济设计方法 (TEDM)](/img/tedm-figure4.png)
 
-*图示来源：Kivilo et al.,「Designing a Token Economy: Incentives, Governance, and Tokenomics」, [arXiv:2602.09608](https://arxiv.org/abs/2602.09608)；转载仅供读书笔记说明，著作权归原作者。*
+> **注**：论文来源与 [arXiv:2602.0960B](https://arxiv.org/abs/2602.0960B) 链接，版权归原作者所有。
 
 - **上层——激励机制：** 谁参与 → 系统价值何在 → 期望行为 → 金钱/非金钱手段 → 落地为具体机制（分红、声誉、产品使用权等）。  
 - **中层——治理：** 治理域 → 主体 → 去中心化程度 → 链下 vs 链上 → 投票机制（1T1V、时间加权、二次方投票等）。  
