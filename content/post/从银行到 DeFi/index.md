@@ -10,7 +10,6 @@ categories:
   - DeFi
 ---
 
-**本文是对以下论文的阅读梳理与结构化解说：除文末「延伸与更新（2026）」外，主干叙述顺序与论点均尽量贴合原文章节编号，便于你对照 PDF 阅读。**
 
 [**From banks to DeFi: the evolution of the lending market**](https://arxiv.org/abs/2104.00970)（arXiv:2104.00970）  
 Jiahua Xu, Nikhil Vadgama, University College London, Centre for Blockchain Technologies.

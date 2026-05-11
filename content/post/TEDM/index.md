@@ -1,5 +1,5 @@
 ---
-title: "《设计代币经济》读书笔记：TEDM 框架、DSR 方法与 Currynomics 案例"
+title: "TEDM 框架、DSR 方法与 Currynomics 案例"
 date: 2026-05-09
 description: "基于 arXiv:2602.09608 梳理 TEDM：激励收尾、治理（基尼/中本聪系数、投票）、代币经济学恒等式、形成性评估与 Uniswap/Curve 对比及框架边界。"
 tags:
