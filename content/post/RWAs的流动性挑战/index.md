@@ -7,8 +7,6 @@ categories:
     - DeFi
 tags:
     - RWA
-    - Tokenization
-    - Liquidity
     - DeFi
 ---
 
