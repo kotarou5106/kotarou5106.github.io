@@ -4,10 +4,8 @@ date: 2026-05-11
 description: "基于 arXiv:2508.15391 整理 LST 微观速度、stETH/wstETH 机制、份额级数据重构、链上实证与讨论（阅读笔记）"
 tags:
   - LST
-  - Ethereum
   - Staking
   - DeFi
-  - Token Economics
 math: true
 categories:
   - DeFi
