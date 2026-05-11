@@ -4,6 +4,7 @@ date: 2026-05-10
 description: "基于 arXiv:2401.08610 梳理 LSD 杠杆质押：概念与参与维度、LTV/LT/HF 与形式化策略、链上实证与 Terra 叙事"
 tags:
   - LSD
+  - LST
   - Staking
   - DeFi
 math: true
