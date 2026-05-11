@@ -1,7 +1,7 @@
 ---
-title: "DeFi 借贷市场中的空头挤压：阅读笔记"
+title: "DeFi 借贷市场中的空头挤压"
 description: "基于 arXiv:2302.04068 对 Aave/CRV 案例的整理：流动性错配、健康因子、治理迟滞、论文中的「非典型做空」与事后 V3 风控补丁"
-date: 2026-04-21
+date: 2026-05-11
 math: true
 categories:
     - DeFi
