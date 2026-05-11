@@ -5,8 +5,6 @@ description: "从池化借贷、IOU、清算到 Maker/Compound/Aave；深入闪�
 tags:
   - DeFi
   - Lending
-  - Flash Loan
-  - Governance
 math: true
 categories:
   - DeFi
