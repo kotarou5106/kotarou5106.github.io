@@ -1,5 +1,5 @@
 ---
-title: "Automated Market Making and Loss-Versus-Rebalancing 总结"
+title: "AMM and LVR 总结"
 description: "从数学建模、随机分析与金融实证全流程拆解 Milionis 等人的 LVR 里程碑论文"
 date: 2026-04-21
 math: true

@@ -1,5 +1,5 @@
 ---
-title: "真实世界资产 (RWAs) 与代币化探索"
+title: "RWAs 与代币化探索"
 description: "基于链上账本、共识与智能合约的 RWA 代币化动机、标准、合规流程、优势与局限的要点整理"
 date: 2026-05-11
 math: true
