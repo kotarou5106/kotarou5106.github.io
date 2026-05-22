@@ -262,9 +262,8 @@ VertexAiMemoryBankService
 需要查知识库 → 需要 Memory / RAG
 ```
 
-![章节配图 12](/12.png)
 
-![章节插图](/11.png)
+![章节插图](/8.png)
 
 ## 推荐阅读
 
