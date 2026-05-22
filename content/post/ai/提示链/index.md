@@ -476,8 +476,14 @@ extract → validate → transform → generate
 
 这就是提示链的本质。
 
+![章节配图 5](/5.png)
+
+![章节插图](/1.png)
+
 ## 推荐阅读
 
 下一篇：
 
-> [路由（Routing）](/p/路由routing/)
+> [路由（Routing）]({{< relref "路由/index.md" >}})
+
+

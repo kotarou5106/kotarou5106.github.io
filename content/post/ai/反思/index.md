@@ -714,9 +714,15 @@ PDF 里提到，有记忆时反思效果会更好。
 
 所以这章的本质不是让 Agent 更快，而是让 Agent 更稳、更准、更会改。
 
+![章节配图 4](/4.png)
+
+![章节插图](/4.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [并行化（Parallelization）](/p/并行化parallelization/)
+> [并行化（Parallelization）]({{< relref "并行化/index.md" >}})
+
+
 

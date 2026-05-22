@@ -722,13 +722,19 @@ Parallelization = run multiple independent paths together
 这一章本质是在讲：
 **Agent 不只是要会做事，还要做得快。**
 
+![章节配图 3](/3.png)
+
+![章节插图](/3.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [路由（Routing）](/p/路由routing/)
+> [路由（Routing）]({{< relref "路由/index.md" >}})
 
 下一篇：
 
-> [反思（Reflection）](/p/反思reflection/)
+> [反思（Reflection）]({{< relref "反思/index.md" >}})
+
+
 

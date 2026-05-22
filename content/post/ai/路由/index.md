@@ -671,13 +671,19 @@ weather_tool
 
 Agent 要变得有用，不能只会顺序执行，还必须会根据情况选路。
 
+![章节配图 2](/2.png)
+
+![章节插图](/2.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [提示链（Prompt Chaining）](/p/提示链prompt-chaining/)
+> [提示链（Prompt Chaining）]({{< relref "提示链/index.md" >}})
 
 下一篇：
 
-> [并行化（Parallelization）](/p/并行化parallelization/)
+> [并行化（Parallelization）]({{< relref "并行化/index.md" >}})
+
+
 
