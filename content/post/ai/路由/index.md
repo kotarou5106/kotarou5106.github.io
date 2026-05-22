@@ -675,9 +675,9 @@ Agent 要变得有用，不能只会顺序执行，还必须会根据情况选�
 
 上一篇：
 
-> [提示链（Prompt Chaining）](/p/提示链/)
+> [提示链（Prompt Chaining）](/p/提示链prompt-chaining/)
 
 下一篇：
 
-> [并行化（Parallelization）](/p/并行化/)
+> [并行化（Parallelization）](/p/并行化parallelization/)
 

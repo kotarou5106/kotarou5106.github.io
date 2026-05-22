@@ -726,9 +726,9 @@ Parallelization = run multiple independent paths together
 
 上一篇：
 
-> [路由（Routing）](/p/路由/)
+> [路由（Routing）](/p/路由routing/)
 
 下一篇：
 
-> [反思（Reflection）](/p/反思/)
+> [反思（Reflection）](/p/反思reflection/)
 

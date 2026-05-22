@@ -480,4 +480,4 @@ extract → validate → transform → generate
 
 下一篇：
 
-> [路由（Routing）](/p/路由/)
+> [路由（Routing）](/p/路由routing/)
