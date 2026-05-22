@@ -717,5 +717,5 @@ PDF 里提到，有记忆时反思效果会更好。
 
 上一篇：
 
-> [并行化（Parallelization）](/post/ai/并行化/)
+> [并行化（Parallelization）](/p/并行化/)
 
