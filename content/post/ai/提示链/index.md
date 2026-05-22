@@ -476,7 +476,7 @@ extract → validate → transform → generate
 
 这就是提示链的本质。
 
-![章节配图](/1.png)
+![章节配图](1.png)
 
 ## 推荐阅读
 

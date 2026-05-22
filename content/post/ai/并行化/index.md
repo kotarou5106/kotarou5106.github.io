@@ -722,7 +722,7 @@ Parallelization = run multiple independent paths together
 这一章本质是在讲：
 **Agent 不只是要会做事，还要做得快。**
 
-![章节插图](/3.png)
+![章节插图](3.png)
 
 ## 推荐阅读
 

@@ -263,7 +263,7 @@ VertexAiMemoryBankService
 ```
 
 
-![章节插图](/8.png)
+![章节插图](8.png)
 
 ## 推荐阅读
 
