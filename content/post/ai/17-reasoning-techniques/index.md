@@ -1,7 +1,8 @@
 ---
-title: ""
+title: "推理技术"
 description: ""
 date: 2026-05-24
+weight: 17
 math: true
 categories:
     - Ai

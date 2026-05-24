@@ -1,7 +1,8 @@
 ---
-title: ""
+title: "资源感知优化"
 description: ""
 date: 2026-05-24
+weight: 16
 math: true
 categories:
     - Ai

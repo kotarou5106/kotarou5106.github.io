@@ -2,6 +2,7 @@
 title: "人类参与环节（Human-in-the-Loop，HITL）"
 description: ""
 date: 2026-05-24
+weight: 13
 math: true
 categories:
     - Ai
