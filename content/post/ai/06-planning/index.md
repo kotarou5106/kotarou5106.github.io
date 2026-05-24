@@ -2,6 +2,7 @@
 title: "规划（Planning）"
 description: "介绍规划（Planning）的核心思想、应用场景，以及它和工具使用、Deep Research 的关系。"
 date: 2026-05-22
+url: "/p/规划planning/"
 weight: 6
 math: true
 categories:
@@ -678,9 +679,9 @@ Output 是执行计划后的结果
 
 上一篇：
 
-> [工具使用（Tool Use）/ 函数调用（Function Calling）]({< relref "../05-tool-use-function-calling/index.md" >})
+> [工具使用（Tool Use）/ 函数调用（Function Calling）](/p/工具使用tooluse函数调用functioncalling/)
 
 下一篇：
 
-> [多智能体协作（Multi-Agent Collaboration）]({< relref "../07-multi-agent-collaboration/index.md" >})
+> [多智能体协作（Multi-Agent Collaboration）](/p/多智能体协作multi-agentcollaboration/)
 

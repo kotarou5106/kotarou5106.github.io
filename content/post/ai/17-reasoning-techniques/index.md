@@ -2,6 +2,7 @@
 title: "推理技术"
 description: ""
 date: 2026-05-24
+url: "/p/推理技术/"
 weight: 17
 math: true
 categories:
@@ -1227,9 +1228,9 @@ MASS：自动优化多 Agent 的提示和连接结构
 
 上一篇：
 
-> [资源感知优化]({< relref "../16-resource-aware-optimization/index.md" >})
+> [资源感知优化](/p/资源感知优化/)
 
 下一篇：
 
-> [护栏与安全模式]({< relref "../18-guardrails-and-safety/index.md" >})
+> [护栏与安全模式](/p/护栏与安全模式/)
 

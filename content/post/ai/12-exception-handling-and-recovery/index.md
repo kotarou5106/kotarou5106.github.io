@@ -2,6 +2,7 @@
 title: "异常处理与恢复（Exception Handling and Recovery）"
 description: "介绍异常处理与恢复模式的核心思想、错误检测、备用方案与受控失败。"
 date: 2026-05-22
+url: "/p/异常处理与恢复exceptionhandlingandrecovery/"
 weight: 12
 math: true
 categories:
@@ -623,9 +624,9 @@ else:
 
 上一篇：
 
-> [目标设定与监控（Goal Setting and Monitoring）]({< relref "../11-goal-setting-and-monitoring/index.md" >})
+> [目标设定与监控（Goal Setting and Monitoring）](/p/目标设定与监控goalsettingandmonitoring/)
 
 下一篇：
 
-> [人类参与环节（Human-in-the-Loop，HITL）]({< relref "../13-human-in-the-loop/index.md" >})
+> [人类参与环节（Human-in-the-Loop，HITL）](/p/人类参与环节human-in-the-loophitl/)
 

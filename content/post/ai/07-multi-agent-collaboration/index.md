@@ -2,6 +2,7 @@
 title: "多智能体协作（Multi-Agent Collaboration）"
 description: "介绍多智能体协作（Multi-Agent Collaboration）的核心思想、协作方式，以及它和规划、工具调用的关系。"
 date: 2026-05-22
+url: "/p/多智能体协作multi-agentcollaboration/"
 weight: 7
 math: true
 categories:
@@ -857,9 +858,9 @@ Coder + Tester + Fixer
 
 上一篇：
 
-> [规划（Planning）]({< relref "../06-planning/index.md" >})
+> [规划（Planning）](/p/规划planning/)
 
 下一篇：
 
-> [记忆管理（Memory Management）]({< relref "../08-memory-management/index.md" >})
+> [记忆管理（Memory Management）](/p/记忆管理memorymanagement/)
 

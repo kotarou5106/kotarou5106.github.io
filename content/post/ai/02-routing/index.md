@@ -2,6 +2,7 @@
 title: "路由（Routing）"
 description: "介绍路由（Routing）的核心思想、实现方式，以及它和提示链（Prompt Chaining）的对照关系。"
 date: 2026-05-22
+url: "/p/路由routing/"
 weight: 2
 math: true
 categories:
@@ -676,9 +677,9 @@ Agent 要变得有用，不能只会顺序执行，还必须会根据情况选�
 
 上一篇：
 
-> [提示链（Prompt Chaining）]({< relref "../01-prompt-chaining/index.md" >})
+> [提示链（Prompt Chaining）](/p/提示链promptchaining/)
 
 下一篇：
 
-> [并行化（Parallelization）]({< relref "../03-parallelization/index.md" >})
+> [并行化（Parallelization）](/p/并行化parallelization/)
 

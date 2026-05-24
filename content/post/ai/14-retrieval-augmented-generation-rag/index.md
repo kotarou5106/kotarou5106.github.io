@@ -2,6 +2,7 @@
 title: "知识检索（RAG）"
 description: ""
 date: 2026-05-24
+url: "/p/知识检索rag/"
 weight: 14
 math: true
 categories:
@@ -909,9 +910,9 @@ Agentic RAG 是：
 
 上一篇：
 
-> [人类参与环节（Human-in-the-Loop，HITL）]({< relref "../13-human-in-the-loop/index.md" >})
+> [人类参与环节（Human-in-the-Loop，HITL）](/p/人类参与环节human-in-the-loophitl/)
 
 下一篇：
 
-> [智能体间通信（A2A）]({< relref "../15-agent-to-agent-communication-a2a/index.md" >})
+> [智能体间通信（A2A）](/p/智能体间通信a2a/)
 

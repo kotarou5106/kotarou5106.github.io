@@ -2,6 +2,7 @@
 title: "提示链（Prompt Chaining）"
 description: "介绍提示链（Prompt Chaining / Pipeline Pattern）的核心思想、适用场景、与上下文工程的关系，以及它在 Agent 和 RAG 流程中的作用。"
 date: 2026-05-22
+url: "/p/提示链promptchaining/"
 weight: 1
 math: true
 categories:
@@ -483,5 +484,5 @@ extract → validate → transform → generate
 
 下一篇：
 
-> [路由（Routing）]({< relref "../02-routing/index.md" >})
+> [路由（Routing）](/p/路由routing/)
 

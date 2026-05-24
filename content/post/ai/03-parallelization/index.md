@@ -2,6 +2,7 @@
 title: "并行化（Parallelization）"
 description: "介绍并行化（Parallelization）的核心思想、适用场景，以及它与提示链和路由的关系。"
 date: 2026-05-22
+url: "/p/并行化parallelization/"
 weight: 3
 math: true
 categories:
@@ -729,9 +730,9 @@ Parallelization = run multiple independent paths together
 
 上一篇：
 
-> [路由（Routing）]({< relref "../02-routing/index.md" >})
+> [路由（Routing）](/p/路由routing/)
 
 下一篇：
 
-> [反思（Reflection）]({< relref "../04-reflection/index.md" >})
+> [反思（Reflection）](/p/反思reflection/)
 

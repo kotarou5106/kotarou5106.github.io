@@ -2,6 +2,7 @@
 title: "评估与监控"
 description: ""
 date: 2026-05-24
+url: "/p/评估与监控/"
 weight: 19
 math: true
 categories:
@@ -1090,9 +1091,9 @@ Prompt Injection 是否被拦住？
 
 上一篇：
 
-> [护栏与安全模式]({< relref "../18-guardrails-and-safety/index.md" >})
+> [护栏与安全模式](/p/护栏与安全模式/)
 
 下一篇：
 
-> [优先级排序]({< relref "../20-prioritization/index.md" >})
+> [优先级排序](/p/优先级排序/)
 

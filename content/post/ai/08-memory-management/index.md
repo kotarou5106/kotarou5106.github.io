@@ -2,6 +2,7 @@
 title: "记忆管理（Memory Management）"
 description: "介绍 Agent 的短期记忆、长期记忆、Session、State 与 MemoryService。"
 date: 2026-05-22
+url: "/p/记忆管理memorymanagement/"
 weight: 8
 math: true
 categories:
@@ -269,9 +270,9 @@ VertexAiMemoryBankService
 
 上一篇：
 
-> [多智能体协作（Multi-Agent Collaboration）]({< relref "../07-multi-agent-collaboration/index.md" >})
+> [多智能体协作（Multi-Agent Collaboration）](/p/多智能体协作multi-agentcollaboration/)
 
 下一篇：
 
-> [学习与适应（Learning and Adaptation）]({< relref "../09-learning-and-adaptation/index.md" >})
+> [学习与适应（Learning and Adaptation）](/p/学习与适应learningandadaptation/)
 

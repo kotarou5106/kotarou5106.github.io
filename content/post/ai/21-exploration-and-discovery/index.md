@@ -2,6 +2,7 @@
 title: "探索与发现"
 description: ""
 date: 2026-05-24
+url: "/p/探索与发现/"
 weight: 21
 math: true
 categories:
@@ -1048,5 +1049,5 @@ Deep Research Agent。
 
 上一篇：
 
-> [优先级排序]({< relref "../20-prioritization/index.md" >})
+> [优先级排序](/p/优先级排序/)
 

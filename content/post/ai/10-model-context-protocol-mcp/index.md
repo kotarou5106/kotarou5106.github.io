@@ -2,6 +2,7 @@
 title: "模型上下文协议（MCP）"
 description: "介绍模型上下文协议（Model Context Protocol, MCP）的核心思想、Client-Server 架构，以及它和工具调用的关系。"
 date: 2026-05-22
+url: "/p/模型上下文协议mcp/"
 weight: 10
 math: true
 categories:
@@ -1079,9 +1080,9 @@ MCP 更适合，因为它能统一管理多个工具、数据源和外部系统�
 
 上一篇：
 
-> [学习与适应（Learning and Adaptation）]({< relref "../09-learning-and-adaptation/index.md" >})
+> [学习与适应（Learning and Adaptation）](/p/学习与适应learningandadaptation/)
 
 下一篇：
 
-> [目标设定与监控（Goal Setting and Monitoring）]({< relref "../11-goal-setting-and-monitoring/index.md" >})
+> [目标设定与监控（Goal Setting and Monitoring）](/p/目标设定与监控goalsettingandmonitoring/)
 

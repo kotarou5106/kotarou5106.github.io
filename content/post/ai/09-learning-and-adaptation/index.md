@@ -2,6 +2,7 @@
 title: "学习与适应（Learning and Adaptation）"
 description: "介绍学习与适应（Learning and Adaptation）的核心思想，以及 PPO、DPO、SICA、OpenEvolve 和 AlphaEvolve 等案例。"
 date: 2026-05-22
+url: "/p/学习与适应learningandadaptation/"
 weight: 9
 math: true
 categories:
@@ -909,9 +910,9 @@ Agent 能修改自己的代码、工具或策略。
 
 上一篇：
 
-> [记忆管理（Memory Management）]({< relref "../08-memory-management/index.md" >})
+> [记忆管理（Memory Management）](/p/记忆管理memorymanagement/)
 
 下一篇：
 
-> [模型上下文协议（MCP）]({< relref "../10-model-context-protocol-mcp/index.md" >})
+> [模型上下文协议（MCP）](/p/模型上下文协议mcp/)
 

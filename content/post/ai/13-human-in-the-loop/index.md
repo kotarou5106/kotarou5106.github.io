@@ -2,6 +2,7 @@
 title: "人类参与环节（Human-in-the-Loop，HITL）"
 description: ""
 date: 2026-05-24
+url: "/p/人类参与环节human-in-the-loophitl/"
 weight: 13
 math: true
 categories:
@@ -649,9 +650,9 @@ elif risk == "high":
 
 上一篇：
 
-> [异常处理与恢复（Exception Handling and Recovery）]({< relref "../12-exception-handling-and-recovery/index.md" >})
+> [异常处理与恢复（Exception Handling and Recovery）](/p/异常处理与恢复exceptionhandlingandrecovery/)
 
 下一篇：
 
-> [知识检索（RAG）]({< relref "../14-retrieval-augmented-generation-rag/index.md" >})
+> [知识检索（RAG）](/p/知识检索rag/)
 

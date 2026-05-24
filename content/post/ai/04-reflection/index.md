@@ -2,6 +2,7 @@
 title: "反思（Reflection）"
 description: "介绍反思（Reflection）的核心思想、生产者—批评者模式，以及它在代码、写作和复杂任务中的作用。"
 date: 2026-05-22
+url: "/p/反思reflection/"
 weight: 4
 math: true
 categories:
@@ -719,9 +720,9 @@ LLM 可以解释错误并修复，但测试结果更客观。
 
 上一篇：
 
-> [并行化（Parallelization）]({< relref "../03-parallelization/index.md" >})
+> [并行化（Parallelization）](/p/并行化parallelization/)
 
 下一篇：
 
-> [工具使用（Tool Use）/ 函数调用（Function Calling）]({< relref "../05-tool-use-function-calling/index.md" >})
+> [工具使用（Tool Use）/ 函数调用（Function Calling）](/p/工具使用tooluse函数调用functioncalling/)
 

@@ -2,6 +2,7 @@
 title: "护栏与安全模式"
 description: ""
 date: 2026-05-24
+url: "/p/护栏与安全模式/"
 weight: 18
 math: true
 categories:
@@ -782,9 +783,9 @@ Prompt Injection；
 
 上一篇：
 
-> [推理技术]({< relref "../17-reasoning-techniques/index.md" >})
+> [推理技术](/p/推理技术/)
 
 下一篇：
 
-> [评估与监控]({< relref "../19-evaluation-and-monitoring/index.md" >})
+> [评估与监控](/p/评估与监控/)
 

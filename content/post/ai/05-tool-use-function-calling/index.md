@@ -2,6 +2,7 @@
 title: "工具使用（Tool Use）/ 函数调用（Function Calling）"
 description: "介绍工具使用（Tool Use）与函数调用（Function Calling）的核心思想、完整流程，以及它们在 LangChain、CrewAI 和 Google ADK 中的用法。"
 date: 2026-05-22
+url: "/p/工具使用tooluse函数调用functioncalling/"
 weight: 5
 math: true
 categories:
@@ -588,9 +589,9 @@ PDF 最后提到：
 
 上一篇：
 
-> [反思（Reflection）]({< relref "../04-reflection/index.md" >})
+> [反思（Reflection）](/p/反思reflection/)
 
 下一篇：
 
-> [规划（Planning）]({< relref "../06-planning/index.md" >})
+> [规划（Planning）](/p/规划planning/)
 

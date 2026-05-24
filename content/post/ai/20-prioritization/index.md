@@ -2,6 +2,7 @@
 title: "优先级排序"
 description: ""
 date: 2026-05-24
+url: "/p/优先级排序/"
 weight: 20
 math: true
 categories:
@@ -917,9 +918,9 @@ Agent 是 ReAct 还是 Plan-and-Execute？计划执行时就需要任务排序�
 
 上一篇：
 
-> [评估与监控]({< relref "../19-evaluation-and-monitoring/index.md" >})
+> [评估与监控](/p/评估与监控/)
 
 下一篇：
 
-> [探索与发现]({< relref "../21-exploration-and-discovery/index.md" >})
+> [探索与发现](/p/探索与发现/)
 

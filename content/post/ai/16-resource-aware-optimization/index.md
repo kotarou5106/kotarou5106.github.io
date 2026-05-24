@@ -2,6 +2,7 @@
 title: "资源感知优化"
 description: ""
 date: 2026-05-24
+url: "/p/资源感知优化/"
 weight: 16
 math: true
 categories:
@@ -391,9 +392,9 @@ Budget 也是输入
 
 上一篇：
 
-> [智能体间通信（A2A）]({< relref "../15-agent-to-agent-communication-a2a/index.md" >})
+> [智能体间通信（A2A）](/p/智能体间通信a2a/)
 
 下一篇：
 
-> [推理技术]({< relref "../17-reasoning-techniques/index.md" >})
+> [推理技术](/p/推理技术/)
 

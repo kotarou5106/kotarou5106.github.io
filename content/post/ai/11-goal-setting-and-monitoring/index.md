@@ -2,6 +2,7 @@
 title: "目标设定与监控（Goal Setting and Monitoring）"
 description: "介绍目标设定与监控模式（Goal Setting and Monitoring Pattern）的核心思想，以及它如何通过目标、监控和反馈循环驱动 Agent 改进。"
 date: 2026-05-22
+url: "/p/目标设定与监控goalsettingandmonitoring/"
 weight: 11
 math: true
 categories:
@@ -506,9 +507,9 @@ Memory 保存状态
 
 上一篇：
 
-> [模型上下文协议（MCP）]({< relref "../10-model-context-protocol-mcp/index.md" >})
+> [模型上下文协议（MCP）](/p/模型上下文协议mcp/)
 
 下一篇：
 
-> [异常处理与恢复（Exception Handling and Recovery）]({< relref "../12-exception-handling-and-recovery/index.md" >})
+> [异常处理与恢复（Exception Handling and Recovery）](/p/异常处理与恢复exceptionhandlingandrecovery/)
 
