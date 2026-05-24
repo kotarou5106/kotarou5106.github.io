@@ -1219,13 +1219,17 @@ MASS：自动优化多 Agent 的提示和连接结构
 
 你重点掌握 **CoT、ReAct、Reflection、Tool Use、Inference Scaling**，基本就能覆盖大多数 Agent 面试问题。
 
+![章节插图](17-2.png)
+![章节插图](17-3.png)
+![章节插图](17-4.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [资源感知优化](../16-resource-aware-optimization/)
+> [资源感知优化]({< relref "../16-resource-aware-optimization/index.md" >})
 
 下一篇：
 
-> [护栏与安全模式](../18-guardrails-and-safety/)
+> [护栏与安全模式]({< relref "../18-guardrails-and-safety/index.md" >})
 

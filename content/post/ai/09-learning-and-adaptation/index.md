@@ -228,9 +228,7 @@ PPO 是强化学习里很常见的一种算法，尤其用于训练策略模型�
 * **策略（Policy）**
 * **奖励（Reward）**
 * **裁剪机制（Clipping Mechanism）**
-* **信任区间（Trust Region）**
-
-PDF 里说，PPO 的核心是对策略进行小幅、谨慎更新，避免剧烈变化导致性能崩溃。
+* **信任区间（Trust Region）**，PPO 的核心是对策略进行小幅、谨慎更新，避免剧烈变化导致性能崩溃。
 
 你可以这样理解它的本质：
 
@@ -284,9 +282,7 @@ DPO 的方式更直接：
 * **人类偏好对齐（Human Preference Alignment）**
 * **偏好数据（Preference Data）**
 * **奖励模型（Reward Model）**
-* **策略优化（Policy Optimization）**
-
-PDF 里说，DPO 跳过奖励模型，直接用偏好数据更新 LLM 策略，从而简化对齐流程并提升稳定性。
+* **策略优化（Policy Optimization）**，DPO 跳过奖励模型，直接用偏好数据更新 LLM 策略，从而简化对齐流程并提升稳定性。
 
 ---
 
@@ -422,9 +418,7 @@ Agent 0
 
 ---
 
-## 8. SICA 学到了什么？
-
-PDF 里说，SICA 在迭代中逐步发展出了很多更好的代码编辑和导航工具。
+## 8. SICA 学到了什么？，SICA 在迭代中逐步发展出了很多更好的代码编辑和导航工具。
 
 比如：
 
@@ -510,9 +504,7 @@ SICA 系统里有：
 是否长期停滞
 是否重复无效操作
 是否行为异常
-```
-
-PDF 里说，异步监督者会监控 SICA 行为，识别循环或停滞问题，并可干预终止执行。
+```，异步监督者会监控 SICA 行为，识别循环或停滞问题，并可干预终止执行。
 
 这里体现了前几章的组合：
 
@@ -589,9 +581,7 @@ Gemini Pro 做深入分析和优化
 * **进化算法（Evolutionary Algorithm）**
 * **自动评估（Automatic Evaluation）**
 * **算法发现（Algorithm Discovery）**
-* **算法优化（Algorithm Optimization）**
-
-，AlphaEvolve 被用于 Google 基础设施优化、硬件设计优化、AI 性能提升和基础数学研究。
+* **算法优化（Algorithm Optimization）**，AlphaEvolve 被用于 Google 基础设施优化、硬件设计优化、AI 性能提升和基础数学研究。
 
 ---
 
@@ -601,9 +591,7 @@ Gemini Pro 做深入分析和优化
 
 它的目标是：
 
-> 用 LLM 不断生成代码修改，通过评估筛选更好的程序，让代码逐轮进化。
-
-PDF 里说，它支持整个代码文件进化，不局限于单一函数，并支持多目标优化、灵活提示工程和分布式评估。
+> 用 LLM 不断生成代码修改，通过评估筛选更好的程序，让代码逐轮进化。，它支持整个代码文件进化，不局限于单一函数，并支持多目标优化、灵活提示工程和分布式评估。
 
 第 6 页图 3 展示了 OpenEvolve 架构，大概包括：
 
@@ -921,9 +909,9 @@ Agent 能修改自己的代码、工具或策略。
 
 上一篇：
 
-> [记忆管理（Memory Management）](../08-memory-management/)
+> [记忆管理（Memory Management）]({< relref "../08-memory-management/index.md" >})
 
 下一篇：
 
-> [模型上下文协议（MCP）](../10-model-context-protocol-mcp/)
+> [模型上下文协议（MCP）]({< relref "../10-model-context-protocol-mcp/index.md" >})
 

@@ -137,9 +137,7 @@ API 状态码是不是 404 / 500；
 返回格式是否符合预期；
 工具输出是否与任务目标相关；
 环境状态是否异常。
-```
-
-，错误检测可以通过验证工具输出、检查 API 错误码、检查服务响应时间、检查响应格式等方式实现。
+```，错误检测可以通过验证工具输出、检查 API 错误码、检查服务响应时间、检查响应格式等方式实现。
 
 举个 Agent 场景：
 
@@ -625,9 +623,9 @@ else:
 
 上一篇：
 
-> [目标设定与监控（Goal Setting and Monitoring）](../11-goal-setting-and-monitoring/)
+> [目标设定与监控（Goal Setting and Monitoring）]({< relref "../11-goal-setting-and-monitoring/index.md" >})
 
 下一篇：
 
-> [人类参与环节（Human-in-the-Loop，HITL）](../13-human-in-the-loop/)
+> [人类参与环节（Human-in-the-Loop，HITL）]({< relref "../13-human-in-the-loop/index.md" >})
 

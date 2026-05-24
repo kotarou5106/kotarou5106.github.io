@@ -17,7 +17,7 @@ tags:
 
 > 先明确目标 → 生成行动/结果 → 检查是否达标 → 不达标就带着反馈重新做 → 达标或达到上限后停止。
 
-这份 PDF 的代码示例就是用“生成代码”这个任务来展示这种模式：Agent 接收一个编程任务和一组质量目标，然后反复生成、评审、修改代码，直到目标满足或达到最大迭代次数。
+ 的代码示例就是用“生成代码”这个任务来展示这种模式：Agent 接收一个编程任务和一组质量目标，然后反复生成、评审、修改代码，直到目标满足或达到最大迭代次数。
 
 ---
 
@@ -506,9 +506,9 @@ Memory 保存状态
 
 上一篇：
 
-> [模型上下文协议（MCP）](../10-model-context-protocol-mcp/)
+> [模型上下文协议（MCP）]({< relref "../10-model-context-protocol-mcp/index.md" >})
 
 下一篇：
 
-> [异常处理与恢复（Exception Handling and Recovery）](../12-exception-handling-and-recovery/)
+> [异常处理与恢复（Exception Handling and Recovery）]({< relref "../12-exception-handling-and-recovery/index.md" >})
 

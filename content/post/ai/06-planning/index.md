@@ -346,9 +346,7 @@ Deep Research 是：
 → 给出引用来源
 ```
 
-这不是一次性问答，而是一个长流程研究任务。
-
-PDF 里说，Deep Research 会把用户请求拆解成多点研究计划，并展示给用户审核和修改；计划确认后，智能体会进入迭代搜索与分析循环。
+这不是一次性问答，而是一个长流程研究任务。，Deep Research 会把用户请求拆解成多点研究计划，并展示给用户审核和修改；计划确认后，智能体会进入迭代搜索与分析循环。
 
 也就是说，它至少包含这些能力：
 
@@ -680,9 +678,9 @@ Output 是执行计划后的结果
 
 上一篇：
 
-> [工具使用（Tool Use）/ 函数调用（Function Calling）](../05-tool-use-function-calling/)
+> [工具使用（Tool Use）/ 函数调用（Function Calling）]({< relref "../05-tool-use-function-calling/index.md" >})
 
 下一篇：
 
-> [多智能体协作（Multi-Agent Collaboration）](../07-multi-agent-collaboration/)
+> [多智能体协作（Multi-Agent Collaboration）]({< relref "../07-multi-agent-collaboration/index.md" >})
 

@@ -1084,13 +1084,15 @@ Prompt Injection 是否被拦住？
 
 这一章对你的价值很明确：它让你从“我会搭 Agent”升级到“我知道怎么判断 Agent 是否真的可靠、可控、可上线”。
 
+![章节插图](19.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [护栏与安全模式](../18-guardrails-and-safety/)
+> [护栏与安全模式]({< relref "../18-guardrails-and-safety/index.md" >})
 
 下一篇：
 
-> [优先级排序](../20-prioritization/)
+> [优先级排序]({< relref "../20-prioritization/index.md" >})
 

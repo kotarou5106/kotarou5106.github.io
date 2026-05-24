@@ -126,7 +126,7 @@ supporting_data 是支持数据
 
 ## 4. 提示链常见用在哪里？
 
-PDF 给了几个应用场景，我按重要程度解释。
+几个应用场景，我按重要程度解释。
 
 ### 场景一：信息处理流程
 
@@ -315,7 +315,7 @@ full_chain = (
 
 ## 6. 上下文工程和提示工程的区别
 
-PDF 后半部分讲了 **上下文工程（Context Engineering）** 和 **提示工程（Prompt Engineering）** 的区别。
+讲了 **上下文工程（Context Engineering）** 和 **提示工程（Prompt Engineering）** 的区别。
 
 **提示工程（Prompt Engineering）** 更关注：
 我怎么把这句话问得更好？
@@ -483,5 +483,5 @@ extract → validate → transform → generate
 
 下一篇：
 
-> [路由（Routing）](../02-routing/)
+> [路由（Routing）]({< relref "../02-routing/index.md" >})
 

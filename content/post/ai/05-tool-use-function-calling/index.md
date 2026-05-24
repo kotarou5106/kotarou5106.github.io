@@ -429,7 +429,7 @@ PDF 里讲了 Google ADK 的几类工具。
 
 ### 第二类：代码执行工具（Code Execution Tool）
 
-PDF 里有一个计算器 Agent：
+一个计算器 Agent：
 
 ```python
 code_executor=BuiltInCodeExecutor()
@@ -588,9 +588,9 @@ PDF 最后提到：
 
 上一篇：
 
-> [反思（Reflection）](../04-reflection/)
+> [反思（Reflection）]({< relref "../04-reflection/index.md" >})
 
 下一篇：
 
-> [规划（Planning）](../06-planning/)
+> [规划（Planning）]({< relref "../06-planning/index.md" >})
 

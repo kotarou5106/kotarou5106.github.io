@@ -23,9 +23,7 @@ tags:
 RAG：让 Agent 能查外部知识；
 HITL：让 Agent 必要时找人类介入；
 A2A：让 Agent 必要时找另一个 Agent 协作。
-```
-
-PDF 里说，Google 的 **A2A 协议（Agent2Agent Protocol）** 是一项开放标准，目标是让不同框架构建的智能体，比如 LangGraph、CrewAI、Google ADK 等，能够跨平台协同工作。
+```，Google 的 **A2A 协议（Agent2Agent Protocol）** 是一项开放标准，目标是让不同框架构建的智能体，比如 LangGraph、CrewAI、Google ADK 等，能够跨平台协同工作。
 
 ---
 
@@ -389,9 +387,7 @@ Message 更偏通信过程，Artifact 更偏任务产物。
 
 ---
 
-## 7. A2A 用什么协议通信？
-
-PDF 里说，A2A 通信通过：
+## 7. A2A 用什么协议通信？，A2A 通信通过：
 
 ```text
 HTTP(S) + JSON-RPC 2.0
@@ -1039,13 +1035,16 @@ A2A = Agent 连接 Agent
 
 > 写多个能力清晰的专用 Agent，然后通过 A2A 把它们组织成一个协作系统。
 
+![章节插图](15-1.png)
+![章节插图](15-2.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [知识检索（RAG）](../14-retrieval-augmented-generation-rag/)
+> [知识检索（RAG）]({< relref "../14-retrieval-augmented-generation-rag/index.md" >})
 
 下一篇：
 
-> [资源感知优化](../16-resource-aware-optimization/)
+> [资源感知优化]({< relref "../16-resource-aware-optimization/index.md" >})
 

@@ -146,7 +146,7 @@ max(5, 6, 4) = 6 秒
 
 当然真实情况还会有调度开销，但整体通常会快很多。
 
-所以 PDF 里说，并行化尤其适合外部资源调用，比如 API、数据库、搜索工具等，因为这些场景有明显等待时间。
+所以，并行化尤其适合外部资源调用，比如 API、数据库、搜索工具等，因为这些场景有明显等待时间。
 
 ---
 
@@ -186,7 +186,7 @@ Sub Agent 3：查碳捕集
 
 ## 5. 并行化适合哪些场景？
 
-PDF 给了很多应用场景，我帮你按 Agent 项目里最常见的场景整理。
+很多应用场景，我帮你按 Agent 项目里最常见的场景整理。
 
 ### 场景一：信息收集与调研
 
@@ -729,9 +729,9 @@ Parallelization = run multiple independent paths together
 
 上一篇：
 
-> [路由（Routing）](../02-routing/)
+> [路由（Routing）]({< relref "../02-routing/index.md" >})
 
 下一篇：
 
-> [反思（Reflection）](../04-reflection/)
+> [反思（Reflection）]({< relref "../04-reflection/index.md" >})
 

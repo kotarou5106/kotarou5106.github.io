@@ -397,9 +397,7 @@ B公司 --负责--> C项目
 C项目 --预算变更为--> 65000
 ```
 
-这样系统可以沿着关系链推理。
-
-PDF 里说，GraphRAG 利用知识图谱而不是简单向量数据库，通过遍历实体节点和关系边来回答复杂问题，能整合分散在多个文档的信息。
+这样系统可以沿着关系链推理。，GraphRAG 利用知识图谱而不是简单向量数据库，通过遍历实体节点和关系边来回答复杂问题，能整合分散在多个文档的信息。
 
 关键词：
 
@@ -905,13 +903,15 @@ Agentic RAG 是：
 前者解决“模型不知道”的问题。
 后者进一步解决“查到的信息未必可靠、完整、最新”的问题。
 
+![章节插图](14.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [人类参与环节（Human-in-the-Loop，HITL）](../13-human-in-the-loop/)
+> [人类参与环节（Human-in-the-Loop，HITL）]({< relref "../13-human-in-the-loop/index.md" >})
 
 下一篇：
 
-> [智能体间通信（A2A）](../15-agent-to-agent-communication-a2a/)
+> [智能体间通信（A2A）]({< relref "../15-agent-to-agent-communication-a2a/index.md" >})
 

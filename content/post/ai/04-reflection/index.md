@@ -643,9 +643,7 @@ LLM 可以解释错误并修复，但测试结果更客观。
 
 ---
 
-**学生：反思和记忆有什么关系？**
-
-，有记忆时反思效果会更好。
+**学生：反思和记忆有什么关系？**，有记忆时反思效果会更好。
 
 没有记忆时，每次反思都是独立的：
 
@@ -721,9 +719,9 @@ LLM 可以解释错误并修复，但测试结果更客观。
 
 上一篇：
 
-> [并行化（Parallelization）](../03-parallelization/)
+> [并行化（Parallelization）]({< relref "../03-parallelization/index.md" >})
 
 下一篇：
 
-> [工具使用（Tool Use）/ 函数调用（Function Calling）](../05-tool-use-function-calling/)
+> [工具使用（Tool Use）/ 函数调用（Function Calling）]({< relref "../05-tool-use-function-calling/index.md" >})
 

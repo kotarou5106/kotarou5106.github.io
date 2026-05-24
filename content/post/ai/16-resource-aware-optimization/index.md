@@ -385,13 +385,15 @@ Budget 也是输入
 你真正需要掌握的是：
 **Agent 不应该无脑调用最强模型，而应该根据任务复杂度、预算、时间要求和系统状态动态选择最合适的执行路径。**
 
+![章节插图](16.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [智能体间通信（A2A）](../15-agent-to-agent-communication-a2a/)
+> [智能体间通信（A2A）]({< relref "../15-agent-to-agent-communication-a2a/index.md" >})
 
 下一篇：
 
-> [推理技术](../17-reasoning-techniques/)
+> [推理技术]({< relref "../17-reasoning-techniques/index.md" >})
 

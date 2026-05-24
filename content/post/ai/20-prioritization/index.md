@@ -911,13 +911,15 @@ Agent 是 ReAct 还是 Plan-and-Execute？计划执行时就需要任务排序�
 
 这一章真正的价值是：它让你理解 Agent 不是“看到任务就做”，而是要在多个可能行动中做选择。这个能力一旦和 ReAct、工具调用、资源优化、护栏、评估监控结合起来，Agent 才更像一个能在真实环境里工作的系统。
 
+![章节插图](20.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [评估与监控](../19-evaluation-and-monitoring/)
+> [评估与监控]({< relref "../19-evaluation-and-monitoring/index.md" >})
 
 下一篇：
 
-> [探索与发现](../21-exploration-and-discovery/)
+> [探索与发现]({< relref "../21-exploration-and-discovery/index.md" >})
 

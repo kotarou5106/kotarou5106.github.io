@@ -776,13 +776,15 @@ Prompt Injection；
 
 这章对你的学习价值主要在于：它让你从“我会搭 Agent 流程”进一步走向“我知道 Agent 怎么进入工程系统”。也就是从 demo 思维，转向可靠性、安全性、权限、审计这些更接近真实落地的问题。
 
+![章节插图](18.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [推理技术](../17-reasoning-techniques/)
+> [推理技术]({< relref "../17-reasoning-techniques/index.md" >})
 
 下一篇：
 
-> [评估与监控](../19-evaluation-and-monitoring/)
+> [评估与监控]({< relref "../19-evaluation-and-monitoring/index.md" >})
 

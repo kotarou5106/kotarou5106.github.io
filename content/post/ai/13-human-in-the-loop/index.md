@@ -643,13 +643,15 @@ elif risk == "high":
 
 > 把 Agent 从“完全自动执行器”，升级成“有人类监督和接管机制的可靠工作流系统”。
 
+![章节插图](13.png)
+
 ## 推荐阅读
 
 上一篇：
 
-> [异常处理与恢复（Exception Handling and Recovery）](../12-exception-handling-and-recovery/)
+> [异常处理与恢复（Exception Handling and Recovery）]({< relref "../12-exception-handling-and-recovery/index.md" >})
 
 下一篇：
 
-> [知识检索（RAG）](../14-retrieval-augmented-generation-rag/)
+> [知识检索（RAG）]({< relref "../14-retrieval-augmented-generation-rag/index.md" >})
 

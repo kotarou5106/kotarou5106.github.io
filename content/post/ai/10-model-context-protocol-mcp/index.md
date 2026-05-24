@@ -126,9 +126,7 @@ MCP Server
 过滤数据
 排序数据
 更新记录
-```
-
-PDF 里说，MCP Server 负责暴露数据资源、Prompt 和可执行工具，而 MCP Client 负责消费这些能力。
+```，MCP Server 负责暴露数据资源、Prompt 和可执行工具，而 MCP Client 负责消费这些能力。
 
 ---
 
@@ -691,9 +689,7 @@ Agent 会把这些自然语言请求转换成 MCP 文件系统工具调用。
 用 Python 装饰器把普通函数变成 MCP 工具
 自动根据类型提示和 docstring 生成工具描述
 减少手写协议代码
-```
-
-PDF 里说，FastMCP 通过 Python 装饰器快速定义工具、资源和 Prompt，并自动生成 AI 模型接口规范。
+```，FastMCP 通过 Python 装饰器快速定义工具、资源和 Prompt，并自动生成 AI 模型接口规范。
 
 ---
 
@@ -1083,9 +1079,9 @@ MCP 更适合，因为它能统一管理多个工具、数据源和外部系统�
 
 上一篇：
 
-> [学习与适应（Learning and Adaptation）](../09-learning-and-adaptation/)
+> [学习与适应（Learning and Adaptation）]({< relref "../09-learning-and-adaptation/index.md" >})
 
 下一篇：
 
-> [目标设定与监控（Goal Setting and Monitoring）](../11-goal-setting-and-monitoring/)
+> [目标设定与监控（Goal Setting and Monitoring）]({< relref "../11-goal-setting-and-monitoring/index.md" >})
 

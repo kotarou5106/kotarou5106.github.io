@@ -348,7 +348,7 @@ LLM 路由是在推理时用提示词让模型判断；
 
 ## 5. 代码部分在讲什么？
 
-PDF 里有两个代码例子：一个是 **LangChain**，一个是 **Google ADK**。
+两个代码例子：一个是 **LangChain**，一个是 **Google ADK**。
 
 你现在不需要死抠每一行代码，重点理解架构。
 
@@ -456,9 +456,7 @@ Coordinator 分析
 子智能体调用对应工具
  ↓
 返回结果
-```
-
-PDF 里说，ADK 的 **Auto-Flow（自动流程）** 会根据 `sub_agents` 自动完成委托。
+```，ADK 的 **Auto-Flow（自动流程）** 会根据 `sub_agents` 自动完成委托。
 
 所以 LangChain 更像是你自己写清楚分支逻辑；
 ADK 更像是你定义能力和子智能体，然后让框架帮你做委托。
@@ -678,9 +676,9 @@ Agent 要变得有用，不能只会顺序执行，还必须会根据情况选�
 
 上一篇：
 
-> [提示链（Prompt Chaining）](../01-prompt-chaining/)
+> [提示链（Prompt Chaining）]({< relref "../01-prompt-chaining/index.md" >})
 
 下一篇：
 
-> [并行化（Parallelization）](../03-parallelization/)
+> [并行化（Parallelization）]({< relref "../03-parallelization/index.md" >})
 
