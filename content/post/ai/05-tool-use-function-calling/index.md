@@ -588,9 +588,9 @@ PDF 最后提到：
 
 上一篇：
 
-> [反思](../04-reflection/)
+> [反思（Reflection）](../04-reflection/)
 
 下一篇：
 
-> [规划](../06-planning/)
+> [规划（Planning）](../06-planning/)
 

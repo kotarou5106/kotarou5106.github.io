@@ -857,9 +857,9 @@ Coder + Tester + Fixer
 
 上一篇：
 
-> [规划](../06-planning/)
+> [规划（Planning）](../06-planning/)
 
 下一篇：
 
-> [记忆管理](../08-memory-management/)
+> [记忆管理（Memory Management）](../08-memory-management/)
 

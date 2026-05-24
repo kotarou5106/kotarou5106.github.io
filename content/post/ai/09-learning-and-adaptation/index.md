@@ -921,7 +921,7 @@ Agent 能修改自己的代码、工具或策略。
 
 上一篇：
 
-> [记忆管理](../08-memory-management/)
+> [记忆管理（Memory Management）](../08-memory-management/)
 
 下一篇：
 

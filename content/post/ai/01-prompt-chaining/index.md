@@ -483,5 +483,5 @@ extract → validate → transform → generate
 
 下一篇：
 
-> [路由](../02-routing/)
+> [路由（Routing）](../02-routing/)
 

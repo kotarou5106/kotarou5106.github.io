@@ -625,9 +625,9 @@ else:
 
 上一篇：
 
-> [目标设定与监控](../11-goal-setting-and-monitoring/)
+> [目标设定与监控（Goal Setting and Monitoring）](../11-goal-setting-and-monitoring/)
 
 下一篇：
 
-> [人类参与环节](../13-human-in-the-loop/)
+> [人类参与环节（Human-in-the-Loop，HITL）](../13-human-in-the-loop/)
 

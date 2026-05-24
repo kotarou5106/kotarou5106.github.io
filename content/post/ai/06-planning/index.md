@@ -680,9 +680,9 @@ Output 是执行计划后的结果
 
 上一篇：
 
-> [工具使用（函数调用）](../05-tool-use-function-calling/)
+> [工具使用（Tool Use）/ 函数调用（Function Calling）](../05-tool-use-function-calling/)
 
 下一篇：
 
-> [多智能体协作](../07-multi-agent-collaboration/)
+> [多智能体协作（Multi-Agent Collaboration）](../07-multi-agent-collaboration/)
 

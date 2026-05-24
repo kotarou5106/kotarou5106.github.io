@@ -510,5 +510,5 @@ Memory 保存状态
 
 下一篇：
 
-> [异常处理与恢复](../12-exception-handling-and-recovery/)
+> [异常处理与恢复（Exception Handling and Recovery）](../12-exception-handling-and-recovery/)
 

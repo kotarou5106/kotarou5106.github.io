@@ -909,7 +909,7 @@ Agentic RAG 是：
 
 上一篇：
 
-> [人类参与环节](../13-human-in-the-loop/)
+> [人类参与环节（Human-in-the-Loop，HITL）](../13-human-in-the-loop/)
 
 下一篇：
 

@@ -269,9 +269,9 @@ VertexAiMemoryBankService
 
 上一篇：
 
-> [多智能体协作](../07-multi-agent-collaboration/)
+> [多智能体协作（Multi-Agent Collaboration）](../07-multi-agent-collaboration/)
 
 下一篇：
 
-> [学习与适应](../09-learning-and-adaptation/)
+> [学习与适应（Learning and Adaptation）](../09-learning-and-adaptation/)
 

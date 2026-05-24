@@ -721,9 +721,9 @@ LLM 可以解释错误并修复，但测试结果更客观。
 
 上一篇：
 
-> [并行化](../03-parallelization/)
+> [并行化（Parallelization）](../03-parallelization/)
 
 下一篇：
 
-> [工具使用（函数调用）](../05-tool-use-function-calling/)
+> [工具使用（Tool Use）/ 函数调用（Function Calling）](../05-tool-use-function-calling/)
 
