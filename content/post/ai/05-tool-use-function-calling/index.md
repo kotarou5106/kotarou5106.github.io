@@ -588,9 +588,9 @@ PDF 最后提到：
 
 上一篇：
 
-> [反思]({< relref "../04-reflection/index.md" >})
+> [反思](../04-reflection/)
 
 下一篇：
 
-> [规划]({< relref "../06-planning/index.md" >})
+> [规划](../06-planning/)
 

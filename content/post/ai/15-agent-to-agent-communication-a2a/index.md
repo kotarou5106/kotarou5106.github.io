@@ -1043,9 +1043,9 @@ A2A = Agent 连接 Agent
 
 上一篇：
 
-> [知识检索（RAG）]({< relref "../14-retrieval-augmented-generation-rag/index.md" >})
+> [知识检索（RAG）](../14-retrieval-augmented-generation-rag/)
 
 下一篇：
 
-> [资源感知优化]({< relref "../16-resource-aware-optimization/index.md" >})
+> [资源感知优化](../16-resource-aware-optimization/)
 

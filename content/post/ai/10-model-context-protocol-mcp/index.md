@@ -1083,9 +1083,9 @@ MCP 更适合，因为它能统一管理多个工具、数据源和外部系统�
 
 上一篇：
 
-> [学习与适应]({< relref "../09-learning-and-adaptation/index.md" >})
+> [学习与适应](../09-learning-and-adaptation/)
 
 下一篇：
 
-> [目标设定与监控]({< relref "../11-goal-setting-and-monitoring/index.md" >})
+> [目标设定与监控](../11-goal-setting-and-monitoring/)
 

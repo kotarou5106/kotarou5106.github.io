@@ -1088,9 +1088,9 @@ Prompt Injection 是否被拦住？
 
 上一篇：
 
-> [护栏与安全模式]({< relref "../18-guardrails-and-safety/index.md" >})
+> [护栏与安全模式](../18-guardrails-and-safety/)
 
 下一篇：
 
-> [优先级排序]({< relref "../20-prioritization/index.md" >})
+> [优先级排序](../20-prioritization/)
 

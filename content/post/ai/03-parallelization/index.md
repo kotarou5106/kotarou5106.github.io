@@ -729,9 +729,9 @@ Parallelization = run multiple independent paths together
 
 上一篇：
 
-> [路由]({< relref "../02-routing/index.md" >})
+> [路由](../02-routing/)
 
 下一篇：
 
-> [反思]({< relref "../04-reflection/index.md" >})
+> [反思](../04-reflection/)
 

@@ -780,9 +780,9 @@ Prompt Injection；
 
 上一篇：
 
-> [推理技术]({< relref "../17-reasoning-techniques/index.md" >})
+> [推理技术](../17-reasoning-techniques/)
 
 下一篇：
 
-> [评估与监控]({< relref "../19-evaluation-and-monitoring/index.md" >})
+> [评估与监控](../19-evaluation-and-monitoring/)
 

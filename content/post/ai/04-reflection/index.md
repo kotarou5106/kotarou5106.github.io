@@ -721,9 +721,9 @@ LLM 可以解释错误并修复，但测试结果更客观。
 
 上一篇：
 
-> [并行化]({< relref "../03-parallelization/index.md" >})
+> [并行化](../03-parallelization/)
 
 下一篇：
 
-> [工具使用（函数调用）]({< relref "../05-tool-use-function-calling/index.md" >})
+> [工具使用（函数调用）](../05-tool-use-function-calling/)
 

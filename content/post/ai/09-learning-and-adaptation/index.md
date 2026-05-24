@@ -921,9 +921,9 @@ Agent 能修改自己的代码、工具或策略。
 
 上一篇：
 
-> [记忆管理]({< relref "../08-memory-management/index.md" >})
+> [记忆管理](../08-memory-management/)
 
 下一篇：
 
-> [模型上下文协议（MCP）]({< relref "../10-model-context-protocol-mcp/index.md" >})
+> [模型上下文协议（MCP）](../10-model-context-protocol-mcp/)
 

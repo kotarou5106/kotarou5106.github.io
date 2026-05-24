@@ -909,9 +909,9 @@ Agentic RAG 是：
 
 上一篇：
 
-> [人类参与环节]({< relref "../13-human-in-the-loop/index.md" >})
+> [人类参与环节](../13-human-in-the-loop/)
 
 下一篇：
 
-> [智能体间通信（A2A）]({< relref "../15-agent-to-agent-communication-a2a/index.md" >})
+> [智能体间通信（A2A）](../15-agent-to-agent-communication-a2a/)
 

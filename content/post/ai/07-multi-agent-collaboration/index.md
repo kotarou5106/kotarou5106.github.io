@@ -857,9 +857,9 @@ Coder + Tester + Fixer
 
 上一篇：
 
-> [规划]({< relref "../06-planning/index.md" >})
+> [规划](../06-planning/)
 
 下一篇：
 
-> [记忆管理]({< relref "../08-memory-management/index.md" >})
+> [记忆管理](../08-memory-management/)
 

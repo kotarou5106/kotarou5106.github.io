@@ -269,9 +269,9 @@ VertexAiMemoryBankService
 
 上一篇：
 
-> [多智能体协作]({< relref "../07-multi-agent-collaboration/index.md" >})
+> [多智能体协作](../07-multi-agent-collaboration/)
 
 下一篇：
 
-> [学习与适应]({< relref "../09-learning-and-adaptation/index.md" >})
+> [学习与适应](../09-learning-and-adaptation/)
 

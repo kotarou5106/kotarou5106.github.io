@@ -625,9 +625,9 @@ else:
 
 上一篇：
 
-> [目标设定与监控]({< relref "../11-goal-setting-and-monitoring/index.md" >})
+> [目标设定与监控](../11-goal-setting-and-monitoring/)
 
 下一篇：
 
-> [人类参与环节]({< relref "../13-human-in-the-loop/index.md" >})
+> [人类参与环节](../13-human-in-the-loop/)
 

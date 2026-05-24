@@ -915,9 +915,9 @@ Agent 是 ReAct 还是 Plan-and-Execute？计划执行时就需要任务排序�
 
 上一篇：
 
-> [评估与监控]({< relref "../19-evaluation-and-monitoring/index.md" >})
+> [评估与监控](../19-evaluation-and-monitoring/)
 
 下一篇：
 
-> [探索与发现]({< relref "../21-exploration-and-discovery/index.md" >})
+> [探索与发现](../21-exploration-and-discovery/)
 

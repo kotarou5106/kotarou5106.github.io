@@ -678,9 +678,9 @@ Agent 要变得有用，不能只会顺序执行，还必须会根据情况选�
 
 上一篇：
 
-> [提示链]({< relref "../01-prompt-chaining/index.md" >})
+> [提示链](../01-prompt-chaining/)
 
 下一篇：
 
-> [并行化]({< relref "../03-parallelization/index.md" >})
+> [并行化](../03-parallelization/)
 

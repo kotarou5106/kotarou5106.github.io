@@ -1046,5 +1046,5 @@ Deep Research Agent。
 
 上一篇：
 
-> [优先级排序]({< relref "../20-prioritization/index.md" >})
+> [优先级排序](../20-prioritization/)
 

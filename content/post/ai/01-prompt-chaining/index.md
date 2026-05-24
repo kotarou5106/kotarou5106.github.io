@@ -483,5 +483,5 @@ extract → validate → transform → generate
 
 下一篇：
 
-> [路由]({< relref "../02-routing/index.md" >})
+> [路由](../02-routing/)
 

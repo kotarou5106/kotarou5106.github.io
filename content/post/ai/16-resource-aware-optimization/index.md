@@ -389,9 +389,9 @@ Budget 也是输入
 
 上一篇：
 
-> [智能体间通信（A2A）]({< relref "../15-agent-to-agent-communication-a2a/index.md" >})
+> [智能体间通信（A2A）](../15-agent-to-agent-communication-a2a/)
 
 下一篇：
 
-> [推理技术]({< relref "../17-reasoning-techniques/index.md" >})
+> [推理技术](../17-reasoning-techniques/)
 

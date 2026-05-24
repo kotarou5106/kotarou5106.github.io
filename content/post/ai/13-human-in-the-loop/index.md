@@ -647,9 +647,9 @@ elif risk == "high":
 
 上一篇：
 
-> [异常处理与恢复]({< relref "../12-exception-handling-and-recovery/index.md" >})
+> [异常处理与恢复](../12-exception-handling-and-recovery/)
 
 下一篇：
 
-> [知识检索（RAG）]({< relref "../14-retrieval-augmented-generation-rag/index.md" >})
+> [知识检索（RAG）](../14-retrieval-augmented-generation-rag/)
 
