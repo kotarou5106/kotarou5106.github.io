@@ -12,12 +12,12 @@
             <span>{{ .ReadingTime }} min read</span>
         </div>
         {{- with .GetTerms "categories" }}
-        <div class="article-taxonomy">Categories:
+        <div class="article-taxonomy"><span>Categories</span>
             {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ printf "%s?category=%s" (relURL "blog/") ($term.LinkTitle | urlquery) | safeURL }}">{{ $term.LinkTitle }}</a>{{ end }}
         </div>
         {{- end }}
         {{- with .GetTerms "tags" }}
-        <div class="article-taxonomy">Tags:
+        <div class="article-taxonomy"><span>Tags</span>
             {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ if $primaryCategory }}{{ printf "%s?category=%s&tag=%s" (relURL "blog/") ($primaryCategory | urlquery) ($term.LinkTitle | urlquery) | safeURL }}{{ else }}{{ printf "%s?tag=%s" (relURL "blog/") ($term.LinkTitle | urlquery) | safeURL }}{{ end }}">{{ $term.LinkTitle }}</a>{{ end }}
         </div>
         {{- end }}
@@ -32,13 +32,6 @@
         <img src="{{ . | relURL }}" alt="">
         {{- end }}
     </figure>
-    {{- end }}
-
-    {{- if and (eq .Section "post") (gt .WordCount 800) }}
-    <details class="toc animate">
-        <summary>目录</summary>
-        {{ .TableOfContents }}
-    </details>
     {{- end }}
 
     <article class="article-content animate">
@@ -56,4 +49,24 @@
     </nav>
     {{- end }}
 </div>
+
+{{- if and (eq .Section "post") (gt .WordCount 800) }}
+<div class="article-toc-layer" data-article-toc data-state="closed">
+    <button class="toc-restore" type="button" aria-label="打开目录" aria-controls="article-toc-panel" aria-expanded="false" data-toc-open>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M15 4v16M10 9l-3 3 3 3"></path></svg>
+    </button>
+    <button class="toc-backdrop" type="button" aria-label="关闭目录" tabindex="-1" data-toc-close></button>
+    <aside class="article-toc-panel" id="article-toc-panel" aria-label="文章目录" aria-hidden="true" inert>
+        <header class="toc-header">
+            <h2>目录</h2>
+            <button type="button" aria-label="隐藏目录" aria-controls="article-toc-panel" aria-expanded="false" data-toc-close>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M15 4v16M7 9l3 3-3 3"></path></svg>
+            </button>
+        </header>
+        <div class="article-toc-scroll">
+            {{ .TableOfContents }}
+        </div>
+    </aside>
+</div>
+{{- end }}
 {{ end }}
