@@ -4,7 +4,7 @@ description: "整理 arXiv:2204.01176 的核心量化（基尼系数、中本系
 date: 2026-05-11
 math: true
 categories:
-    - DeFi
+    - Crypto
 tags:
     - DAO
     - DeFi

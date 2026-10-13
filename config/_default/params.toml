@@ -2,7 +2,7 @@
 mainSections = ["post"]
 rssFullContent = true
 favicon        = "img/favicon.png"
-description    = "记录阅读、思考与探索。涉及哲学、文学、数学、经济、金融、政治、社会，以及其他一切感兴趣的事物。"
+description    = "记录阅读与思考"
 
 # Accepted values: "default", "lastmod"
 # default = see https://gohugo.io/quick-reference/glossary/#default-sort-order

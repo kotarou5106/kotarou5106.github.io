@@ -8,7 +8,7 @@ tags:
     - JIT
 math: true
 categories:     
-    - DeFi
+    - Crypto
 ---
 
 论文原文链接：[[2311.18164] The Paradox Of Just-in-Time Liquidity in Decentralized Exchanges: More Providers Can Sometimes Mean Less Liquidity](https://arxiv.org/abs/2311.18164)

@@ -4,7 +4,7 @@ description: "不展开论文技术细节，只围绕标题隐喻与结论，讨
 date: 2026-04-21
 math: true
 categories:
-    - DeFi
+    - Crypto
 tags:
     - AMM
     - CEX

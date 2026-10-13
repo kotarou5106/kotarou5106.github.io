@@ -4,7 +4,7 @@ description: "基于论文《Fundamentals of Perpetual Futures》梳理永续期
 date: 2026-04-22
 math: true
 categories:
-    - DeFi
+    - Crypto
 tags:
     - perp
 ---

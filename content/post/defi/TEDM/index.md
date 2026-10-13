@@ -8,7 +8,7 @@ tags:
   - DeFi
 math: true
 categories:
-  - DeFi
+  - Crypto
 ---
 
 **说明：** 下文是对学术论文 [*Designing a Token Economy: Incentives, Governance, and Tokenomics*](https://arxiv.org/abs/2602.09608)的阅读梳理与结构化解说。

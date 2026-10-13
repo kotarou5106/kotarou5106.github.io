@@ -7,7 +7,7 @@ tags:
   - MEV
 math: true
 categories:     
-    - DeFi
+    - Crypto
 ---
 
 在自动做市商（AMM）和去中心化交易（DEX）的语境下，**聚合器（Aggregator）**和**求解器（Solver）**代表了交易架构演进的两个阶段：一个是基于“路径搜索”的工具范式，另一个是基于“意图（Intent）”的执行范式。

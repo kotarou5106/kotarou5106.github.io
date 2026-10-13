@@ -4,7 +4,7 @@ description: "围绕链上真实世界资产规模与换手、合规摩擦与市
 date: 2026-05-11
 math: true
 categories:
-    - DeFi
+    - Crypto
 tags:
     - RWA
     - DeFi

@@ -8,7 +8,7 @@ tags:
   - Sybil
 math: true
 categories:
-  - DeFi
+  - Crypto
 ---
 
 **本文是对以下论文的阅读梳理与结构化解说；细节以原论文为准，此处不逐段复述证明，仅整理主线逻辑便于对照阅读。**

@@ -4,7 +4,7 @@ description: "系统解析 MEV、OO 费用与 PGA 机制，以及其对区块链
 date: 2026-04-21
 math: true
 categories:
-    - DeFi
+    - Crypto
 tags:
     - MEV
 ---

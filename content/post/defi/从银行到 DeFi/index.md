@@ -7,7 +7,7 @@ tags:
   - Lending
 math: true
 categories:
-  - DeFi
+  - Crypto
 ---
 
 

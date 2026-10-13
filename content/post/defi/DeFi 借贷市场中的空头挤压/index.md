@@ -4,7 +4,7 @@ description: "基于 arXiv:2302.04068 对 Aave/CRV 案例的整理：流动性�
 date: 2026-05-11
 math: true
 categories:
-    - DeFi
+    - Crypto
 tags:
     - Lending
     - DeFi

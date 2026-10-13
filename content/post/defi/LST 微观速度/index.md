@@ -8,7 +8,7 @@ tags:
   - DeFi
 math: true
 categories:
-  - DeFi
+  - Crypto
 ---
 
 **本文是对以下论文的阅读梳理与结构化解说：**
