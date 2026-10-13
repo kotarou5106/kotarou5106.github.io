@@ -1,4 +1,8 @@
 {{ define "main" }}
+{{- $primaryCategory := "" -}}
+{{- with .GetTerms "categories" -}}
+    {{- $primaryCategory = (index . 0).LinkTitle -}}
+{{- end -}}
 <div class="article-page">
     <header class="article-header animate">
         <h1>{{ .Title }}</h1>
@@ -14,7 +18,7 @@
         {{- end }}
         {{- with .GetTerms "tags" }}
         <div class="article-taxonomy">Tags:
-            {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ printf "%s?tag=%s" (relURL "blog/") ($term.LinkTitle | urlquery) | safeURL }}">{{ $term.LinkTitle }}</a>{{ end }}
+            {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ if $primaryCategory }}{{ printf "%s?category=%s&tag=%s" (relURL "blog/") ($primaryCategory | urlquery) ($term.LinkTitle | urlquery) | safeURL }}{{ else }}{{ printf "%s?tag=%s" (relURL "blog/") ($term.LinkTitle | urlquery) | safeURL }}{{ end }}">{{ $term.LinkTitle }}</a>{{ end }}
         </div>
         {{- end }}
     </header>

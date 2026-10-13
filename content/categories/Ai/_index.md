@@ -1,5 +1,5 @@
 ---
-title: "Ai"
+title: "AI"
 description: "AI Agent 相关文章与笔记"
 image: "ai.webp"
 style:

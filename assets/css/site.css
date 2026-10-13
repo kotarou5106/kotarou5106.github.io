@@ -301,9 +301,24 @@ button { font: inherit; }
 .blog-search input:focus { border-color: color-mix(in srgb, var(--heading) 35%, transparent); }
 .blog-search input::placeholder { color: var(--muted); }
 
-.filter-group { display: flex; align-items: flex-start; gap: 14px; }
+.filter-group { display: flex; align-items: flex-start; gap: 14px; min-width: 0; }
 .filter-label { flex: 0 0 76px; padding-top: 5px; color: var(--heading); font-size: 13px; font-weight: 600; }
 .filter-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.category-chips {
+    min-width: 0;
+    flex: 1;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+}
+
+.tag-filter { margin-top: 2px; }
+.tag-filter-content { min-width: 0; flex: 1; display: grid; gap: 10px; }
+.tag-filter-cluster { display: flex; align-items: flex-start; gap: 10px; min-width: 0; }
+.tag-cluster-label { flex: 0 0 54px; padding-top: 5px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.tag-filter-cluster .filter-chips { min-width: 0; }
+.tag-all { margin-bottom: 2px; }
 
 .filter-chips button,
 .blog-pagination button {
@@ -322,11 +337,8 @@ button { font: inherit; }
     white-space: nowrap;
 }
 
-.filter-group[data-filter-group="tag"] .filter-chips {
-    max-height: 76px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-}
+.category-filter .filter-chips button { padding-inline: 15px; color: var(--heading); font-weight: 500; }
+.tag-filter .filter-chips button { padding: 3px 11px; font-size: 13px; }
 
 .filter-chips button:hover,
 .blog-pagination button:hover:not(:disabled) { background: var(--hover); color: var(--heading); }
@@ -338,12 +350,47 @@ button { font: inherit; }
     color: var(--background);
 }
 
-.blog-results { margin-top: 34px; }
+.blog-results { margin-top: 44px; }
 .blog-post-list { margin-top: 0; }
 .blog-post-list .post-list-title { color: var(--text); }
 .post-list-copy { min-width: 0; display: flex; flex-direction: column; }
 .post-list-description { margin-top: 3px; overflow: hidden; color: var(--muted); font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
+.post-list-categories { margin-top: 3px; color: var(--muted); font-size: 12px; font-weight: 400; }
 .blog-empty { padding-block: 40px; text-align: center; font-size: 14px; }
+
+.result-panel { min-height: 240px; }
+.result-enter {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 360ms cubic-bezier(0, 0, 0.2, 1), transform 360ms cubic-bezier(0, 0, 0.2, 1);
+}
+.result-enter.show { opacity: 1; transform: translateY(0); }
+
+.category-result + .category-result { margin-top: 48px; }
+.category-result > h2,
+.result-context h2 {
+    margin: 0;
+    color: var(--heading);
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.tag-result { margin-top: 28px; }
+.tag-result h3 {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+    margin: 0 0 2px;
+    color: var(--heading);
+    font-size: 15px;
+    font-weight: 600;
+}
+.tag-result h3 span { color: var(--muted); font-size: 12px; font-weight: 400; }
+.tag-result .post-list a { min-height: 50px; padding-block: 13px; }
+
+.result-context { margin-bottom: 22px; }
+.result-path { margin: 0 0 10px; color: var(--muted); font-size: 13px; }
+.result-relationship { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
 
 .blog-pagination {
     display: none;
@@ -605,7 +652,13 @@ button { font: inherit; }
     .post-list time { padding-top: 2px; }
     .filter-group { display: block; }
     .filter-label { display: block; padding: 0 0 8px; }
-    .filter-group[data-filter-group="tag"] .filter-chips { max-height: 110px; }
+    .category-chips { width: 100%; }
+    .tag-filter-content { gap: 12px; }
+    .tag-filter-cluster { display: block; }
+    .tag-cluster-label { display: block; padding: 0 0 6px; }
+    .blog-results { margin-top: 38px; }
+    .category-result + .category-result { margin-top: 40px; }
+    .tag-result { margin-top: 24px; }
     .post-list-description { white-space: normal; line-height: 1.45; }
     .pagination-step span, .pagination-jump span { display: none; }
     .pagination-jump { margin-left: 2px; }
@@ -621,4 +674,5 @@ button { font: inherit; }
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition-duration: 0.01ms !important; }
     .js .animate { opacity: 1; transform: none; }
+    .result-enter { opacity: 1; transform: none; }
 }

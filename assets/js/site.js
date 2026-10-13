@@ -47,7 +47,8 @@
 
         var indexElement = root.querySelector("[data-blog-index]");
         var searchInput = root.querySelector("[data-blog-search]");
-        var items = Array.from(root.querySelectorAll("[data-post-url]"));
+        var fallback = root.querySelector("[data-blog-fallback]");
+        var tagFilters = root.querySelector("[data-tag-filters]");
         var empty = root.querySelector("[data-blog-empty]");
         var pagination = root.querySelector("[data-blog-pagination]");
         var pageNumbers = root.querySelector("[data-page-numbers]");
@@ -55,6 +56,8 @@
         var next = root.querySelector("[data-page-next]");
         var jump = root.querySelector("[data-page-jump]");
         var postsPerPage = 5;
+        var untagged = "未标注标签";
+        var uncategorized = "未分类";
         var timer;
         var posts;
 
@@ -64,33 +67,185 @@
             return;
         }
 
-        var postsByUrl = new Map(posts.map(function (post) { return [post.url, post]; }));
+        var categoryTags = new Map();
+        var tagCategories = new Map();
+
+        posts.forEach(function (post) {
+            post.categories = post.categories.length ? post.categories : [uncategorized];
+            post.tags = post.tags.length ? post.tags : [untagged];
+            post.categories.forEach(function (category) {
+                if (!categoryTags.has(category)) categoryTags.set(category, new Set());
+                post.tags.forEach(function (tag) {
+                    categoryTags.get(category).add(tag);
+                    if (!tagCategories.has(tag)) tagCategories.set(tag, new Set());
+                    tagCategories.get(tag).add(category);
+                });
+            });
+        });
+
+        var categories = Array.from(categoryTags.keys()).sort(function (a, b) { return a.localeCompare(b); });
+        var tags = Array.from(tagCategories.keys()).sort(function (a, b) { return a.localeCompare(b); });
         var state = readState();
 
         function readState() {
             var params = new URLSearchParams(window.location.search);
-            return {
-                category: params.get("category") || "",
-                tag: params.get("tag") || "",
+            var next = {
+                category: canonical(params.get("category"), categories),
+                tag: canonical(params.get("tag"), tags),
                 query: params.get("q") || "",
                 page: Math.max(1, parseInt(params.get("page"), 10) || 1)
             };
+            if (next.category && next.tag && !tagCategories.get(next.tag).has(next.category)) next.category = "";
+            return next;
         }
 
         function normalize(value) {
             return String(value || "").trim().toLocaleLowerCase();
         }
 
-        function matches(post) {
-            var category = normalize(state.category);
-            var tag = normalize(state.tag);
-            var query = normalize(state.query);
-            var categories = (post.categories || []).map(normalize);
-            var tags = (post.tags || []).map(normalize);
+        function canonical(value, values) {
+            var normalized = normalize(value);
+            return values.find(function (item) { return normalize(item) === normalized; }) || "";
+        }
 
-            return (!category || categories.includes(category)) &&
-                (!tag || tags.includes(tag)) &&
-                (!query || normalize(post.title + " " + post.body).includes(query));
+        function matchesSearch(post) {
+            var query = normalize(state.query);
+            return !query || normalize(post.title + " " + post.description + " " + post.body).includes(query);
+        }
+
+        function createButton(value, label, category) {
+            var button = document.createElement("button");
+            button.type = "button";
+            button.dataset.filterValue = value;
+            if (category) button.dataset.filterCategory = category;
+            button.textContent = label;
+            button.setAttribute("aria-pressed", state.tag === value ? "true" : "false");
+            return button;
+        }
+
+        function renderTagFilters() {
+            tagFilters.replaceChildren();
+            var all = document.createElement("div");
+            all.className = "filter-chips tag-all";
+            all.appendChild(createButton("", "All"));
+            tagFilters.appendChild(all);
+
+            var visibleCategories = state.category ? [state.category] : categories;
+            visibleCategories.forEach(function (category) {
+                var cluster = document.createElement("div");
+                cluster.className = "tag-filter-cluster";
+                if (!state.category) {
+                    var label = document.createElement("span");
+                    label.className = "tag-cluster-label";
+                    label.textContent = category;
+                    cluster.appendChild(label);
+                }
+                var chips = document.createElement("div");
+                chips.className = "filter-chips";
+                Array.from(categoryTags.get(category)).sort(function (a, b) { return a.localeCompare(b); }).forEach(function (tag) {
+                    chips.appendChild(createButton(tag, tag, category));
+                });
+                cluster.appendChild(chips);
+                tagFilters.appendChild(cluster);
+            });
+        }
+
+        function createPostList(list, showCategories) {
+            var ul = document.createElement("ul");
+            ul.className = "post-list blog-post-list";
+            list.forEach(function (post) {
+                var li = document.createElement("li");
+                var link = document.createElement("a");
+                link.href = post.url;
+                var copy = document.createElement("span");
+                copy.className = "post-list-copy";
+                var title = document.createElement("span");
+                title.className = "post-list-title";
+                title.textContent = post.title;
+                copy.appendChild(title);
+                if (showCategories) {
+                    var postCategories = document.createElement("span");
+                    postCategories.className = "post-list-categories";
+                    postCategories.textContent = "分类：" + post.categories.join(" / ");
+                    copy.appendChild(postCategories);
+                }
+                var time = document.createElement("time");
+                time.dateTime = post.date;
+                time.textContent = post.dateDisplay;
+                link.append(copy, time);
+                li.appendChild(link);
+                ul.appendChild(li);
+            });
+            return ul;
+        }
+
+        function renderTagView(pagePosts) {
+            var fragment = document.createDocumentFragment();
+            var header = document.createElement("header");
+            header.className = "result-context";
+            var relatedCategories = Array.from(tagCategories.get(state.tag)).sort(function (a, b) { return a.localeCompare(b); });
+            var path = document.createElement("p");
+            path.className = "result-path";
+            path.textContent = (state.category || relatedCategories.join(" / ")) + " / " + state.tag;
+            var heading = document.createElement("h2");
+            heading.textContent = state.tag;
+            var relationship = document.createElement("p");
+            relationship.className = "result-relationship";
+            relationship.textContent = "所属分类：" + relatedCategories.join(" / ");
+            header.append(path, heading, relationship);
+            fragment.append(header, createPostList(pagePosts, true));
+            return fragment;
+        }
+
+        function renderHierarchy(pagePosts, scopePosts) {
+            var fragment = document.createDocumentFragment();
+            var visibleCategories = state.category ? [state.category] : categories;
+
+            visibleCategories.forEach(function (category) {
+                var categoryPosts = pagePosts.filter(function (post) { return post.categories.includes(category); });
+                if (!categoryPosts.length) return;
+                var section = document.createElement("section");
+                section.className = "category-result";
+                var heading = document.createElement("h2");
+                heading.textContent = category;
+                section.appendChild(heading);
+
+                Array.from(categoryTags.get(category)).sort(function (a, b) { return a.localeCompare(b); }).forEach(function (tag) {
+                    var groupPosts = categoryPosts.filter(function (post) { return post.tags.includes(tag); });
+                    if (!groupPosts.length) return;
+                    var total = scopePosts.filter(function (post) {
+                        return post.categories.includes(category) && post.tags.includes(tag);
+                    }).length;
+                    var group = document.createElement("section");
+                    group.className = "tag-result";
+                    var groupHeading = document.createElement("h3");
+                    groupHeading.textContent = tag;
+                    var count = document.createElement("span");
+                    count.textContent = total + " 篇";
+                    groupHeading.appendChild(count);
+                    group.append(groupHeading, createPostList(groupPosts, false));
+                    section.appendChild(group);
+                });
+                fragment.appendChild(section);
+            });
+            return fragment;
+        }
+
+        function filteredPosts() {
+            return posts.filter(function (post) {
+                if (!matchesSearch(post)) return false;
+                if (state.tag) return post.tags.includes(state.tag);
+                if (state.category) return post.categories.includes(state.category);
+                return true;
+            });
+        }
+
+        function showResults(content) {
+            var panel = document.createElement("div");
+            panel.className = "result-panel result-enter";
+            panel.appendChild(content);
+            fallback.replaceChildren(panel);
+            window.requestAnimationFrame(function () { panel.classList.add("show"); });
         }
 
         function setPressed(group, value) {
@@ -113,25 +268,24 @@
         }
 
         function render() {
-            var filtered = items.filter(function (item) {
-                var post = postsByUrl.get(item.dataset.postUrl);
-                return post && matches(post);
-            });
+            var filtered = filteredPosts();
             var totalPages = Math.max(1, Math.ceil(filtered.length / postsPerPage));
             state.page = Math.min(state.page, totalPages);
             var first = (state.page - 1) * postsPerPage;
-            var visible = new Set(filtered.slice(first, first + postsPerPage));
+            var pagePosts = filtered.slice(first, first + postsPerPage);
 
-            items.forEach(function (item) { item.hidden = !visible.has(item); });
             empty.hidden = filtered.length !== 0;
             pagination.hidden = filtered.length === 0;
             previous.disabled = state.page === 1;
             next.disabled = state.page === totalPages;
             jump.max = totalPages;
             renderPageNumbers(totalPages);
+            renderTagFilters();
             setPressed("category", state.category);
             setPressed("tag", state.tag);
             if (searchInput.value !== state.query) searchInput.value = state.query;
+            if (filtered.length) showResults(state.tag ? renderTagView(pagePosts) : renderHierarchy(pagePosts, filtered));
+            else fallback.replaceChildren();
         }
 
         function updateUrl(mode) {
@@ -151,14 +305,19 @@
             if (scroll) root.scrollIntoView({ behavior: "smooth", block: "start" });
         }
 
-        root.querySelectorAll("[data-filter-group]").forEach(function (group) {
-            group.addEventListener("click", function (event) {
-                var button = event.target.closest("[data-filter-value]");
-                if (!button) return;
-                state[group.dataset.filterGroup] = button.dataset.filterValue;
-                state.page = 1;
-                apply("push", false);
-            });
+        root.addEventListener("click", function (event) {
+            var button = event.target.closest("[data-filter-value]");
+            if (!button || !root.contains(button)) return;
+            var group = button.closest("[data-filter-group]");
+            if (group.dataset.filterGroup === "category") {
+                state.category = button.dataset.filterValue;
+                state.tag = "";
+            } else {
+                state.tag = button.dataset.filterValue;
+                if (state.tag && !state.category) state.category = button.dataset.filterCategory || "";
+            }
+            state.page = 1;
+            apply("push", false);
         });
 
         searchInput.addEventListener("input", function () {

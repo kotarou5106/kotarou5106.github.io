@@ -3,12 +3,23 @@
 {{- $posts = $posts.ByDate.Reverse -}}
 {{- $searchIndex := slice -}}
 {{- range $posts -}}
+    {{- $categories := slice -}}
+    {{- range .GetTerms "categories" -}}
+        {{- $categories = $categories | append .LinkTitle -}}
+    {{- end -}}
+    {{- $tags := slice -}}
+    {{- range .GetTerms "tags" -}}
+        {{- $tags = $tags | append .LinkTitle -}}
+    {{- end -}}
     {{- $searchIndex = $searchIndex | append (dict
         "url" .RelPermalink
         "title" .Title
         "body" .Plain
-        "categories" (.Params.categories | default (slice))
-        "tags" (.Params.tags | default (slice))
+        "description" .Description
+        "date" (.Date.Format "2006-01-02")
+        "dateDisplay" (.Date.Format "2006/01/02")
+        "categories" $categories
+        "tags" $tags
     ) -}}
 {{- end -}}
 <section class="blog-page" data-blog-page>
@@ -24,9 +35,9 @@
             <input type="search" placeholder="Search Blog..." autocomplete="off" data-blog-search>
         </label>
 
-        <div class="filter-group" data-filter-group="category">
+        <div class="filter-group category-filter" data-filter-group="category">
             <span class="filter-label">Categories</span>
-            <div class="filter-chips">
+            <div class="filter-chips category-chips">
                 <button type="button" data-filter-value="">All</button>
                 {{- range site.Taxonomies.categories.Alphabetical }}
                 <button type="button" data-filter-value="{{ .Page.LinkTitle }}">{{ .Page.LinkTitle }}</button>
@@ -34,21 +45,17 @@
             </div>
         </div>
 
-        <div class="filter-group" data-filter-group="tag">
+        <div class="filter-group tag-filter" data-filter-group="tag">
             <span class="filter-label">Tags</span>
-            <div class="filter-chips">
-                <button type="button" data-filter-value="">All</button>
-                {{- range site.Taxonomies.tags.Alphabetical }}
-                <button type="button" data-filter-value="{{ .Page.LinkTitle }}">{{ .Page.LinkTitle }}</button>
-                {{- end }}
-            </div>
+            <div class="tag-filter-content" data-tag-filters></div>
         </div>
     </div>
 
-    <div class="blog-results animate" data-blog-results>
-        <ul class="post-list blog-post-list">
+    <div class="blog-results animate" data-blog-results aria-live="polite">
+        <div data-blog-fallback>
+            <ul class="post-list blog-post-list">
             {{- range $posts }}
-            <li data-post-url="{{ .RelPermalink }}">
+            <li>
                 <a href="{{ .RelPermalink }}">
                     <span class="post-list-copy">
                         <span class="post-list-title">{{ .Title }}</span>
@@ -58,7 +65,8 @@
                 </a>
             </li>
             {{- end }}
-        </ul>
+            </ul>
+        </div>
         <p class="blog-empty" data-blog-empty hidden>没有找到匹配的文章</p>
     </div>
 
