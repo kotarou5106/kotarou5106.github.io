@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{- $posts := where site.RegularPages "Section" "post" -}}
-<section class="profile">
+<section class="profile animate">
     {{- with resources.Get "img/kotarou.jpeg" }}
     {{- $avatar := .Fill "224x224 Center q90" -}}
     <img class="avatar" src="{{ $avatar.RelPermalink }}" width="112" height="112" alt="Kotarou's avatar">
@@ -14,10 +14,10 @@
     <p class="intro">记录阅读、思考与探索。涉及哲学、文学、数学、经济、金融、政治、社会，以及其他一切感兴趣的事物。</p>
 </section>
 
-<section class="latest-posts">
+<section class="latest-posts animate">
     <div class="section-heading">
         <h2>Latest posts</h2>
-        <a href="{{ relURL "archives/" }}">See all posts</a>
+        <a href="{{ relURL "blog/" }}">See all posts</a>
     </div>
     <ul class="post-list">
         {{- range first 5 $posts.ByDate.Reverse }}

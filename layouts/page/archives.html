@@ -1,10 +1,12 @@
 {{ define "main" }}
 {{- $posts := where site.RegularPages "Section" "post" -}}
 <section class="archive-page">
+    <div class="animate">
     <h1>Archive</h1>
     <p class="archive-count">{{ len $posts }} posts</p>
+    </div>
     {{- range $posts.ByDate.Reverse.GroupByDate "2006" }}
-    <section class="archive-year">
+    <section class="archive-year animate">
         <h2>{{ .Key }}</h2>
         <ul class="post-list">
             {{- range .Pages }}

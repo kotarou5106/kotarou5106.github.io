@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="article-page">
-    <header class="article-header">
+    <header class="article-header animate">
         <h1>{{ .Title }}</h1>
         <div class="article-meta">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
@@ -9,29 +9,40 @@
         </div>
         {{- with .GetTerms "categories" }}
         <div class="article-taxonomy">Categories:
-            {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}
+            {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ printf "%s?category=%s" (relURL "blog/") ($term.LinkTitle | urlquery) | safeURL }}">{{ $term.LinkTitle }}</a>{{ end }}
         </div>
         {{- end }}
         {{- with .GetTerms "tags" }}
         <div class="article-taxonomy">Tags:
-            {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}
+            {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ printf "%s?tag=%s" (relURL "blog/") ($term.LinkTitle | urlquery) | safeURL }}">{{ $term.LinkTitle }}</a>{{ end }}
         </div>
         {{- end }}
     </header>
 
+    {{- with .Params.image }}
+    <figure class="article-cover animate">
+        {{- $cover := $.Resources.GetMatch . -}}
+        {{- with $cover }}
+        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+        {{- else }}
+        <img src="{{ . | relURL }}" alt="">
+        {{- end }}
+    </figure>
+    {{- end }}
+
     {{- if and (eq .Section "post") (gt .WordCount 800) }}
-    <details class="toc">
+    <details class="toc animate">
         <summary>目录</summary>
         {{ .TableOfContents }}
     </details>
     {{- end }}
 
-    <article class="article-content">
+    <article class="article-content animate">
         {{ .Content }}
     </article>
 
     {{- if eq .Section "post" }}
-    <nav class="post-navigation" aria-label="Post navigation">
+    <nav class="post-navigation animate" aria-label="Post navigation">
         {{- with .PrevInSection }}
         <a href="{{ .RelPermalink }}"><small>&larr; 较早文章</small><span>{{ .Title }}</span></a>
         {{- end }}

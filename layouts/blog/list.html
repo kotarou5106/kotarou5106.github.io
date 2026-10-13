@@ -1,0 +1,74 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Section" "post" -}}
+{{- $posts = $posts.ByDate.Reverse -}}
+{{- $searchIndex := slice -}}
+{{- range $posts -}}
+    {{- $searchIndex = $searchIndex | append (dict
+        "url" .RelPermalink
+        "title" .Title
+        "body" .Plain
+        "categories" (.Params.categories | default (slice))
+        "tags" (.Params.tags | default (slice))
+    ) -}}
+{{- end -}}
+<section class="blog-page" data-blog-page>
+    <header class="blog-heading animate">
+        <h1>Blog</h1>
+        <p>{{ len $posts }} posts</p>
+    </header>
+
+    <div class="blog-controls animate">
+        <label class="blog-search">
+            <span class="sr-only">Search Blog</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+            <input type="search" placeholder="Search Blog..." autocomplete="off" data-blog-search>
+        </label>
+
+        <div class="filter-group" data-filter-group="category">
+            <span class="filter-label">Categories</span>
+            <div class="filter-chips">
+                <button type="button" data-filter-value="">All</button>
+                {{- range site.Taxonomies.categories.Alphabetical }}
+                <button type="button" data-filter-value="{{ .Page.LinkTitle }}">{{ .Page.LinkTitle }}</button>
+                {{- end }}
+            </div>
+        </div>
+
+        <div class="filter-group" data-filter-group="tag">
+            <span class="filter-label">Tags</span>
+            <div class="filter-chips">
+                <button type="button" data-filter-value="">All</button>
+                {{- range site.Taxonomies.tags.Alphabetical }}
+                <button type="button" data-filter-value="{{ .Page.LinkTitle }}">{{ .Page.LinkTitle }}</button>
+                {{- end }}
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-results animate" data-blog-results>
+        <ul class="post-list blog-post-list">
+            {{- range $posts }}
+            <li data-post-url="{{ .RelPermalink }}">
+                <a href="{{ .RelPermalink }}">
+                    <span class="post-list-copy">
+                        <span class="post-list-title">{{ .Title }}</span>
+                        {{- with .Description }}<span class="post-list-description">{{ . }}</span>{{ end }}
+                    </span>
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+        <p class="blog-empty" data-blog-empty hidden>没有找到匹配的文章</p>
+    </div>
+
+    <nav class="blog-pagination animate" aria-label="Blog pagination" data-blog-pagination>
+        <button type="button" class="pagination-step" data-page-prev aria-label="Previous page">&larr; <span>Previous</span></button>
+        <div class="pagination-numbers" data-page-numbers></div>
+        <button type="button" class="pagination-step" data-page-next aria-label="Next page"><span>Next</span> &rarr;</button>
+        <label class="pagination-jump"><span>Jump to</span><input type="number" min="1" inputmode="numeric" data-page-jump></label>
+    </nav>
+
+    <script type="application/json" data-blog-index>{{ $searchIndex | jsonify | safeJS }}</script>
+</section>
+{{ end }}
