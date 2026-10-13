@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Section" "post" -}}
+<section class="listing-page search-page">
+    <h1>Search</h1>
+    <label for="post-search">搜索文章</label>
+    <input id="post-search" type="search" placeholder="输入标题关键词" autocomplete="off">
+    <p id="search-empty" class="search-empty" hidden>没有找到匹配的文章。</p>
+    <ul class="post-list" id="search-results">
+        {{- range $posts.ByDate.Reverse }}
+        <li data-title="{{ .Title | lower }}">
+            <a href="{{ .RelPermalink }}">
+                <span class="post-list-title">{{ .Title }}</span>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
+            </a>
+        </li>
+        {{- end }}
+    </ul>
+</section>
+<script>
+    (function () {
+        var input = document.getElementById("post-search");
+        var items = Array.from(document.querySelectorAll("#search-results li"));
+        var empty = document.getElementById("search-empty");
+        input.addEventListener("input", function () {
+            var query = input.value.trim().toLocaleLowerCase();
+            var visible = 0;
+            items.forEach(function (item) {
+                var match = !query || item.dataset.title.includes(query);
+                item.hidden = !match;
+                if (match) visible += 1;
+            });
+            empty.hidden = visible !== 0;
+        });
+    })();
+</script>
+{{ end }}

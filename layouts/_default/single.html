@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="article-page">
+    <header class="article-header">
+        <h1>{{ .Title }}</h1>
+        <div class="article-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+            <span aria-hidden="true">&middot;</span>
+            <span>{{ .ReadingTime }} min read</span>
+        </div>
+        {{- with .GetTerms "categories" }}
+        <div class="article-taxonomy">Categories:
+            {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}
+        </div>
+        {{- end }}
+        {{- with .GetTerms "tags" }}
+        <div class="article-taxonomy">Tags:
+            {{- range $index, $term := . }}{{ if $index }} / {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}
+        </div>
+        {{- end }}
+    </header>
+
+    {{- if and (eq .Section "post") (gt .WordCount 800) }}
+    <details class="toc">
+        <summary>目录</summary>
+        {{ .TableOfContents }}
+    </details>
+    {{- end }}
+
+    <article class="article-content">
+        {{ .Content }}
+    </article>
+
+    {{- if eq .Section "post" }}
+    <nav class="post-navigation" aria-label="Post navigation">
+        {{- with .PrevInSection }}
+        <a href="{{ .RelPermalink }}"><small>&larr; 较早文章</small><span>{{ .Title }}</span></a>
+        {{- end }}
+        {{- with .NextInSection }}
+        <a href="{{ .RelPermalink }}" class="next"><small>较新文章 &rarr;</small><span>{{ .Title }}</span></a>
+        {{- end }}
+    </nav>
+    {{- end }}
+</div>
+{{ end }}

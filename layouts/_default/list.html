@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{- $pages := .RegularPages -}}
+{{- if not $pages }}{{ $pages = where site.RegularPages "Section" "post" }}{{ end -}}
+<section class="listing-page">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="listing-intro">{{ . }}</div>{{ end }}
+    <ul class="post-list">
+        {{- range $pages.ByDate.Reverse }}
+        <li>
+            <a href="{{ .RelPermalink }}">
+                <span class="post-list-title">{{ .Title }}</span>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
+            </a>
+        </li>
+        {{- end }}
+    </ul>
+</section>
+{{ end }}

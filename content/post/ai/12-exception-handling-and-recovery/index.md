@@ -614,9 +614,9 @@ else:
 
 ---
 
-![章节配图 7](7.png)
+![章节配图 7](/p/多智能体协作multi-agentcollaboration/7.png)
 
-![章节插图](10.png)
+![章节插图](/p/模型上下文协议mcp/10.png)
 
 ![章节插图](12.png)
 
@@ -629,4 +629,3 @@ else:
 下一篇：
 
 > [人类参与环节（Human-in-the-Loop，HITL）](/p/人类参与环节human-in-the-loophitl/)
-

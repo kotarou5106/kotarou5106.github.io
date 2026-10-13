@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Section" "post" -}}
+<section class="profile">
+    {{- with resources.Get "img/kotarou.jpeg" }}
+    {{- $avatar := .Fill "224x224 Center q90" -}}
+    <img class="avatar" src="{{ $avatar.RelPermalink }}" width="112" height="112" alt="Kotarou's avatar">
+    {{- end }}
+    <h1>Kotarou</h1>
+    <div class="social-links">
+        <a href="https://github.com/kotarou5106" target="_blank" rel="noopener noreferrer" aria-label="Kotarou on GitHub" title="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.2.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.7 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.5 4.6 18.5 5 18.5 5c.7 1.7.3 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.4-2.8 5.4-5.5 5.7.4.4.8 1.1.8 2.2v3.2c0 .4.2.7.8.6A11.5 11.5 0 0 0 12 .7Z"></path></svg>
+        </a>
+    </div>
+    <p class="intro">记录阅读、思考与探索。涉及哲学、文学、数学、经济、金融、政治、社会，以及其他一切感兴趣的事物。</p>
+</section>
+
+<section class="latest-posts">
+    <div class="section-heading">
+        <h2>Latest posts</h2>
+        <a href="{{ relURL "archives/" }}">See all posts</a>
+    </div>
+    <ul class="post-list">
+        {{- range first 5 $posts.ByDate.Reverse }}
+        <li>
+            <a href="{{ .RelPermalink }}">
+                <span class="post-list-title">{{ .Title }}</span>
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
+            </a>
+        </li>
+        {{- end }}
+    </ul>
+</section>
+{{ end }}

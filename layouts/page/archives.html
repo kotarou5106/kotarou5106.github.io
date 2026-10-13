@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Section" "post" -}}
+<section class="archive-page">
+    <h1>Archive</h1>
+    <p class="archive-count">{{ len $posts }} posts</p>
+    {{- range $posts.ByDate.Reverse.GroupByDate "2006" }}
+    <section class="archive-year">
+        <h2>{{ .Key }}</h2>
+        <ul class="post-list">
+            {{- range .Pages }}
+            <li>
+                <a href="{{ .RelPermalink }}">
+                    <span class="post-list-title">{{ .Title }}</span>
+                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    </section>
+    {{- end }}
+</section>
+{{ end }}
