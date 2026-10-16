@@ -1,5 +1,5 @@
 ---
-{ title: 重农主义与重商主义, description: "", categories: [ Phil ], tags: [ 福柯 ], params: { lang: zh }, date: 2026-10-16, draft: false, slug: 重商主义与重商主义 }
+{ title: 重农主义与重商主义, description: "", categories: [ Phil ], tags: [ 福柯, 鲍德里亚 ], params: { lang: zh }, date: 2026-10-16, draft: false, slug: 重商主义与重商主义 }
 ---
 
 ## 一、重商主义
