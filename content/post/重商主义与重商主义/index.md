@@ -110,7 +110,7 @@
 
 <figure style="text-align: center; margin: 24px auto;">
   <img
-    src="http://writer.localhost:5173/api/sites/kotarou/assets/content/post/%E9%87%8D%E5%95%86%E4%B8%BB%E4%B9%89%E4%B8%8E%E9%87%8D%E5%95%86%E4%B8%BB%E4%B9%89/image-2.png"
+    src="image-2.png"
     alt="魁奈《经济表》的三阶级结构示意"
     width=""
     style="display: block; max-width: 100%; height: auto; margin: 0 auto;"
