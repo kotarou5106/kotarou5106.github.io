@@ -1,15 +1,14 @@
 ---
-title: "从银行到 DeFi：借贷市场的演变"
+title: "从银行到 DeFi"
 date: 2026-05-11
 description: "按 Xu & Vadgama (2021) 论文章节梳理传统借贷、主流市场挑战、DeFi 机制与 Maker/Compound/Aave；嵌清算与闪电贷数值笔记；译述 §5–§6 讨论与展望并附 2026 延伸。"
 tags:
   - DeFi
-  - Lending
 math: true
 categories:
   - Crypto
+draft: false
 ---
-
 
 [**From banks to DeFi: the evolution of the lending market**](https://arxiv.org/abs/2104.00970)（arXiv:2104.00970）  
 Jiahua Xu, Nikhil Vadgama, University College London, Centre for Blockchain Technologies.
