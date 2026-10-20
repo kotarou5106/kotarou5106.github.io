@@ -1,12 +1,13 @@
 ---
-title: "永续需求借贷池（PDLP）：机制、风险与费用下界"
+title: "永续需求借贷池"
 description: "基于 PDLP 论文材料，整理其核心定义、博弈结构、资金费率与套利建模，并统一修正原文中的数值冲突。"
 date: 2026-04-26
 math: true
 categories:
-    - Crypto
+  - Crypto
 tags:
-    - perp
+  - perp
+draft: false
 ---
 
 这篇笔记整理了去中心化永续合约市场中的一个核心抽象：**永续需求借贷池（Perp Demand Lending Pools, PDLP）**。目标是把分散的定义、公式和补充说明整理成一条连贯主线，并删去互相冲突的表述。
