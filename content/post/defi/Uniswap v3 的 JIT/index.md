@@ -1,14 +1,13 @@
 ---
-title: "Uniswap v3 的 JIT 悖论：集中流动性、手续费再分配与 v4 Hooks 启示"
+title: "Uniswap v3 的 JIT 悖论"
 description: "基于 arXiv:2311.18164，系统梳理 Uniswap v2/v3 的流动性数学、JIT 手续费再分配机制及其对 Uniswap v4 Hooks 的设计启示。"
 date: 2026-04-21
 tags:
-    - AMM
-    - Uniswap v3
-    - JIT
+  - Uniswap v3
 math: true
-categories:     
-    - Crypto
+categories:
+  - Crypto
+draft: false
 ---
 
 论文原文链接：[[2311.18164] The Paradox Of Just-in-Time Liquidity in Decentralized Exchanges: More Providers Can Sometimes Mean Less Liquidity](https://arxiv.org/abs/2311.18164)
