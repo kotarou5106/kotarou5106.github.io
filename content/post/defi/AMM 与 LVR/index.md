@@ -4,10 +4,11 @@ description: "从数学建模、随机分析与金融实证全流程拆解 Milio
 date: 2026-04-21
 math: true
 categories:
-    - Crypto
+  - Crypto
 tags:
-    - AMM
-    - LVR
+  - AMM
+  - LVR
+draft: false
 ---
 
 这是一份针对 Milionis 等人的里程碑式论文《Automated Market Making and Loss-Versus-Rebalancing》的总结。
