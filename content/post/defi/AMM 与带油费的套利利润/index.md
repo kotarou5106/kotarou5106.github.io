@@ -1,13 +1,14 @@
 ---
-title: "AMM 与带手续费套利利润：Milionis 框架的结构化解读"
+title: "AMM 与带手续费套利利润"
 description: "基于 Milionis 等论文，重构 AMM 中 LVR、手续费与离散出块的核心机制，解释 ARB≈LVR×p_trade 及其几何与动力学直觉。"
 date: 2026-04-26
 math: true
 categories:
-    - Crypto
+  - Crypto
 tags:
-    - AMM
-    - LVR
+  - AMM
+  - LVR
+draft: false
 ---
 
 论文链接（核心参考）：[https://arxiv.org/abs/2305.14604](https://arxiv.org/abs/2305.14604)
