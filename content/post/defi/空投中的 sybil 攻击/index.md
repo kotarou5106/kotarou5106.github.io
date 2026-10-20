@@ -1,5 +1,5 @@
 ---
-title: "空投与 Sybil：代币分发、女巫行为与链上图检测"
+title: "空投与 Sybil"
 date: 2026-05-11
 description: "基于 arXiv:2209.04603：空投与 Sybil、DApp/协议分层、图 4–7 资金模式示意、事件日志与图算法框架；附 DBSCAN 插注；末段讨论、相关工作与双重验证结论。"
 tags:
@@ -9,6 +9,7 @@ tags:
 math: true
 categories:
   - Crypto
+draft: false
 ---
 
 **本文是对以下论文的阅读梳理与结构化解说；细节以原论文为准，此处不逐段复述证明，仅整理主线逻辑便于对照阅读。**
