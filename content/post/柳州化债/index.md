@@ -1,5 +1,5 @@
 ---
-{ title: 柳州化债, description: "", categories: [ 政治经济学 ], tags: [ 中国, 地方债务 ], params: { lang: zh }, date: 2026-10-20, draft: false, slug: 柳州化债 }
+{ title: 柳州化债, description: "", categories: [ 政治经济学 ], tags: [ 地方债务 ], params: { lang: zh }, date: 2026-10-20, draft: false, slug: 柳州化债 }
 ---
 
 **参考报道：** [财新《两年债务规模下降18% 柳州原市委书记撰文谈化债细节》](https://economy.caixin.com/2026-10-17/102494516.html)
