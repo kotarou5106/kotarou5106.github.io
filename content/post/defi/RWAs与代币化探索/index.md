@@ -4,11 +4,11 @@ description: "基于链上账本、共识与智能合约的 RWA 代币化动机�
 date: 2026-05-11
 math: true
 categories:
-    - Crypto
+  - Crypto
 tags:
-    - RWA
-    - Tokenization
-    - DeFi
+  - RWA
+  - DeFi
+draft: false
 ---
 
 论文原文链接：[arXiv:2503.01111](https://arxiv.org/abs/2503.01111)
