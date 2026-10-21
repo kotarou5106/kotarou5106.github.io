@@ -4,11 +4,10 @@ description: "围绕链上清算的激励、风险与不稳定性，整理抵押
 date: 2026-05-11
 math: true
 categories:
-    - Crypto
+  - Crypto
 tags:
-    - Liquidation
-    - Lending
-    - DeFi
+  - DeFi
+draft: false
 ---
 
 以下笔记主要基于论文《去中心化金融清算的实证研究：激励、风险与不稳定性》（*An Empirical Study of DeFi Liquidations*）的阅读整理。论文对 Ethereum 上四大主流 DeFi 借贷协议（Aave、Compound、MakerDAO 和 dYdX）的清算机制做了系统性的定量与定性分析。
