@@ -1,0 +1,8 @@
+/* Native brush strokes; 400 matches the existing heading rules without synthesis. */
+@font-face {
+    font-family: "Kotarou Founder CuKai";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: {{ with .FontURL }}url("{{ . }}") format("woff2"), {{ end }}local("FZCKJW--GB1-0"), local("方正粗楷简体");
+}

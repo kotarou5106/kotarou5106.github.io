@@ -14,7 +14,7 @@
     --toc-border: var(--line);
     --toc-text: #75695f;
     --reading-font: "Kotarou Noto Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-    --calligraphy-font: "Kotarou Ma Shan Zheng", var(--reading-font);
+    --calligraphy-font: "Kotarou Founder CuKai", "Kotarou Ma Shan Zheng", var(--reading-font);
 }
 
 :root[data-theme="dark"] {

@@ -16,6 +16,21 @@
     <meta property="og:url" content="{{ .Permalink }}">
     <meta name="twitter:card" content="summary">
     {{- if .IsPage }}
+    {{- $headingFontURL := "" }}
+    {{- with site.Params.typography.headingFontResource }}
+        {{- if ne (path.Ext .) ".woff2" }}
+            {{- errorf "typography.headingFontResource must name a licensed WOFF2 file under assets/: %s" . }}
+        {{- else }}
+            {{- with resources.Get . }}
+                {{- $headingFontURL = (. | fingerprint).RelPermalink }}
+            {{- else }}
+                {{- errorf "Configured heading font is missing from assets/: %s" site.Params.typography.headingFontResource }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+    {{- with resources.Get "css/heading-font.css" | resources.ExecuteAsTemplate "css/heading-font.css" (dict "FontURL" $headingFontURL) | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+    {{- end }}
     {{- with resources.Get "css/reading-fonts.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
     {{- end }}

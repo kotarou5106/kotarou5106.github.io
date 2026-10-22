@@ -1,9 +1,30 @@
 # Kotarou reading fonts
 
-Both fonts are self-hosted under the **SIL Open Font License 1.1**. The complete
-copyright notices and licenses are distributed beside the WOFF2 files.
+The bundled Noto Sans SC and Ma Shan Zheng files are self-hosted under the
+**SIL Open Font License 1.1**. Their complete copyright notices and licenses are
+distributed beside the WOFF2 files.
 
-## Heading: Ma Shan Zheng / 马善政毛笔楷书
+## Heading: Founder CuKai / 方正粗楷简体
+
+- Designer: 张耀良; vendor: 北京北大方正电子有限公司.
+- Official source: <https://www.foundertype.com/index.php/FontInfo/index/id/241>.
+- Original PostScript name: `FZCKJW--GB1-0`; internal name `方正粗楷简体`.
+- Self-hosted file: `assets/fonts/fz-cukai.woff2` (WOFF2/CFF, 2,608,792 bytes,
+  6,763 CJK unified ideographs). Web font delivery for kotarou.quest is
+  authorized; the file is not subset or otherwise modified.
+- Configured via `config/_default/params.toml`:
+  `headingFontResource = "fonts/fz-cukai.woff2"`.
+- Hugo publishes the resource with a content-fingerprinted URL and writes it into
+  `heading-font.css`. The font stack is Founder CuKai, the existing Ma Shan Zheng
+  fallback, then Noto Sans SC and system sans-serif.
+- H1/H2/H3 remain 44/32/26px on desktop and 34/28/24px on mobile, with the existing
+  colors and `font-synthesis: none`. The face is mapped to CSS weight 400 to match
+  those rules; the font's native heavy outlines are not synthetically modified.
+
+Missing configured assets or non-WOFF2 paths fail the Hugo build instead of
+emitting a broken URL. No runtime script or Blog Writer change is needed.
+
+## Existing heading fallback: Ma Shan Zheng / 马善政毛笔楷书
 
 - Designer: Ma ShanZheng / 马善政.
 - A full-bodied brush script with stable, legible character structures; selected

@@ -9,6 +9,10 @@ description    = "记录阅读与思考"
 # lastmod = sort by last modified date, in descending order
 SortBy              = "default"
 
+[typography]
+    # Self-hosted WOFF2 under assets/. Web font use authorized for kotarou.quest.
+    headingFontResource = "fonts/fz-cukai.woff2"
+
 [footer]
     since      = 2026
     customText = ""
