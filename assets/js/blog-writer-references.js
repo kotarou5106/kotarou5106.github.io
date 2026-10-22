@@ -2,19 +2,45 @@
 (() => {
 const __name = (fn, name) => Object.defineProperty(fn, 'name', { value: name, configurable: true });
 const enhance = function enhanceReferences(root) {
-  if (root.dataset.referencesReady) return;
+  if (root.dataset.referencesReady || root.querySelector("[data-bw-static-references]"))
+    return;
   const doc = root.ownerDocument;
-  const heading2 = Array.from(root.querySelectorAll("h2")).find(
-    (element) => element.textContent?.trim() === "\u53C2\u8003\u6587\u732E"
-  );
+  const heading2 = Array.from(
+    root.querySelectorAll("h1, h2, h3, h4, h5, h6")
+  ).find((element) => element.textContent?.trim() === "\u53C2\u8003\u6587\u732E");
   if (!heading2 || heading2.parentElement !== root) return;
   const section = [];
   for (let next = heading2.nextElementSibling; next; next = next.nextElementSibling) {
-    if (/^H[12]$/.test(next.tagName)) break;
+    if (/^H[1-6]$/.test(next.tagName) && next.tagName <= heading2.tagName) break;
     section.push(next);
   }
   const entries = /* @__PURE__ */ new Map();
   for (const block2 of section) {
+    if (block2.tagName === "P") {
+      for (const node2 of Array.from(block2.childNodes)) {
+        if (node2.nodeType !== 3) continue;
+        const text4 = node2.textContent || "";
+        const fragment = doc.createDocumentFragment();
+        let offset = 0;
+        for (const match2 of text4.matchAll(/(?:^|\n)[ \t]*〔([1-9]\d*)〕/g)) {
+          if (match2.index === 0 && node2.previousSibling && !(node2.previousSibling.nodeType === 1 && node2.previousSibling.tagName === "BR"))
+            continue;
+          const number5 = Number(match2[1]);
+          if (entries.has(number5)) continue;
+          const start = match2.index + match2[0].indexOf("\u3014");
+          fragment.append(text4.slice(offset, start));
+          const label = doc.createElement("span");
+          label.textContent = `\u3014${number5}\u3015`;
+          fragment.append(label);
+          entries.set(number5, label);
+          offset = start + label.textContent.length;
+        }
+        if (offset) {
+          fragment.append(text4.slice(offset));
+          node2.replaceWith(fragment);
+        }
+      }
+    }
     if (block2.tagName !== "OL") continue;
     let number4 = Number(block2.getAttribute("start") || 1);
     for (const item of Array.from(block2.children)) {

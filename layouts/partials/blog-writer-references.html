@@ -1,0 +1,147 @@
+{{- /* Build-time counterpart of shared/references.ts for plain 〔n〕 entries.
+     Tokenize rendered HTML, keeping attributes, links, code, math and footnotes
+     opaque. Never transform Markdown source or use a global text replacement. */ -}}
+{{- $html := string . -}}
+{{- $tokens := findRE `(?s)<!--[\s\S]*?-->|<[^>]*>|[^<]+` $html -}}
+{{- $entries := newScratch -}}
+{{- $used := newScratch -}}
+{{- range findRE `\bid="[^"]+"` $html -}}
+  {{- $used.Set (strings.TrimPrefix `id="` (strings.TrimSuffix `"` .)) true -}}
+{{- end -}}
+{{- $out := slice -}}
+{{- $section := false -}}
+{{- $ended := false -}}
+{{- $level := 0 -}}
+{{- $heading := 0 -}}
+{{- $blocked := slice -}}
+{{- $paragraph := false -}}
+{{- $lineStart := false -}}
+{{- range $tokens -}}
+  {{- $token := . -}}
+  {{- if hasPrefix $token "<" -}}
+    {{- $tag := lower (replaceRE `^</?([a-zA-Z0-9-]+).*` "$1" $token) -}}
+    {{- $closing := hasPrefix $token "</" -}}
+    {{- if $closing -}}
+      {{- if and (gt (len $blocked) 0) (eq $tag (index $blocked (sub (len $blocked) 1))) -}}
+        {{- $blocked = first (sub (len $blocked) 1) $blocked -}}
+      {{- end -}}
+      {{- if eq $tag "p" }}{{ $paragraph = false }}{{ end -}}
+      {{- if findRE `^h[1-6]$` $tag }}{{ $heading = 0 }}{{ end -}}
+    {{- else if eq (len $blocked) 0 -}}
+      {{- if or (in (slice "a" "pre" "code" "script" "style" "textarea" "kbd" "samp" "svg" "math" "mjx-container") $tag) (findRE `(?:class="[^"]*(?:katex|MathJax|footnotes)|role="doc-endnotes"|contenteditable="true")` $token) -}}
+        {{- $blocked = $blocked | append $tag -}}
+      {{- else if findRE `^h[1-6]$` $tag -}}
+        {{- $heading = int (strings.TrimPrefix "h" $tag) -}}
+        {{- if and $section (le $heading $level) }}{{ $section = false }}{{ $ended = true }}{{ end -}}
+      {{- else if eq $tag "p" -}}
+        {{- $paragraph = true -}}{{- $lineStart = true -}}
+      {{- else if eq $tag "br" -}}
+        {{- $lineStart = true -}}
+      {{- else -}}
+        {{- $lineStart = false -}}
+      {{- end -}}
+    {{- else if and (eq $tag (index $blocked (sub (len $blocked) 1))) (not (hasSuffix $token "/>")) -}}
+      {{- $blocked = $blocked | append $tag -}}
+    {{- end -}}
+  {{- else if eq (len $blocked) 0 -}}
+    {{- if and (gt $heading 0) (eq (strings.TrimSpace $token) "参考文献") (not $ended) -}}
+      {{- $section = true -}}{{- $level = $heading -}}
+    {{- else if and $section $paragraph -}}
+      {{- $pattern := `\n[\t ]*〔([1-9][0-9]*)〕` -}}
+      {{- if $lineStart }}{{ $pattern = `(?:^|\n)[\t ]*〔([1-9][0-9]*)〕` }}{{ end -}}
+      {{- range findRE $pattern $token -}}
+        {{- $label := findRE `〔[1-9][0-9]*〕` . 1 | first 1 -}}
+        {{- $label = index $label 0 -}}
+        {{- $n := strings.TrimSuffix "〕" (strings.TrimPrefix "〔" $label) -}}
+        {{- if not ($entries.Get $n) -}}
+          {{- $id := printf "ref-%s" $n -}}
+          {{- $preferred := $id -}}
+          {{- range seq 2 (add (len $tokens) 2) -}}
+            {{- if not ($used.Get $id) }}{{ break }}{{ end -}}
+            {{- $id = printf "%s-%d" $preferred . -}}
+          {{- end -}}
+          {{- $used.Set $id true -}}{{- $entries.Set $n $id -}}
+          {{- $replacement := printf `%s<span id="%s" data-bw-entry="%s" style="scroll-margin-top:calc(var(--header-height, 80px) + 24px)">%s<!--bw-backlinks-%s--></span>` (strings.TrimSuffix $label .) $id $n $label $n -}}
+          {{- $token = replace $token . $replacement 1 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $lineStart = hasSuffix $token "\n" -}}
+  {{- end -}}
+  {{- $out = $out | append $token -}}
+{{- end -}}
+{{- if $entries.Values -}}
+  {{- $html = delimit $out "" -}}
+  {{- $out = slice -}}
+  {{- $body := true -}}
+  {{- $blocked = slice -}}
+  {{- $occurrences := newScratch -}}
+  {{- range findRE `(?s)<!--[\s\S]*?-->|<[^>]*>|[^<]+` $html -}}
+    {{- $token := . -}}
+    {{- if hasPrefix $token "<" -}}
+      {{- $tag := lower (replaceRE `^</?([a-zA-Z0-9-]+).*` "$1" $token) -}}
+      {{- if hasPrefix $token "</" -}}
+        {{- if and (gt (len $blocked) 0) (eq $tag (index $blocked (sub (len $blocked) 1))) }}{{ $blocked = first (sub (len $blocked) 1) $blocked }}{{ end -}}
+      {{- else if eq (len $blocked) 0 -}}
+        {{- if or (in (slice "a" "pre" "code" "script" "style" "textarea" "kbd" "samp" "svg" "math" "mjx-container" "h1" "h2" "h3" "h4" "h5" "h6") $tag) (findRE `(?:class="[^"]*(?:katex|MathJax|footnotes)|role="doc-endnotes"|contenteditable="true")` $token) -}}
+          {{- $blocked = $blocked | append $tag -}}
+        {{- end -}}
+      {{- else if and (eq $tag (index $blocked (sub (len $blocked) 1))) (not (hasSuffix $token "/>")) -}}
+        {{- $blocked = $blocked | append $tag -}}
+      {{- end -}}
+    {{- else -}}
+      {{- if and (gt (len $blocked) 0) (findRE `^h[1-6]$` (index $blocked 0)) (eq (strings.TrimSpace $token) "参考文献") }}{{ $body = false }}{{ end -}}
+      {{- if and $body (eq (len $blocked) 0) -}}
+        {{- /* Keep untypeset math opaque, just as the browser enhancer does. */ -}}
+        {{- $parts := findRE `\$\$[\s\S]*?\$\$|\$[^$\n]+\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]|[^$\\]+|[$\\]` $token -}}
+        {{- $text := slice -}}
+        {{- range $parts -}}
+          {{- $part := . -}}
+          {{- if not (or (hasPrefix $part "$") (hasPrefix $part "\\")) -}}
+            {{- $pieces := slice -}}
+            {{- range findRE `〔[1-9][0-9]*〕|[^〔]+|〔` $part -}}
+              {{- $piece := . -}}
+              {{- if findRE `^〔[1-9][0-9]*〕$` $piece -}}
+              {{- $n := strings.TrimSuffix "〕" (strings.TrimPrefix "〔" .) -}}
+              {{- with $entries.Get $n -}}
+                {{- $target := . -}}
+                {{- $list := default slice ($occurrences.Get $n) -}}
+                {{- $id := printf "cite-%s-%d" $n (add (len $list) 1) -}}
+                {{- $preferred := $id -}}
+                {{- range seq 2 (add (len $tokens) 2) -}}
+                  {{- if not ($used.Get $id) }}{{ break }}{{ end -}}
+                  {{- $id = printf "%s-%d" $preferred . -}}
+                {{- end -}}
+                {{- $used.Set $id true -}}{{- $occurrences.Set $n ($list | append $id) -}}
+                {{- $link := printf `<sup><a id="%s" href="#%s" data-bw-reference="true" aria-label="参考文献 %s" style="scroll-margin-top:calc(var(--header-height, 80px) + 24px)">〔%s〕</a></sup>` $id $target $n $n -}}
+                {{- $piece = $link -}}
+              {{- end -}}
+              {{- end -}}
+              {{- $pieces = $pieces | append $piece -}}
+            {{- end -}}
+            {{- $part = delimit $pieces "" -}}
+          {{- end -}}
+          {{- $text = $text | append $part -}}
+        {{- end -}}
+        {{- $token = delimit $text "" -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $out = $out | append $token -}}
+  {{- end -}}
+  {{- $html = delimit $out "" -}}
+  {{- range $n, $target := $entries.Values -}}
+    {{- $backlinks := "" -}}
+    {{- with $occurrences.Get $n -}}
+      {{- $links := slice -}}
+      {{- $count := len . -}}
+      {{- range $i, $id := . -}}
+        {{- $label := "↩" -}}{{- if gt $count 1 }}{{ $label = printf "↩%d" (add $i 1) }}{{ end -}}
+        {{- $links = $links | append (printf ` <a href="#%s" data-bw-reference="true" aria-label="返回参考文献 %s 的第 %d 处引用">%s</a>` $id $n (add $i 1) $label) -}}
+      {{- end -}}
+      {{- $backlinks = printf `<span data-bw-backlinks="true" style="white-space:nowrap">%s</span>` (delimit $links "") -}}
+    {{- end -}}
+    {{- $html = replace $html (printf "<!--bw-backlinks-%s-->" $n) $backlinks -}}
+  {{- end -}}
+  {{- $html = printf `<span data-bw-static-references="true" hidden></span>%s` $html -}}
+{{- end -}}
+{{- return ($html | safeHTML) -}}
