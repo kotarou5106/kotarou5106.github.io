@@ -18,8 +18,8 @@ from fontTools.varLib.instancer import instantiateVariableFont
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = Path.home() / ".cache/kotarou-reading-fonts"
 SOURCES = [
-    ("zhi-mang-xing", "Kotarou Zhi Mang Xing", "zhimangxing", "ZhiMangXing-Regular.ttf",
-     "187e2123ad2710ad8c2fa9955332fe9073e834b1", "400"),
+    ("ma-shan-zheng", "Kotarou Ma Shan Zheng", "mashanzheng", "MaShanZheng-Regular.ttf",
+     "406197b91ff39a93061c2c2eeaee67ddf2ae1f0d", "400"),
     ("noto-sans-sc", "Kotarou Noto Sans SC", "notosanssc", "NotoSansSC[wght].ttf",
      "a85815a42757630ce188fdad368c2dfc444d4773", "400 700"),
 ]
@@ -79,7 +79,7 @@ def main():
         font.save(buffer)
         prepared = buffer.getvalue()
         supported = set(font.getBestCmap())
-        if slug == "zhi-mang-xing":
+        if slug == "ma-shan-zheng":
             core = (set(map(ord, headings)) | basic) & supported
         else:
             core = ({p for p, _ in body_frequency.most_common(1000)} | basic) & supported

@@ -14,7 +14,7 @@
     --toc-border: var(--line);
     --toc-text: #75695f;
     --reading-font: "Kotarou Noto Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-    --calligraphy-font: "Kotarou Zhi Mang Xing", var(--reading-font);
+    --calligraphy-font: "Kotarou Ma Shan Zheng", var(--reading-font);
 }
 
 :root[data-theme="dark"] {
@@ -448,8 +448,8 @@ button { font: inherit; }
 .article-header h1 {
     margin: 0 0 18px;
     color: var(--article-title);
-    font-size: 36px;
-    line-height: 1.5;
+    font-size: 44px;
+    line-height: 1.45;
     overflow-wrap: anywhere;
 }
 
@@ -673,9 +673,9 @@ button { font: inherit; }
     scroll-margin-top: 96px;
 }
 
-.article-content h1 { margin: 2em 0 0.9em; color: var(--article-title); font-size: 36px; line-height: 1.5; }
-.article-content h2 { margin: 1.8em 0 0.8em; font-size: 28px; line-height: 1.6; }
-.article-content h3 { margin: 1.6em 0 0.6em; font-size: 24px; line-height: 1.6; }
+.article-content h1 { margin: 2em 0 0.9em; color: var(--article-title); font-size: 44px; line-height: 1.45; }
+.article-content h2 { margin: 1.8em 0 0.8em; font-size: 32px; line-height: 1.5; }
+.article-content h3 { margin: 1.6em 0 0.6em; font-size: 26px; line-height: 1.55; }
 .article-content h4 { margin: 1.65em 0 0.6em; font-size: 18px; line-height: 1.55; }
 .article-content h1 + *, .article-content h2 + *, .article-content h3 + *, .article-content h4 + * { margin-top: 0; }
 
@@ -866,10 +866,10 @@ button { font: inherit; }
     .pagination-step span, .pagination-jump span { display: none; }
     .pagination-jump { margin-left: 2px; }
     .article-header { margin-block: 22px 34px; }
-    .article-header h1, .article-content h1 { font-size: 30px; }
+    .article-header h1, .article-content h1 { font-size: 34px; }
     .article-content { font-size: 18px; line-height: 1.8; }
-    .article-content h2 { font-size: 26px; }
-    .article-content h3 { font-size: 23px; }
+    .article-content h2 { font-size: 28px; }
+    .article-content h3 { font-size: 24px; }
     .article-cover { margin-bottom: 32px; }
     .article-toc-layer { --toc-width: min(86vw, 320px); --toc-right: 10px; }
     .article-toc-panel { top: 76px; bottom: 14px; }

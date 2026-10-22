@@ -3,15 +3,16 @@
 Both fonts are self-hosted under the **SIL Open Font License 1.1**. The complete
 copyright notices and licenses are distributed beside the WOFF2 files.
 
-## Heading: Zhi Mang Xing / 志莽行书
+## Heading: Ma Shan Zheng / 马善政毛笔楷书
 
-- Designer: Wei Zhimang / 魏志莽.
-- Upstream describes this as a **running script**, with connected strokes within
-  individual characters, based on Wei Zhimang's handwritten calligraphy.
-- Source: <https://github.com/google/fonts/tree/187e2123ad2710ad8c2fa9955332fe9073e834b1/ofl/zhimangxing>.
-- Original: `ZhiMangXing-Regular.ttf`; real weight 400, no synthetic bold/italic.
-- License: [zhi-mang-xing-OFL.txt](zhi-mang-xing-OFL.txt).
-- Core: 780 characters / 205,944 bytes; 14 WOFF2 shards / 2,385,836 bytes total.
+- Designer: Ma ShanZheng / 马善政.
+- A full-bodied brush script with stable, legible character structures; selected
+  after comparing the existing economic article's title and chapter heading.
+- Source: <https://github.com/google/fonts/tree/406197b91ff39a93061c2c2eeaee67ddf2ae1f0d/ofl/mashanzheng>.
+- Original: `MaShanZheng-Regular.ttf`; real weight 400, no synthetic bold/italic.
+- License: [ma-shan-zheng-OFL.txt](ma-shan-zheng-OFL.txt).
+- Core: 780 characters / 277,848 bytes; 14 WOFF2 shards / 3,346,720 bytes total.
+- Desktop H1/H2/H3: 44/32/26px; mobile: 34/28/24px.
 
 ## Body: Noto Sans SC / 思源黑体简体中文版（Noto 发行版）
 
@@ -25,7 +26,7 @@ copyright notices and licenses are distributed beside the WOFF2 files.
 
 `assets/css/reading-fonts.css` defines disjoint `unicode-range` faces with
 `font-display: swap`. The browser only fetches shards used by the current page;
-the 11.48 MB combined font library is **not** a per-page download. The heading
+the 12.45 MB combined font library is **not** a per-page download. The heading
 core covers current Markdown titles/headings, Latin text and punctuation. The
 body core contains the 1,000 most frequent characters plus Latin/punctuation.
 Remaining upstream characters are retained in 512-character on-demand shards,
@@ -36,10 +37,6 @@ fallback. Font synthesis is disabled in articles.
 No third-party font request is needed. Font files and the font stylesheet use
 content-hashed names. Only single-page templates load the font stylesheet;
 listing pages retain their existing system UI font.
-
-The acceptance article (中澳铁矿石产业链重构) fetched 665,572 bytes of fonts
-in total across both families. This is measured with an empty browser cache;
-subsequent articles can reuse cached shards.
 
 To refresh the core subsets after adding many articles (optional):
 
