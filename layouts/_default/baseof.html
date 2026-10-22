@@ -15,9 +15,11 @@
     <meta property="og:description" content="{{ $description }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta name="twitter:card" content="summary">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    {{- if .IsPage }}
+    {{- with resources.Get "css/reading-fonts.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+    {{- end }}
+    {{- end }}
     <link rel="icon" href="{{ site.Params.favicon | relURL }}" type="image/x-icon" sizes="16x16 32x32 48x48">
     {{- range $theme := slice "light" "dark" }}
     {{- range $size := slice 16 32 }}
