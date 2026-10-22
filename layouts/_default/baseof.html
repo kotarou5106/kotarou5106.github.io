@@ -75,9 +75,6 @@
             <a class="site-name" href="{{ site.Home.RelPermalink }}">Kotarou</a>
             <nav class="site-nav" aria-label="Main navigation">
                 <a href="{{ relURL "blog/" }}">Blog</a>
-                {{- with site.Home.OutputFormats.Get "RSS" }}
-                <a href="{{ .RelPermalink }}">RSS</a>
-                {{- end }}
             </nav>
         </div>
     </header>
