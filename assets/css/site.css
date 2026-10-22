@@ -159,28 +159,6 @@ button { font: inherit; }
     line-height: 1.35;
 }
 
-.social-links {
-    display: flex;
-    margin-left: -10px;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    color: var(--muted);
-    transition: background-color 180ms ease, color 180ms ease;
-}
-
-.social-links a:hover {
-    color: var(--heading);
-    background: var(--hover);
-}
-
-.social-links svg { width: 20px; height: 20px; }
-
 .intro {
     max-width: 720px;
     margin: 8px 0 0;
