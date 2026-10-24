@@ -6,6 +6,7 @@ defaultContentLanguage = "zh-cn"
 
 hasCJKLanguage = true
 enableRobotsTXT = true
+disableKinds = ["sitemap", "rss"]
 
 [pagination]
     pagerSize = 10

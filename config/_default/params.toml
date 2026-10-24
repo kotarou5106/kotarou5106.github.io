@@ -1,6 +1,5 @@
 # Pages placed under these sections will be shown on homepage and archive page.
 mainSections = ["post"]
-rssFullContent = true
 favicon        = "favicon.ico?v=kotarou-k-1"
 description    = "记录阅读与思考"
 
