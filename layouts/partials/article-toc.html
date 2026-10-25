@@ -1,0 +1,14 @@
+{{- $tocStart := 1 -}}
+{{- with .Fragments.Headings -}}
+    {{- $first := index . 0 -}}
+    {{- if gt $first.Level 0 -}}
+        {{- $tocStart = $first.Level -}}
+    {{- else -}}
+        {{- with $first.Headings -}}
+            {{- with index . 0 -}}
+                {{- $tocStart = .Level -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{ .Fragments.ToHTML $tocStart 4 true }}

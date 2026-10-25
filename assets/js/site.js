@@ -171,6 +171,7 @@
         var postsPerPage = 5;
         var untagged = "未标注标签";
         var uncategorized = "未分类";
+        var legacyCategories = { phil: "哲学" };
         var timer;
         var posts;
 
@@ -202,8 +203,9 @@
 
         function readState() {
             var params = new URLSearchParams(window.location.search);
+            var requestedCategory = params.get("category");
             var next = {
-                category: canonical(params.get("category"), categories),
+                category: canonical(requestedCategory, categories) || canonical(legacyCategories[normalize(requestedCategory)], categories),
                 tag: canonical(params.get("tag"), tags),
                 query: params.get("q") || "",
                 page: Math.max(1, parseInt(params.get("page"), 10) || 1)
