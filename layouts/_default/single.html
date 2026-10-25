@@ -35,7 +35,8 @@
     {{- end }}
 
     <article class="article-content animate">
-        {{ partial "blog-writer-references.html" .Content }}
+        {{ partial "blog-writer-image-captions.html" . }}
+{{ partial "blog-writer-references.html" .Content }}
         {{- with resources.Get "js/blog-writer-references.js" | minify | fingerprint }}
         <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
         {{- end }}
