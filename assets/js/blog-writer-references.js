@@ -5,53 +5,6 @@ const enhance = function enhanceReferences(root) {
   if (root.dataset.referencesReady || root.querySelector("[data-bw-static-references]"))
     return;
   const doc = root.ownerDocument;
-  const heading2 = Array.from(
-    root.querySelectorAll("h1, h2, h3, h4, h5, h6")
-  ).find((element) => element.textContent?.trim() === "\u53C2\u8003\u6587\u732E");
-  if (!heading2 || heading2.parentElement !== root) return;
-  const section = [];
-  for (let next = heading2.nextElementSibling; next; next = next.nextElementSibling) {
-    if (/^H[1-6]$/.test(next.tagName) && next.tagName <= heading2.tagName) break;
-    section.push(next);
-  }
-  const entries = /* @__PURE__ */ new Map();
-  for (const block2 of section) {
-    if (block2.tagName === "P") {
-      for (const node2 of Array.from(block2.childNodes)) {
-        if (node2.nodeType !== 3) continue;
-        const text4 = node2.textContent || "";
-        const fragment = doc.createDocumentFragment();
-        let offset = 0;
-        for (const match2 of text4.matchAll(/(?:^|\n)[ \t]*〔([1-9]\d*)〕/g)) {
-          if (match2.index === 0 && node2.previousSibling && !(node2.previousSibling.nodeType === 1 && node2.previousSibling.tagName === "BR"))
-            continue;
-          const number5 = Number(match2[1]);
-          if (entries.has(number5)) continue;
-          const start = match2.index + match2[0].indexOf("\u3014");
-          fragment.append(text4.slice(offset, start));
-          const label = doc.createElement("span");
-          label.textContent = `\u3014${number5}\u3015`;
-          fragment.append(label);
-          entries.set(number5, label);
-          offset = start + label.textContent.length;
-        }
-        if (offset) {
-          fragment.append(text4.slice(offset));
-          node2.replaceWith(fragment);
-        }
-      }
-    }
-    if (block2.tagName !== "OL") continue;
-    let number4 = Number(block2.getAttribute("start") || 1);
-    for (const item of Array.from(block2.children)) {
-      if (item.tagName !== "LI") continue;
-      number4 = Number(item.getAttribute("value") || number4);
-      if (!entries.has(number4)) entries.set(number4, item);
-      number4++;
-    }
-  }
-  if (!entries.size) return;
-  root.dataset.referencesReady = "true";
   const used = new Set(
     [
       ...Array.from(doc.querySelectorAll("[id]")),
@@ -66,6 +19,117 @@ const enhance = function enhanceReferences(root) {
     used.add(id);
     return id;
   };
+  const entries = /* @__PURE__ */ new Map();
+  const claimed = /* @__PURE__ */ new Set();
+  const opaque = "code, script, style, textarea, kbd, samp, svg, math, mjx-container, .katex, .MathJax, a, [contenteditable=true]";
+  const definitionContext = "pre, code, script, style, textarea, kbd, samp, svg, math, mjx-container, .katex, .MathJax, .footnotes, [role=doc-endnotes], a, li, blockquote, table, figure, figcaption, h1, h2, h3, h4, h5, h6, [contenteditable=true]";
+  for (const paragraph2 of Array.from(root.querySelectorAll("p"))) {
+    if (paragraph2.closest(definitionContext)) continue;
+    const pieces = [];
+    const segments = [];
+    let length = 0;
+    const visit2 = (node2) => {
+      if (node2.nodeType === 3) {
+        const value = node2.textContent || "";
+        if (!value) return;
+        segments.push({ node: node2, start: length, end: length + value.length });
+        pieces.push(value);
+        length += value.length;
+        return;
+      }
+      if (node2.nodeType !== 1) return;
+      const element = node2;
+      if (element.tagName === "BR") {
+        pieces.push("\n");
+        length += 1;
+        return;
+      }
+      if (element.matches(
+        "img, video, audio, input, button, iframe, object, embed"
+      ) || element.matches(opaque)) {
+        pieces.push("\uFFFC");
+        length += 1;
+        return;
+      }
+      for (const child of Array.from(element.childNodes)) visit2(child);
+    };
+    for (const child of Array.from(paragraph2.childNodes)) visit2(child);
+    const text4 = pieces.join("");
+    const matches = [...text4.matchAll(/(?:^|\n)[ \t]*〔([1-9]\d*)〕/g)];
+    if (!matches.length) continue;
+    const wraps = [];
+    for (const [index, match2] of matches.entries()) {
+      const labelStart = match2.index + match2[0].indexOf("\u3014");
+      const labelEnd = labelStart + match2[0].length - match2[0].indexOf("\u3014");
+      const nextStart = matches[index + 1]?.index ?? text4.length;
+      if (!/\S/.test(text4.slice(labelEnd, nextStart))) continue;
+      const segment = segments.find(
+        (candidate) => labelStart >= candidate.start && labelEnd <= candidate.end
+      );
+      if (!segment) continue;
+      wraps.push({
+        node: segment.node,
+        start: labelStart,
+        end: labelEnd,
+        number: Number(match2[1])
+      });
+    }
+    const grouped = /* @__PURE__ */ new Map();
+    for (const wrap of wraps) {
+      const list2 = grouped.get(wrap.node) || [];
+      list2.push(wrap);
+      grouped.set(wrap.node, list2);
+    }
+    for (const [node2, list2] of grouped) {
+      const segment = segments.find((candidate) => candidate.node === node2);
+      const value = node2.textContent || "";
+      const fragment = doc.createDocumentFragment();
+      let offset = 0;
+      for (const wrap of list2.sort((left, right) => left.start - right.start)) {
+        fragment.append(value.slice(offset, wrap.start - segment.start));
+        const label = doc.createElement("span");
+        label.textContent = value.slice(
+          wrap.start - segment.start,
+          wrap.end - segment.start
+        );
+        label.dataset.bwEntry = "true";
+        if (!entries.has(wrap.number) && !claimed.has(wrap.number)) {
+          entries.set(wrap.number, label);
+          claimed.add(wrap.number);
+        }
+        fragment.append(label);
+        offset = wrap.end - segment.start;
+      }
+      fragment.append(value.slice(offset));
+      node2.replaceWith(fragment);
+    }
+  }
+  const heading2 = Array.from(
+    root.querySelectorAll("h1, h2, h3, h4, h5, h6")
+  ).find((element) => element.textContent?.trim() === "\u53C2\u8003\u6587\u732E");
+  if (heading2 && heading2.parentElement === root) {
+    const section = [];
+    for (let next = heading2.nextElementSibling; next; next = next.nextElementSibling) {
+      if (/^H[1-6]$/.test(next.tagName) && next.tagName <= heading2.tagName)
+        break;
+      section.push(next);
+    }
+    for (const block2 of section) {
+      if (block2.tagName !== "OL") continue;
+      let number4 = Number(block2.getAttribute("start") || 1);
+      for (const item of Array.from(block2.children)) {
+        if (item.tagName !== "LI") continue;
+        number4 = Number(item.getAttribute("value") || number4);
+        if (!entries.has(number4)) {
+          entries.set(number4, item);
+          item.dataset.bwDefinition = "true";
+        }
+        number4++;
+      }
+    }
+  }
+  if (!entries.size) return;
+  root.dataset.referencesReady = "true";
   const targets = /* @__PURE__ */ new Map();
   const occurrences = /* @__PURE__ */ new Map();
   for (const [number4, entry] of entries) {
@@ -78,7 +142,6 @@ const enhance = function enhanceReferences(root) {
     targets.set(number4, target);
     occurrences.set(number4, []);
   }
-  const isBody = (element) => Boolean(element.compareDocumentPosition(heading2) & 4) && !element.contains(heading2);
   const register = (number4, link2) => {
     const list2 = occurrences.get(number4);
     if (!link2.id) link2.id = unique(`cite-${number4}-${list2.length + 1}`);
@@ -91,7 +154,10 @@ const enhance = function enhanceReferences(root) {
   const walk = (node2) => {
     if (node2.nodeType === 1) {
       const element = node2;
-      if (!isBody(element)) return;
+      if (element.matches(
+        "pre, code, script, style, textarea, kbd, samp, svg, math, mjx-container, .katex, .MathJax, .footnotes, [role=doc-endnotes], h1, h2, h3, h4, h5, h6, [contenteditable=true], [data-bw-entry], [data-bw-definition], [data-bw-backlinks]"
+      ))
+        return;
       if (element.tagName === "A") {
         const match2 = element.textContent?.match(/^〔([1-9]\d*)〕$/);
         if (match2 && element.parentElement?.tagName === "SUP" && element.getAttribute("href") === `#ref-${match2[1]}` && entries.has(Number(match2[1]))) {
@@ -99,10 +165,6 @@ const enhance = function enhanceReferences(root) {
         }
         return;
       }
-      if (element.matches(
-        "pre, code, script, style, textarea, kbd, samp, svg, math, mjx-container, .katex, .MathJax, .footnotes, [role=doc-endnotes], h1, h2, h3, h4, h5, h6, [contenteditable=true]"
-      ))
-        return;
       for (const child of Array.from(element.childNodes)) walk(child);
     } else if (node2.nodeType === 3) {
       const text4 = node2.textContent || "";

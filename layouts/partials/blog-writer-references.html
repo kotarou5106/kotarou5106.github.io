@@ -1,6 +1,7 @@
 {{- /* Build-time counterpart of shared/references.ts for plain 〔n〕 entries.
      Tokenize rendered HTML, keeping attributes, links, code, math and footnotes
-     opaque. Never transform Markdown source or use a global text replacement. */ -}}
+     opaque. Any standalone paragraph line that starts with a label and has
+     annotation content defines an entry. Never transform Markdown source. */ -}}
 {{- $html := string . -}}
 {{- $tokens := findRE `(?s)<!--[\s\S]*?-->|<[^>]*>|[^<]+` $html -}}
 {{- $entries := newScratch -}}
@@ -9,15 +10,10 @@
   {{- $used.Set (strings.TrimPrefix `id="` (strings.TrimSuffix `"` .)) true -}}
 {{- end -}}
 {{- $out := slice -}}
-{{- $section := false -}}
-{{- $ended := false -}}
-{{- $level := 0 -}}
-{{- $heading := 0 -}}
 {{- $blocked := slice -}}
 {{- $paragraph := false -}}
 {{- $lineStart := false -}}
-{{- range $tokens -}}
-  {{- $token := . -}}
+{{- range $i, $token := $tokens -}}
   {{- if hasPrefix $token "<" -}}
     {{- $tag := lower (replaceRE `^</?([a-zA-Z0-9-]+).*` "$1" $token) -}}
     {{- $closing := hasPrefix $token "</" -}}
@@ -26,46 +22,96 @@
         {{- $blocked = first (sub (len $blocked) 1) $blocked -}}
       {{- end -}}
       {{- if eq $tag "p" }}{{ $paragraph = false }}{{ end -}}
-      {{- if findRE `^h[1-6]$` $tag }}{{ $heading = 0 }}{{ end -}}
     {{- else if eq (len $blocked) 0 -}}
       {{- if or (in (slice "a" "pre" "code" "script" "style" "textarea" "kbd" "samp" "svg" "math" "mjx-container") $tag) (findRE `(?:class="[^"]*(?:katex|MathJax|footnotes)|role="doc-endnotes"|contenteditable="true")` $token) -}}
         {{- $blocked = $blocked | append $tag -}}
-      {{- else if findRE `^h[1-6]$` $tag -}}
-        {{- $heading = int (strings.TrimPrefix "h" $tag) -}}
-        {{- if and $section (le $heading $level) }}{{ $section = false }}{{ $ended = true }}{{ end -}}
       {{- else if eq $tag "p" -}}
         {{- $paragraph = true -}}{{- $lineStart = true -}}
       {{- else if eq $tag "br" -}}
         {{- $lineStart = true -}}
-      {{- else -}}
+      {{- else if not (in (slice "strong" "b" "em" "i" "u" "s" "del" "ins" "mark" "small" "sub" "sup" "span") $tag) -}}
         {{- $lineStart = false -}}
       {{- end -}}
     {{- else if and (eq $tag (index $blocked (sub (len $blocked) 1))) (not (hasSuffix $token "/>")) -}}
       {{- $blocked = $blocked | append $tag -}}
     {{- end -}}
-  {{- else if eq (len $blocked) 0 -}}
-    {{- if and (gt $heading 0) (eq (strings.TrimSpace $token) "参考文献") (not $ended) -}}
-      {{- $section = true -}}{{- $level = $heading -}}
-    {{- else if and $section $paragraph -}}
-      {{- $pattern := `\n[\t ]*〔([1-9][0-9]*)〕` -}}
-      {{- if $lineStart }}{{ $pattern = `(?:^|\n)[\t ]*〔([1-9][0-9]*)〕` }}{{ end -}}
-      {{- range findRE $pattern $token -}}
-        {{- $label := findRE `〔[1-9][0-9]*〕` . 1 | first 1 -}}
-        {{- $label = index $label 0 -}}
-        {{- $n := strings.TrimSuffix "〕" (strings.TrimPrefix "〔" $label) -}}
-        {{- if not ($entries.Get $n) -}}
-          {{- $id := printf "ref-%s" $n -}}
-          {{- $preferred := $id -}}
-          {{- range seq 2 (add (len $tokens) 2) -}}
-            {{- if not ($used.Get $id) }}{{ break }}{{ end -}}
-            {{- $id = printf "%s-%d" $preferred . -}}
-          {{- end -}}
-          {{- $used.Set $id true -}}{{- $entries.Set $n $id -}}
-          {{- $replacement := printf `%s<span id="%s" data-bw-entry="%s" style="scroll-margin-top:calc(var(--header-height, 80px) + 24px)">%s<!--bw-backlinks-%s--></span>` (strings.TrimSuffix $label .) $id $n $label $n -}}
-          {{- $token = replace $token . $replacement 1 -}}
+  {{- else if and $paragraph (eq (len $blocked) 0) -}}
+    {{- $lines := split $token "\n" -}}
+    {{- $newLines := slice -}}
+    {{- range $li, $line := $lines -}}
+      {{- $outputLine := $line -}}
+      {{- $atLineStart := or (gt $li 0) $lineStart -}}
+      {{- $found := "" -}}
+      {{- if $atLineStart -}}
+        {{- with findRE `^[\t ]*〔[1-9][0-9]*〕` $line 1 -}}
+          {{- $found = index . 0 -}}
         {{- end -}}
       {{- end -}}
+      {{- if $found -}}
+        {{- $label := index (findRE `〔[1-9][0-9]*〕` $found 1) 0 -}}
+        {{- $rest := strings.TrimPrefix $line $found -}}
+        {{- $hasContent := ne (strings.TrimSpace $rest) "" -}}
+        {{- if not $hasContent -}}
+          {{- $stop := false -}}
+          {{- range $rj, $remaining := $lines -}}
+            {{- if and (not $hasContent) (not $stop) (gt $rj $li) -}}
+              {{- if findRE `^[\t ]*〔[1-9][0-9]*〕` $remaining -}}
+                {{- $stop = true -}}
+              {{- else if ne (strings.TrimSpace $remaining) "" -}}
+                {{- $hasContent = true -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+          {{- if not $hasContent -}}
+            {{- $lookLineStart := and (eq $li (sub (len $lines) 1)) (hasSuffix $token "\n") -}}
+            {{- range $j, $next := $tokens -}}
+              {{- if and (not $hasContent) (gt $j $i) -}}
+                {{- if hasPrefix $next "<" -}}
+                  {{- $nextTag := lower (replaceRE `^</?([a-zA-Z0-9-]+).*` "$1" $next) -}}
+                  {{- if hasPrefix $next "</" -}}
+                    {{- if eq $nextTag "p" }}{{ break }}{{ end -}}
+                  {{- else if eq $nextTag "br" -}}
+                    {{- $lookLineStart = true -}}
+                  {{- else if in (slice "img" "video" "audio" "input" "button" "iframe" "object" "embed") $nextTag -}}
+                    {{- $hasContent = true -}}
+                  {{- end -}}
+                {{- else -}}
+                  {{- if hasPrefix $next "\n" }}{{ $lookLineStart = true }}{{ end -}}
+                  {{- if $lookLineStart -}}
+                    {{- if findRE `^[\t ]*〔[1-9][0-9]*〕` $next -}}
+                      {{- break -}}
+                    {{- end -}}
+                  {{- end -}}
+                  {{- if ne (strings.TrimSpace $next) "" -}}
+                    {{- $hasContent = true -}}
+                  {{- end -}}
+                  {{- $lookLineStart = hasSuffix $next "\n" -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if $hasContent -}}
+          {{- $n := strings.TrimSuffix "〕" (strings.TrimPrefix "〔" $label) -}}
+          {{- if not ($entries.Get $n) -}}
+            {{- $id := printf "ref-%s" $n -}}
+            {{- $preferred := $id -}}
+            {{- range seq 2 (add (len $tokens) 2) -}}
+              {{- if not ($used.Get $id) }}{{ break }}{{ end -}}
+              {{- $id = printf "%s-%d" $preferred . -}}
+            {{- end -}}
+            {{- $used.Set $id true -}}{{- $entries.Set $n $id -}}
+            {{- $replacement := printf `<span id="%s" data-bw-entry="true" style="scroll-margin-top:calc(var(--header-height, 80px) + 24px)">%s<!--bw-backlinks-%s--></span>` $id $label $n -}}
+            {{- $outputLine = replace $outputLine $label $replacement 1 -}}
+          {{- else -}}
+            {{- $replacement := printf `<span data-bw-entry="true">%s</span>` $label -}}
+            {{- $outputLine = replace $outputLine $label $replacement 1 -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $newLines = $newLines | append $outputLine -}}
     {{- end -}}
+    {{- $token = delimit $newLines "\n" -}}
     {{- $lineStart = hasSuffix $token "\n" -}}
   {{- end -}}
   {{- $out = $out | append $token -}}
@@ -73,7 +119,6 @@
 {{- if $entries.Values -}}
   {{- $html = delimit $out "" -}}
   {{- $out = slice -}}
-  {{- $body := true -}}
   {{- $blocked = slice -}}
   {{- $occurrences := newScratch -}}
   {{- range findRE `(?s)<!--[\s\S]*?-->|<[^>]*>|[^<]+` $html -}}
@@ -83,15 +128,14 @@
       {{- if hasPrefix $token "</" -}}
         {{- if and (gt (len $blocked) 0) (eq $tag (index $blocked (sub (len $blocked) 1))) }}{{ $blocked = first (sub (len $blocked) 1) $blocked }}{{ end -}}
       {{- else if eq (len $blocked) 0 -}}
-        {{- if or (in (slice "a" "pre" "code" "script" "style" "textarea" "kbd" "samp" "svg" "math" "mjx-container" "h1" "h2" "h3" "h4" "h5" "h6") $tag) (findRE `(?:class="[^"]*(?:katex|MathJax|footnotes)|role="doc-endnotes"|contenteditable="true")` $token) -}}
+        {{- if or (in (slice "a" "pre" "code" "script" "style" "textarea" "kbd" "samp" "svg" "math" "mjx-container" "h1" "h2" "h3" "h4" "h5" "h6") $tag) (findRE `(?:class="[^"]*(?:katex|MathJax|footnotes)|role="doc-endnotes"|contenteditable="true"|data-bw-entry="true")` $token) -}}
           {{- $blocked = $blocked | append $tag -}}
         {{- end -}}
       {{- else if and (eq $tag (index $blocked (sub (len $blocked) 1))) (not (hasSuffix $token "/>")) -}}
         {{- $blocked = $blocked | append $tag -}}
       {{- end -}}
     {{- else -}}
-      {{- if and (gt (len $blocked) 0) (findRE `^h[1-6]$` (index $blocked 0)) (eq (strings.TrimSpace $token) "参考文献") }}{{ $body = false }}{{ end -}}
-      {{- if and $body (eq (len $blocked) 0) -}}
+      {{- if eq (len $blocked) 0 -}}
         {{- /* Keep untypeset math opaque, just as the browser enhancer does. */ -}}
         {{- $parts := findRE `\$\$[\s\S]*?\$\$|\$[^$\n]+\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]|[^$\\]+|[$\\]` $token -}}
         {{- $text := slice -}}
