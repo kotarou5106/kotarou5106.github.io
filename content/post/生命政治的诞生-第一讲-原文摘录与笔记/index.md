@@ -1,5 +1,5 @@
 ---
-{ title: 《生命政治的诞生》第一讲, description: "", categories: [ Phil ], tags: [ 福柯, 生命政治的诞生 ], params: { lang: en }, date: 2026-10-25, draft: false, slug: 生命政治的诞生-第一讲-原文摘录与笔记 }
+{ title: 《生命政治的诞生》第一讲, description: "", categories: [ 哲学 ], tags: [ 福柯, 生命政治的诞生 ], params: { lang: en }, date: 2026-10-25, draft: false, slug: 生命政治的诞生-第一讲-原文摘录与笔记 }
 ---
 
 # 前言
