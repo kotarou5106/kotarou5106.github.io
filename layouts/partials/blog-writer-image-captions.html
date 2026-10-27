@@ -1,23 +1,100 @@
-{{- /* Scoped to figures created by Blog Writer; plain Markdown images retain their rendering. */ -}}
+{{- /* Scoped to figures created by Blog Writer; plain Markdown images retain
+their rendering. */ -}}
 <style>
-.article-content figure.bw-image-caption { display: block; width: 100%; max-width: 100%; margin: 2em auto; }
-.article-content figure.bw-image-caption > img { display: block; width: 100%; max-width: 100%; height: auto; }
-.article-content figure.bw-image-caption > figcaption { margin: 8px 0 0; color: var(--muted, #73736d); text-align: center; font-size: 14px; line-height: 1.6; }
-.article-content figure.bw-image-caption > figcaption p { margin: 0; font-size: inherit; text-align: inherit; }
-.article-content figure.bw-image-caption.bw-width-20 { width: 20%; }
-.article-content figure.bw-image-caption.bw-width-25 { width: 25%; }
-.article-content figure.bw-image-caption.bw-width-30 { width: 30%; }
-.article-content figure.bw-image-caption.bw-width-35 { width: 35%; }
-.article-content figure.bw-image-caption.bw-width-40 { width: 40%; }
-.article-content figure.bw-image-caption.bw-width-45 { width: 45%; }
-.article-content figure.bw-image-caption.bw-width-50 { width: 50%; }
-.article-content figure.bw-image-caption.bw-width-55 { width: 55%; }
-.article-content figure.bw-image-caption.bw-width-60 { width: 60%; }
-.article-content figure.bw-image-caption.bw-width-65 { width: 65%; }
-.article-content figure.bw-image-caption.bw-width-70 { width: 70%; }
-.article-content figure.bw-image-caption.bw-width-75 { width: 75%; }
-.article-content figure.bw-image-caption.bw-width-80 { width: 80%; }
-.article-content figure.bw-image-caption.bw-width-85 { width: 85%; }
-.article-content figure.bw-image-caption.bw-width-90 { width: 90%; }
-.article-content figure.bw-image-caption.bw-width-95 { width: 95%; }
+  .article-content figure.bw-image-caption {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 2em auto;
+  }
+  .article-content figure.bw-image-caption > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .article-content figure.bw-image-caption > figcaption {
+    margin: 8px 0 0;
+    color: var(--muted, #73736d);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .article-content figure.bw-image-caption > figcaption p {
+    margin: 0;
+    font-size: inherit;
+    text-align: inherit;
+  }
+  .article-content figure.bw-image-caption.bw-width-20 {
+    width: 20%;
+  }
+  .article-content figure.bw-image-caption.bw-width-25 {
+    width: 25%;
+  }
+  .article-content figure.bw-image-caption.bw-width-30 {
+    width: 30%;
+  }
+  .article-content figure.bw-image-caption.bw-width-35 {
+    width: 35%;
+  }
+  .article-content figure.bw-image-caption.bw-width-40 {
+    width: 40%;
+  }
+  .article-content figure.bw-image-caption.bw-width-45 {
+    width: 45%;
+  }
+  .article-content figure.bw-image-caption.bw-width-50 {
+    width: 50%;
+  }
+  .article-content figure.bw-image-caption.bw-width-55 {
+    width: 55%;
+  }
+  .article-content figure.bw-image-caption.bw-width-60 {
+    width: 60%;
+  }
+  .article-content figure.bw-image-caption.bw-width-65 {
+    width: 65%;
+  }
+  .article-content figure.bw-image-caption.bw-width-70 {
+    width: 70%;
+  }
+  .article-content figure.bw-image-caption.bw-width-75 {
+    width: 75%;
+  }
+  .article-content figure.bw-image-caption.bw-width-80 {
+    width: 80%;
+  }
+  .article-content figure.bw-image-caption.bw-width-85 {
+    width: 85%;
+  }
+  .article-content figure.bw-image-caption.bw-width-90 {
+    width: 90%;
+  }
+  .article-content figure.bw-image-caption.bw-width-95 {
+    width: 95%;
+  }
+  .article-content .bw-image-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 1.25rem;
+    margin: 2em 0;
+  }
+  .article-content .bw-image-row > figure.bw-image-caption {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+  .article-content .bw-image-row > figure.bw-image-caption > figcaption:empty {
+    display: none;
+  }
+  @media (max-width: 680px) {
+    .article-content .bw-image-row {
+      grid-auto-flow: row;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+  }
 </style>
