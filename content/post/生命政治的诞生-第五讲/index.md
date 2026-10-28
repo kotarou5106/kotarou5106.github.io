@@ -1,5 +1,5 @@
 ---
-{ title: 《生命政治的诞生》第五讲, description: "", categories: [], tags: [], params: { lang: zh }, date: 2026-10-27, draft: false, slug: 生命政治的诞生-第五讲 }
+{ title: 《生命政治的诞生》第五讲, description: "", categories: [ 哲学 ], tags: [ 福柯, 生命政治的诞生 ], params: { lang: zh }, date: 2026-10-27, draft: false, slug: 生命政治的诞生-第五讲 }
 ---
 
 # 正文（1979年2月7日）
