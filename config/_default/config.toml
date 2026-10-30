@@ -1,6 +1,7 @@
 baseurl      = "https://kotarou.quest/"
 languageCode = "zh-cn"
 title        = "Kotarou"
+timeZone     = "Asia/Shanghai"
 
 defaultContentLanguage = "zh-cn"
 
