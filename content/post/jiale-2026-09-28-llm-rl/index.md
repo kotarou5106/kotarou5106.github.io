@@ -5,8 +5,9 @@ title: LLM & RL
 description: ''
 date: '2026-09-28T16:33:42+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- RL
 slug: jiale-2026-09-28-llm-rl
 draft: false
 params:

@@ -28,7 +28,7 @@ ruby scripts/sync-jiale.rb --dry-run
 
 ## 内容适配
 
-- 标题、描述及其他内容元数据沿用源值；分类映射到 `categories`、标签映射到 `tags`。不合并、重命名或补充分类/标签。
+- 标题、描述及其他内容元数据沿用源值；分类映射到 `categories`、标签映射到 `tags`。2026-11-03 首次同步后，按用户要求在 kotarou 将 `LLM` 并入 `大模型`，并为这 10 篇文章各指定一个主要标签。授权映射记录在 manifest 的 `category_map` 与 `tag_overrides` 中，新增文章也会将 `LLM` 映射到 `大模型`；其他分类、未指定覆盖的标签仍沿用源值。映射不修改 jiale。
 - 保留原日期的时分秒；显式时区保持原偏移。源文无时区时间按作者发布提交和本地写作环境使用的 `+08:00` 解释，输出带时区的 ISO 8601。更新时间字段（如果存在）适配到 `lastmod`。
 - `lang` 放到既有文章使用的 `params.lang`，避免 Hugo 把作者内容语言当成站点多语言路由。Jekyll 布局、侧边栏位置、预渲染文件路径和永久链接等渲染控制字段不作为 Hugo 布局指令沿用。
 - Markdown 是源仓库 `_plugins/blog_writer_shared_renderer.rb` 明确指定的 canonical editable document。3 篇文章原有的 `_blog_writer/` HTML 是预渲染缓存，本次从 Markdown 保留正文及 TeX，在目标站使用现有 MathJax 渲染。

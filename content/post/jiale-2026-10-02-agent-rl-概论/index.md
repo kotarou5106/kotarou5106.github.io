@@ -5,8 +5,9 @@ title: Agent RL 概论
 description: ''
 date: '2026-10-02T20:56:27+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- Agent
 slug: jiale-2026-10-02-agent-rl-概论
 draft: false
 params:

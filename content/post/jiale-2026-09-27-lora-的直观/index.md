@@ -5,8 +5,9 @@ title: LoRA & QLoRA
 description: ''
 date: '2026-09-27T15:52:01+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- 微调
 slug: jiale-2026-09-27-lora-的直观
 draft: false
 params:

@@ -5,8 +5,9 @@ title: Transformer 架构复习
 description: ''
 date: '2026-09-03T20:13:32+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- 模型架构
 slug: jiale-2026-09-03-transformer-架构
 draft: false
 params:

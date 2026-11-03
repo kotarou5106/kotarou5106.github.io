@@ -5,8 +5,9 @@ title: 现代LLM 的改进
 description: ''
 date: '2026-09-24T18:01:34+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- 模型架构
 slug: jiale-2026-09-24-现代llm-的改进
 draft: false
 params:

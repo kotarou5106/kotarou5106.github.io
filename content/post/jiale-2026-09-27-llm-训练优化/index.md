@@ -5,8 +5,9 @@ title: LLM 训练优化
 description: ''
 date: '2026-09-27T00:24:34+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- 训练优化
 slug: jiale-2026-09-27-llm-训练优化
 draft: false
 params:

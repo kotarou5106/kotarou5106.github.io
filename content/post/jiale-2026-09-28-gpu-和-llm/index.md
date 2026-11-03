@@ -5,8 +5,9 @@ title: GPU 和 LLM
 description: ''
 date: '2026-09-28T13:17:00+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- GPU
 slug: jiale-2026-09-28-gpu-和-llm
 draft: false
 params:

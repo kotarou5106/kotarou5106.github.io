@@ -5,8 +5,9 @@ title: OPSD
 description: ''
 date: '2026-09-29T14:29:57+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- 知识蒸馏
 slug: jiale-2026-09-29-opsd
 draft: false
 params:

@@ -1,6 +1,21 @@
 {
   "version": 1,
   "repository": "jiale0584/jiale0584.github.io",
+  "category_map": {
+    "LLM": "大模型"
+  },
+  "tag_overrides": {
+    "_posts/2026-09-03-transformer-架构.md": ["模型架构"],
+    "_posts/2026-09-24-现代llm-的改进.md": ["模型架构"],
+    "_posts/2026-09-27-llm-训练优化.md": ["训练优化"],
+    "_posts/2026-09-27-lora-的直观.md": ["微调"],
+    "_posts/2026-09-27-moe.md": ["模型架构"],
+    "_posts/2026-09-28-gpu-和-llm.md": ["GPU"],
+    "_posts/2026-09-28-llm-rl.md": ["RL"],
+    "_posts/2026-09-28-vllm.md": ["推理优化"],
+    "_posts/2026-09-29-opsd.md": ["知识蒸馏"],
+    "_posts/2026-10-02-agent-rl-概论.md": ["Agent"]
+  },
   "posts": {
     "_posts/2026-09-03-transformer-架构.md": {
       "source_sha256": "814edb0a5c26f9525c950158075076a8323bff53a36e03096190e991372d7ee1",
@@ -11,7 +26,7 @@
       "target_files": {
         "content/post/jiale-2026-09-03-transformer-架构/assets/d96d87cfd3ef-image.png": "d96d87cfd3ef75ae88a2adde9e50ab13462abf85b743fc2f18c09a682155bbec",
         "content/post/jiale-2026-09-03-transformer-架构/assets/1a44d3051da3-image-2.png": "1a44d3051da3b33ed6c1239f7ecb0d53efd3be0c710052de8fc78758c91ad5c1",
-        "content/post/jiale-2026-09-03-transformer-架构/index.md": "347501dde75d1a63aef57af712fc4aad123ccf108d98eb952417e17e8b5248f3"
+        "content/post/jiale-2026-09-03-transformer-架构/index.md": "6c577e2594fca702eb6a2cef6ea849e50901b6a6ef861f738782382befa58a45"
       }
     },
     "_posts/2026-09-24-现代llm-的改进.md": {
@@ -19,7 +34,7 @@
       "source_resources": {
       },
       "target_files": {
-        "content/post/jiale-2026-09-24-现代llm-的改进/index.md": "7f91689807082931330b875304d9c11f690bab2824b14eb893730db520b341ef"
+        "content/post/jiale-2026-09-24-现代llm-的改进/index.md": "570602fd8656d47d2ff673854213084bf1a13b7724737af24c71855a5f5123f8"
       }
     },
     "_posts/2026-09-27-llm-训练优化.md": {
@@ -27,7 +42,7 @@
       "source_resources": {
       },
       "target_files": {
-        "content/post/jiale-2026-09-27-llm-训练优化/index.md": "f54475debdee7fd9cda6155f1f952c4826cb6ab3cf6b3c29a2ba497ff2e552c7"
+        "content/post/jiale-2026-09-27-llm-训练优化/index.md": "9328bd12f3f64b1f8a005a86adb2f6ec10ef588535d7f5b8606adbd32522c575"
       }
     },
     "_posts/2026-09-27-lora-的直观.md": {
@@ -35,7 +50,7 @@
       "source_resources": {
       },
       "target_files": {
-        "content/post/jiale-2026-09-27-lora-的直观/index.md": "e61d0be416b8c26d21eb16617785cca53ec216f02b4fbaca04961efee6f1501a"
+        "content/post/jiale-2026-09-27-lora-的直观/index.md": "959ba034a979b98b2820656917bd6bde080487684109e04d1c359c19dbd41c70"
       }
     },
     "_posts/2026-09-27-moe.md": {
@@ -43,7 +58,7 @@
       "source_resources": {
       },
       "target_files": {
-        "content/post/jiale-2026-09-27-moe/index.md": "d548d15760fc18f486aa382a2e8bd7c3c8a749c5add1c5f159d55ad681286b3f"
+        "content/post/jiale-2026-09-27-moe/index.md": "7aa83ba8a5e68f83892fe93df9e1f8065f652b1d19c9dc01b89e8d2b23aa3a69"
       }
     },
     "_posts/2026-09-28-gpu-和-llm.md": {
@@ -53,7 +68,7 @@
       },
       "target_files": {
         "content/post/jiale-2026-09-28-gpu-和-llm/assets/abed8d20c548-image.png": "abed8d20c548aebfdbb4799223e516d12f9658b9b509085f4edb7389b5882670",
-        "content/post/jiale-2026-09-28-gpu-和-llm/index.md": "23a68f35f530ce1256d3ab0a4413759b351229361fe747d1a90ee0c0fa67098e"
+        "content/post/jiale-2026-09-28-gpu-和-llm/index.md": "918232ea801e42f9be638a02675ab521079e7561f0072e4be4ab9abd45597b90"
       }
     },
     "_posts/2026-09-28-llm-rl.md": {
@@ -71,7 +86,7 @@
         "content/post/jiale-2026-09-28-llm-rl/assets/7dc5c9741738-image-3.png": "7dc5c974173852bd4609340a6a8fe5e941ca3ce9dbf2c5815e2d5e02dfe52de4",
         "content/post/jiale-2026-09-28-llm-rl/assets/ddcb2ce4cba5-image-5.png": "ddcb2ce4cba5443cf7d063c09b5159c52ca465521839cdfbeda37e0545b790c7",
         "content/post/jiale-2026-09-28-llm-rl/assets/4032e1e78a80-image-4.png": "4032e1e78a8086ff75a97f3514ac66256b3c6f6175ab6c82062a1252d55e5123",
-        "content/post/jiale-2026-09-28-llm-rl/index.md": "1428e8c115c137382b7a2a6fe7b25a410538ce10480c398972190ec5e262dfae"
+        "content/post/jiale-2026-09-28-llm-rl/index.md": "c2e13e280f11b41da3ce3303062d74be3086053b7bb86da82d063187fc06db69"
       }
     },
     "_posts/2026-09-28-vllm.md": {
@@ -81,7 +96,7 @@
       },
       "target_files": {
         "content/post/jiale-2026-09-28-vllm/assets/ab03550c7489-image.png": "ab03550c74897b95d517326e3ab40a5c1b16c526b671f0ad5c0aa373cd0b8db4",
-        "content/post/jiale-2026-09-28-vllm/index.md": "59eb5a280f1446003d7298fcec79a157591409ff130a89a748f571710682c60c"
+        "content/post/jiale-2026-09-28-vllm/index.md": "376798206d8a43f5c867035aecd441754e4140e2e2f59eb60646d07c63bcbdd0"
       }
     },
     "_posts/2026-09-29-opsd.md": {
@@ -89,7 +104,7 @@
       "source_resources": {
       },
       "target_files": {
-        "content/post/jiale-2026-09-29-opsd/index.md": "2193b8c679eb6bd31ccaea84eecab7fdd59f21209b39b7d3e359bb02d56edcd5"
+        "content/post/jiale-2026-09-29-opsd/index.md": "56fd1d2f1d255db5f738a76956e9b3bf148d85bea5d184786432891d30bb8f24"
       }
     },
     "_posts/2026-10-02-agent-rl-概论.md": {
@@ -97,7 +112,7 @@
       "source_resources": {
       },
       "target_files": {
-        "content/post/jiale-2026-10-02-agent-rl-概论/index.md": "fc9c266c57b56150c9e0d7053e7b1b37004a943796c7c97fcdf2aba21beb929e"
+        "content/post/jiale-2026-10-02-agent-rl-概论/index.md": "29f86c18381cccdfe8ab8886c769d60568ff6e7be66565a16c2485668929effb"
       }
     }
   }

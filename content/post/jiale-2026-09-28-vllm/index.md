@@ -5,8 +5,9 @@ title: vLLM
 description: ''
 date: '2026-09-28T15:45:55+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- 推理优化
 slug: jiale-2026-09-28-vllm
 draft: false
 params:

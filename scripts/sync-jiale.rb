@@ -188,6 +188,9 @@ module JialeSync
         tags = meta.fetch('tags', [])
         categories = categories.split if categories.is_a?(String)
         tags = tags.split if tags.is_a?(String)
+        # Explicit, user-approved taxonomy choices belong to kotarou only.
+        categories = categories.map { |category| manifest.fetch('category_map', {}).fetch(category, category) }
+        tags = manifest.fetch('tag_overrides', {}).fetch(relative, tags)
         title_slug = name.sub(/\A\d{4}-\d\d-\d\d-/, '')
         origin_url = "https://jiale0584.github.io/blog/#{publication[0, 4]}/#{title_slug}/"
         front = meta.reject { |k, _| %w[layout date lang categories category tags toc permalink slug url published blog_writer_rendered_body last_modified_at updated updated_at lastmod].include?(k) }

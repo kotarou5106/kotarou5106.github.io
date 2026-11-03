@@ -5,8 +5,9 @@ title: MoE
 description: ''
 date: '2026-09-27T20:19:34+08:00'
 categories:
-- LLM
-tags: []
+- 大模型
+tags:
+- 模型架构
 slug: jiale-2026-09-27-moe
 draft: false
 params:
