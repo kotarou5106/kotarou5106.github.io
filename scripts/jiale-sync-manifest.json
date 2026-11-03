@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "repository": "jiale0584/jiale0584.github.io",
+  "posts": {
+    "_posts/2026-09-03-transformer-架构.md": {
+      "source_sha256": "814edb0a5c26f9525c950158075076a8323bff53a36e03096190e991372d7ee1",
+      "source_resources": {
+        "assets/img/posts/transformer-u67b6-u6784/image.png": "d96d87cfd3ef75ae88a2adde9e50ab13462abf85b743fc2f18c09a682155bbec",
+        "assets/img/posts/transformer-u67b6-u6784/image-2.png": "1a44d3051da3b33ed6c1239f7ecb0d53efd3be0c710052de8fc78758c91ad5c1"
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-03-transformer-架构/assets/d96d87cfd3ef-image.png": "d96d87cfd3ef75ae88a2adde9e50ab13462abf85b743fc2f18c09a682155bbec",
+        "content/post/jiale-2026-09-03-transformer-架构/assets/1a44d3051da3-image-2.png": "1a44d3051da3b33ed6c1239f7ecb0d53efd3be0c710052de8fc78758c91ad5c1",
+        "content/post/jiale-2026-09-03-transformer-架构/index.md": "347501dde75d1a63aef57af712fc4aad123ccf108d98eb952417e17e8b5248f3"
+      }
+    },
+    "_posts/2026-09-24-现代llm-的改进.md": {
+      "source_sha256": "65c109dd814664fe9c649924e1d3325d8a059995afb5a440e2071ce98e130539",
+      "source_resources": {
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-24-现代llm-的改进/index.md": "7f91689807082931330b875304d9c11f690bab2824b14eb893730db520b341ef"
+      }
+    },
+    "_posts/2026-09-27-llm-训练优化.md": {
+      "source_sha256": "afb1e1557bf3f9393ae01669d24b5b96d7afa48ff554c93a117c8f150414e54f",
+      "source_resources": {
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-27-llm-训练优化/index.md": "f54475debdee7fd9cda6155f1f952c4826cb6ab3cf6b3c29a2ba497ff2e552c7"
+      }
+    },
+    "_posts/2026-09-27-lora-的直观.md": {
+      "source_sha256": "fbd29baff920ca3090240ab8b48bc19d273f29c7070b646f6c242d52b80325cd",
+      "source_resources": {
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-27-lora-的直观/index.md": "e61d0be416b8c26d21eb16617785cca53ec216f02b4fbaca04961efee6f1501a"
+      }
+    },
+    "_posts/2026-09-27-moe.md": {
+      "source_sha256": "c3f82f0301da532d566ebd421e7b0e9a16f3ff4a6fa69beff4dea52002f1ebff",
+      "source_resources": {
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-27-moe/index.md": "d548d15760fc18f486aa382a2e8bd7c3c8a749c5add1c5f159d55ad681286b3f"
+      }
+    },
+    "_posts/2026-09-28-gpu-和-llm.md": {
+      "source_sha256": "f045a769a9b8a5b5c64b73af9228521cc1ed309ad0501aea8301f9fa17f42bbf",
+      "source_resources": {
+        "assets/img/posts/gpu-u548c-llm/image.png": "abed8d20c548aebfdbb4799223e516d12f9658b9b509085f4edb7389b5882670"
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-28-gpu-和-llm/assets/abed8d20c548-image.png": "abed8d20c548aebfdbb4799223e516d12f9658b9b509085f4edb7389b5882670",
+        "content/post/jiale-2026-09-28-gpu-和-llm/index.md": "23a68f35f530ce1256d3ab0a4413759b351229361fe747d1a90ee0c0fa67098e"
+      }
+    },
+    "_posts/2026-09-28-llm-rl.md": {
+      "source_sha256": "228f3629760c2e7773210e8fdbcc512a957c2ece2dc41409bdc72b130db0dab4",
+      "source_resources": {
+        "assets/img/posts/llm-rl/image.png": "ff5e6375c32c10d51a40ad19cdf28533fb0fbaf2b93609b1a4388307974bb073",
+        "assets/img/posts/llm-rl/image-2.png": "730e9002d2a0b906a148640dcbee9d688f303b537933ef05a7312521adb73c3a",
+        "assets/img/posts/llm-rl/image-3.png": "7dc5c974173852bd4609340a6a8fe5e941ca3ce9dbf2c5815e2d5e02dfe52de4",
+        "assets/img/posts/llm-rl/image-5.png": "ddcb2ce4cba5443cf7d063c09b5159c52ca465521839cdfbeda37e0545b790c7",
+        "assets/img/posts/llm-rl/image-4.png": "4032e1e78a8086ff75a97f3514ac66256b3c6f6175ab6c82062a1252d55e5123"
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-28-llm-rl/assets/ff5e6375c32c-image.png": "ff5e6375c32c10d51a40ad19cdf28533fb0fbaf2b93609b1a4388307974bb073",
+        "content/post/jiale-2026-09-28-llm-rl/assets/730e9002d2a0-image-2.png": "730e9002d2a0b906a148640dcbee9d688f303b537933ef05a7312521adb73c3a",
+        "content/post/jiale-2026-09-28-llm-rl/assets/7dc5c9741738-image-3.png": "7dc5c974173852bd4609340a6a8fe5e941ca3ce9dbf2c5815e2d5e02dfe52de4",
+        "content/post/jiale-2026-09-28-llm-rl/assets/ddcb2ce4cba5-image-5.png": "ddcb2ce4cba5443cf7d063c09b5159c52ca465521839cdfbeda37e0545b790c7",
+        "content/post/jiale-2026-09-28-llm-rl/assets/4032e1e78a80-image-4.png": "4032e1e78a8086ff75a97f3514ac66256b3c6f6175ab6c82062a1252d55e5123",
+        "content/post/jiale-2026-09-28-llm-rl/index.md": "1428e8c115c137382b7a2a6fe7b25a410538ce10480c398972190ec5e262dfae"
+      }
+    },
+    "_posts/2026-09-28-vllm.md": {
+      "source_sha256": "e795477b0abe5434b7dd3dc0b3a4df0ebd85e52f2c6b27ca4741faa173c8ea4f",
+      "source_resources": {
+        "assets/img/posts/vllm/image.png": "ab03550c74897b95d517326e3ab40a5c1b16c526b671f0ad5c0aa373cd0b8db4"
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-28-vllm/assets/ab03550c7489-image.png": "ab03550c74897b95d517326e3ab40a5c1b16c526b671f0ad5c0aa373cd0b8db4",
+        "content/post/jiale-2026-09-28-vllm/index.md": "59eb5a280f1446003d7298fcec79a157591409ff130a89a748f571710682c60c"
+      }
+    },
+    "_posts/2026-09-29-opsd.md": {
+      "source_sha256": "e87412b0a1b4bbdb99b414de9c286879807912596c4967dff95792c35df554e5",
+      "source_resources": {
+      },
+      "target_files": {
+        "content/post/jiale-2026-09-29-opsd/index.md": "2193b8c679eb6bd31ccaea84eecab7fdd59f21209b39b7d3e359bb02d56edcd5"
+      }
+    },
+    "_posts/2026-10-02-agent-rl-概论.md": {
+      "source_sha256": "27bce356f49e727e48b00db8504dd2490cbb18830d2f7a353fdae67436e6c1f8",
+      "source_resources": {
+      },
+      "target_files": {
+        "content/post/jiale-2026-10-02-agent-rl-概论/index.md": "fc9c266c57b56150c9e0d7053e7b1b37004a943796c7c97fcdf2aba21beb929e"
+      }
+    }
+  }
+}
