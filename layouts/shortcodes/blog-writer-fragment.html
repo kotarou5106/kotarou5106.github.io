@@ -1,0 +1,6 @@
+{{- with .Page.File -}}
+  {{- $relative := strings.TrimPrefix (printf "%s/" (strings.TrimSuffix "/" hugo.WorkingDir)) .Filename -}}
+  {{- $file := path.Join (path.Dir $relative) "blog-writer-render.json" -}}
+  {{- $copy := os.ReadFile $file | transform.Unmarshal -}}
+  {{- index $copy.fragments (int ($.Get 0)) | safeHTML -}}
+{{- end -}}
