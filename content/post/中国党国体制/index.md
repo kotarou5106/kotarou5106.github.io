@@ -1,5 +1,5 @@
 ---
-{ title: "# 中国党国体制", description: "", categories: [ 政治 ], tags: [ 中国政治 ], params: { lang: zh }, date: 2026-11-15T22:47:02+08:00, draft: false, slug: 中国党国体制 }
+{ title: "中国党国体制", description: "", categories: [ 政治 ], tags: [ 中国政治 ], params: { lang: zh }, date: 2026-11-15T22:47:02+08:00, draft: false, slug: 中国党国体制 }
 ---
 
 中国共产党的政治组织具有很强的历史连续性。自1949年中华人民共和国成立以来，除了文化大革命初期的特殊混乱时期，共产党始终掌握国家最高政治权力。改革开放改变了经济制度、社会结构和干部选拔方式，却没有改变共产党作为唯一执政党的基本地位。
