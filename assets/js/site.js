@@ -181,6 +181,14 @@
             return;
         }
 
+        // Keep one entry per article and a consistent order before filtering/paging.
+        posts = Array.from(new Map(posts.map(function (post) {
+            return [post.url, post];
+        })).values()).sort(function (a, b) {
+            if (a.date !== b.date) return a.date > b.date ? -1 : 1;
+            return a.url < b.url ? -1 : a.url > b.url ? 1 : 0;
+        });
+
         var categoryTags = new Map();
         var tagCategories = new Map();
 
@@ -265,7 +273,7 @@
             });
         }
 
-        function createPostList(list, showCategories) {
+        function createPostList(list) {
             var ul = document.createElement("ul");
             ul.className = "post-list blog-post-list";
             list.forEach(function (post) {
@@ -278,12 +286,6 @@
                 title.className = "post-list-title";
                 title.textContent = post.title;
                 copy.appendChild(title);
-                if (showCategories) {
-                    var postCategories = document.createElement("span");
-                    postCategories.className = "post-list-categories";
-                    postCategories.textContent = "分类：" + post.categories.join(" / ");
-                    copy.appendChild(postCategories);
-                }
                 var time = document.createElement("time");
                 time.dateTime = post.date;
                 time.textContent = post.dateDisplay;
@@ -294,63 +296,11 @@
             return ul;
         }
 
-        function renderTagView(pagePosts) {
-            var fragment = document.createDocumentFragment();
-            var header = document.createElement("header");
-            header.className = "result-context";
-            var relatedCategories = Array.from(tagCategories.get(state.tag)).sort(function (a, b) { return a.localeCompare(b); });
-            var path = document.createElement("p");
-            path.className = "result-path";
-            path.textContent = (state.category || relatedCategories.join(" / ")) + " / " + state.tag;
-            var heading = document.createElement("h2");
-            heading.textContent = state.tag;
-            var relationship = document.createElement("p");
-            relationship.className = "result-relationship";
-            relationship.textContent = "所属分类：" + relatedCategories.join(" / ");
-            header.append(path, heading, relationship);
-            fragment.append(header, createPostList(pagePosts, true));
-            return fragment;
-        }
-
-        function renderHierarchy(pagePosts, scopePosts) {
-            var fragment = document.createDocumentFragment();
-            var visibleCategories = state.category ? [state.category] : categories;
-
-            visibleCategories.forEach(function (category) {
-                var categoryPosts = pagePosts.filter(function (post) { return post.categories.includes(category); });
-                if (!categoryPosts.length) return;
-                var section = document.createElement("section");
-                section.className = "category-result";
-                var heading = document.createElement("h2");
-                heading.textContent = category;
-                section.appendChild(heading);
-
-                Array.from(categoryTags.get(category)).sort(function (a, b) { return a.localeCompare(b); }).forEach(function (tag) {
-                    var groupPosts = categoryPosts.filter(function (post) { return post.tags.includes(tag); });
-                    if (!groupPosts.length) return;
-                    var total = scopePosts.filter(function (post) {
-                        return post.categories.includes(category) && post.tags.includes(tag);
-                    }).length;
-                    var group = document.createElement("section");
-                    group.className = "tag-result";
-                    var groupHeading = document.createElement("h3");
-                    groupHeading.textContent = tag;
-                    var count = document.createElement("span");
-                    count.textContent = total + " 篇";
-                    groupHeading.appendChild(count);
-                    group.append(groupHeading, createPostList(groupPosts, false));
-                    section.appendChild(group);
-                });
-                fragment.appendChild(section);
-            });
-            return fragment;
-        }
-
         function filteredPosts() {
             return posts.filter(function (post) {
                 if (!matchesSearch(post)) return false;
-                if (state.tag) return post.tags.includes(state.tag);
-                if (state.category) return post.categories.includes(state.category);
+                if (state.tag && !post.tags.includes(state.tag)) return false;
+                if (state.category && !post.categories.includes(state.category)) return false;
                 return true;
             });
         }
@@ -399,7 +349,7 @@
             setPressed("category", state.category);
             setPressed("tag", state.tag);
             if (searchInput.value !== state.query) searchInput.value = state.query;
-            if (filtered.length) showResults(state.tag ? renderTagView(pagePosts) : renderHierarchy(pagePosts, filtered));
+            if (filtered.length) showResults(createPostList(pagePosts));
             else fallback.replaceChildren();
         }
 

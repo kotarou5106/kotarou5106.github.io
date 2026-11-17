@@ -1,6 +1,13 @@
 {{ define "main" }}
 {{- $posts := where site.RegularPages "Section" "post" -}}
-{{- $posts = $posts.ByDate.Reverse -}}
+{{- /* Order publication days descending, then URLs ascending for stable ties. */ -}}
+{{- $orderedPosts := slice -}}
+{{- range $posts.GroupByDate "2006-01-02" "desc" -}}
+    {{- range sort .Pages "RelPermalink" "asc" -}}
+        {{- $orderedPosts = $orderedPosts | append . -}}
+    {{- end -}}
+{{- end -}}
+{{- $posts = $orderedPosts -}}
 {{- $searchIndex := slice -}}
 {{- range $posts -}}
     {{- $categories := slice -}}
@@ -59,7 +66,6 @@
                 <a href="{{ .RelPermalink }}">
                     <span class="post-list-copy">
                         <span class="post-list-title">{{ .Title }}</span>
-                        {{- with .Description }}<span class="post-list-description">{{ . }}</span>{{ end }}
                     </span>
                     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
                 </a>
