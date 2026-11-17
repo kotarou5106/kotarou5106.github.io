@@ -168,7 +168,7 @@
         var previous = root.querySelector("[data-page-prev]");
         var next = root.querySelector("[data-page-next]");
         var jump = root.querySelector("[data-page-jump]");
-        var postsPerPage = 5;
+        var postsPerPage = 10;
         var untagged = "未标注标签";
         var uncategorized = "未分类";
         var legacyCategories = { phil: "哲学" };
