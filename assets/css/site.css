@@ -519,6 +519,20 @@ button { font: inherit; }
     letter-spacing: 0.04em;
 }
 
+.toc-header .immersive-toggle { margin-left: auto; }
+.immersive-exit-icon,
+.immersive-toggle[aria-pressed="true"] .immersive-enter-icon { display: none; }
+.immersive-toggle[aria-pressed="true"] .immersive-exit-icon { display: inline; }
+
+html.immersive-reading { background: var(--background); }
+.immersive-reading .site-header { display: none; }
+.immersive-reading .site-main { padding-top: 32px; }
+.immersive-reading .article-header { margin-top: 0; }
+.immersive-reading .article-toc-panel { top: 24px; }
+
+/* Avoid smooth scrolling and scroll anchoring competing with position restoration. */
+html.immersive-switching { scroll-behavior: auto; overflow-anchor: none; }
+
 .toc-header button,
 .toc-restore {
     display: grid;

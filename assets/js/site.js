@@ -87,7 +87,8 @@
         });
 
         document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape" && root.dataset.state === "open") {
+            if (event.key === "Escape" && root.dataset.state === "open" &&
+                !document.documentElement.classList.contains("immersive-reading")) {
                 closeToc();
                 return;
             }
@@ -141,7 +142,13 @@
                     else link.removeAttribute("aria-current");
                 });
                 var current = root.querySelector('[aria-current="location"]');
-                if (current && root.dataset.state === "open") current.scrollIntoView({ block: "nearest" });
+                if (current && root.dataset.state === "open") {
+                    var scroller = root.querySelector(".article-toc-scroll");
+                    var itemRect = current.getBoundingClientRect();
+                    var scrollRect = scroller.getBoundingClientRect();
+                    if (itemRect.top < scrollRect.top) scroller.scrollTop += itemRect.top - scrollRect.top;
+                    else if (itemRect.bottom > scrollRect.bottom) scroller.scrollTop += itemRect.bottom - scrollRect.bottom;
+                }
             }
             function requestActiveHeadingUpdate() {
                 if (!frame) frame = window.requestAnimationFrame(updateActiveHeading);
