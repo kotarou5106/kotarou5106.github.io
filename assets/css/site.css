@@ -303,9 +303,11 @@ button { font: inherit; }
 
 .tag-filter { margin-top: 2px; }
 .tag-filter-content { min-width: 0; flex: 1; display: grid; gap: 10px; }
-.tag-filter-cluster { display: flex; align-items: flex-start; gap: 10px; min-width: 0; }
-.tag-cluster-label { flex: 0 0 54px; padding-top: 5px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.tag-filter-cluster { display: grid; grid-template-columns: 84px minmax(0, 1fr); align-items: start; gap: 10px; min-width: 0; }
+.tag-cluster-label { padding-top: 5px; color: var(--muted); font-size: 12px; font-weight: 600; white-space: nowrap; }
 .tag-filter-cluster .filter-chips { min-width: 0; }
+.tag-filter-cluster .filter-chips:only-child { grid-column: 1 / -1; }
+.tag-filter-cluster button { max-width: 100%; overflow-wrap: anywhere; }
 .tag-all { margin-bottom: 2px; }
 
 .filter-chips button,
@@ -835,8 +837,6 @@ button { font: inherit; }
     .filter-label { display: block; padding: 0 0 8px; }
     .category-chips { width: 100%; }
     .tag-filter-content { gap: 12px; }
-    .tag-filter-cluster { display: block; }
-    .tag-cluster-label { display: block; padding: 0 0 6px; }
     .blog-results { margin-top: 38px; }
     .category-result + .category-result { margin-top: 40px; }
     .tag-result { margin-top: 24px; }

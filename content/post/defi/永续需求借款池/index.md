@@ -4,9 +4,9 @@ description: "基于 PDLP 论文材料，整理其核心定义、博弈结构、
 date: 2026-04-26
 math: true
 categories:
-  - Crypto
+  - 经济
 tags:
-  - perp
+  - 加密货币
 draft: false
 ---
 

@@ -4,9 +4,9 @@ description: "从数学建模、随机分析与金融实证全流程拆解 Milio
 date: 2026-04-21
 math: true
 categories:
-  - Crypto
+  - 经济
 tags:
-  - AMM
+  - 加密货币
 draft: false
 ---
 

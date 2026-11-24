@@ -4,9 +4,9 @@ description: "围绕链上清算的激励、风险与不稳定性，整理抵押
 date: 2026-05-11
 math: true
 categories:
-  - Crypto
+  - 经济
 tags:
-  - DeFi
+  - 加密货币
 draft: false
 ---
 

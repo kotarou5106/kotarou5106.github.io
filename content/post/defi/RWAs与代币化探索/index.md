@@ -4,10 +4,9 @@ description: "基于链上账本、共识与智能合约的 RWA 代币化动机�
 date: 2026-05-11
 math: true
 categories:
-  - Crypto
+  - 经济
 tags:
-  - RWA
-  - DeFi
+  - 加密货币
 draft: false
 ---
 

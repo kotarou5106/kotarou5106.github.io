@@ -206,6 +206,9 @@
         });
 
         var categories = Array.from(categoryTags.keys()).sort(function (a, b) { return a.localeCompare(b); });
+        var tagGroupCategories = categories.slice().sort(function (a, b) {
+            return categoryTags.get(a).size - categoryTags.get(b).size || a.localeCompare(b);
+        });
         var tags = Array.from(tagCategories.keys()).sort(function (a, b) { return a.localeCompare(b); });
         var state = readState();
 
@@ -253,7 +256,7 @@
             all.appendChild(createButton("", "All"));
             tagFilters.appendChild(all);
 
-            var visibleCategories = state.category ? [state.category] : categories;
+            var visibleCategories = state.category ? [state.category] : tagGroupCategories;
             visibleCategories.forEach(function (category) {
                 var cluster = document.createElement("div");
                 cluster.className = "tag-filter-cluster";

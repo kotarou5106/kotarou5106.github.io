@@ -3,10 +3,10 @@ title: "空投与 Sybil"
 date: 2026-05-11
 description: "基于 arXiv:2209.04603：空投与 Sybil、DApp/协议分层、图 4–7 资金模式示意、事件日志与图算法框架；附 DBSCAN 插注；末段讨论、相关工作与双重验证结论。"
 tags:
-  - Airdrop
+  - 加密货币
 math: true
 categories:
-  - Crypto
+  - 经济
 draft: false
 ---
 

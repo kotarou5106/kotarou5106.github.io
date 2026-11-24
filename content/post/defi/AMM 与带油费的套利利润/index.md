@@ -4,9 +4,9 @@ description: "基于 Milionis 等论文，重构 AMM 中 LVR、手续费与离�
 date: 2026-04-26
 math: true
 categories:
-  - Crypto
+  - 经济
 tags:
-  - AMM
+  - 加密货币
 draft: false
 ---
 
