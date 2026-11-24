@@ -1,0 +1,35 @@
+{{- /* Keep Hugo's native figure parameters and resource resolution. Only the
+      caption rendering differs: Markdown plus protected MathJax delimiters. */ -}}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+  {{- with .Get "link" -}}
+    <a href="{{ . }}"{{ with $.Get "target" }} target="{{ . }}"{{ end }}{{ with $.Get "rel" }} rel="{{ . }}"{{ end }}>
+  {{- end -}}
+  {{- $u := urls.Parse (.Get "src") -}}
+  {{- $src := $u.String -}}
+  {{- if not $u.IsAbs -}}
+    {{- with or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+      {{- $src = .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+  <img src="{{ $src }}"
+    {{- if or (.Get "alt") (.Get "caption") }} alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ $.Get "caption" | htmlUnescape | plainify }}{{ end }}"{{ end -}}
+    {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+    {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+    {{- with .Get "loading" }} loading="{{ . }}"{{ end -}}
+  >
+  {{- if .Get "link" }}</a>{{ end -}}
+  {{- if or (.Get "title") (.Get "caption") (.Get "attr") -}}
+    <figcaption>
+      {{- with .Get "title" }}<h4>{{ . }}</h4>{{ end -}}
+      {{- with .Get "caption" -}}
+        {{- partial "blog-writer-caption-markdown.html" (dict "page" $.Page "caption" .) -}}
+      {{- end -}}
+      {{- with .Get "attr" -}}
+        {{- if $.Get "caption" }} {{ end -}}
+        {{- with $.Get "attrlink" }}<a href="{{ . }}">{{ end -}}
+        {{- . | htmlUnescape -}}
+        {{- if $.Get "attrlink" }}</a>{{ end -}}
+      {{- end -}}
+    </figcaption>
+  {{- end -}}
+</figure>

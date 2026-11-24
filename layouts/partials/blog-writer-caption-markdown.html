@@ -1,0 +1,42 @@
+{{- /* Decode the shortcode transport once, before parsing Markdown. Protect TeX
+      from Markdown emphasis/escapes, leaving it for the page's existing MathJax.
+      Code and raw HTML are tokenized first so dollars in code stay literal and
+      caption HTML cannot bypass Markdown's handling. No article source changes. */ -}}
+{{- /* Keep transport-encoded quotation marks as character references so the
+      site's typographer does not change historical literal quotes. */ -}}
+{{- $source := .caption | replaceRE `&#(34|39);` "&amp;#$1;" | htmlUnescape -}}
+{{- $prefix := printf "BWCaptionMath%sX" (crypto.SHA256 $source) -}}
+{{- $markdown := "" -}}
+{{- $math := slice -}}
+{{- $tokens := findRE "(?s)```.*?```|`[^`]*`|\\\\[$]|\\$\\$.*?\\$\\$|\\$(?:\\\\.|[^$\\\\\\n])+\\$|\\\\\\(.*?\\\\\\)|\\\\\\[.*?\\\\\\]|<[^>]*>|[^`$<\\\\]+|." $source -}}
+{{- range $tokens -}}
+  {{- if or (hasPrefix . "$") (hasPrefix . `\(`) (hasPrefix . `\[`) -}}
+    {{- if gt (len .) 1 -}}
+      {{- $key := printf "%s%dEND" $prefix (len $math) -}}
+      {{- $math = $math | append (dict "key" $key "tex" .) -}}
+      {{- $markdown = printf "%s%s" $markdown $key -}}
+    {{- else -}}
+      {{- $markdown = printf "%s%s" $markdown . -}}
+    {{- end -}}
+  {{- else if hasPrefix . "<" -}}
+    {{- $markdown = printf "%s%s" $markdown (htmlEscape .) -}}
+  {{- else if hasPrefix . "`" -}}
+    {{- $markdown = printf "%s%s" $markdown (replace (replace . "&#34;" `"`) "&#39;" "'") -}}
+  {{- else -}}
+    {{- $markdown = printf "%s%s" $markdown (replace . "\n" "  \n") -}}
+  {{- end -}}
+{{- end -}}
+{{- $html := .page.RenderString (dict "display" "inline") $markdown -}}
+{{- /* The blog permits raw HTML in article Markdown. Captions deliberately do
+      not: also discard unsafe link schemes when Goldmark's unsafe mode is on. */ -}}
+{{- range findRESubmatch `<a href="([^"]*)"[^>]*>` $html -}}
+  {{- $url := lower (replaceRE `[\x00-\x20]` "" (htmlUnescape (index . 1))) -}}
+  {{- if findRE `^(javascript|vbscript|file|data):` $url -}}
+    {{- $html = replace $html (index . 0) "<a>" -}}
+  {{- end -}}
+{{- end -}}
+{{- range $math -}}
+  {{- $tex := replace (replace .tex "&#34;" `"`) "&#39;" "'" -}}
+  {{- $html = replace $html .key (printf `<span class="bw-caption-math">%s</span>` (htmlEscape $tex)) -}}
+{{- end -}}
+{{- return ($html | safeHTML) -}}
