@@ -54,15 +54,15 @@ const enhance = function enhanceReferences(root) {
       for (const child of Array.from(element.childNodes)) visit2(child);
     };
     for (const child of Array.from(paragraph2.childNodes)) visit2(child);
-    const text4 = pieces.join("");
-    const matches = [...text4.matchAll(/(?:^|\n)[ \t]*〔([1-9]\d*)〕/g)];
+    const text5 = pieces.join("");
+    const matches = [...text5.matchAll(/(?:^|\n)[ \t]*〔([1-9]\d*)〕/g)];
     if (!matches.length) continue;
     const wraps = [];
     for (const [index, match2] of matches.entries()) {
       const labelStart = match2.index + match2[0].indexOf("\u3014");
       const labelEnd = labelStart + match2[0].length - match2[0].indexOf("\u3014");
-      const nextStart = matches[index + 1]?.index ?? text4.length;
-      if (!/\S/.test(text4.slice(labelEnd, nextStart))) continue;
+      const nextStart = matches[index + 1]?.index ?? text5.length;
+      if (!/\S/.test(text5.slice(labelEnd, nextStart))) continue;
       const segment = segments.find(
         (candidate) => labelStart >= candidate.start && labelEnd <= candidate.end
       );
@@ -167,13 +167,13 @@ const enhance = function enhanceReferences(root) {
       }
       for (const child of Array.from(element.childNodes)) walk(child);
     } else if (node2.nodeType === 3) {
-      const text4 = node2.textContent || "";
+      const text5 = node2.textContent || "";
       const math2 = [
-        ...text4.matchAll(
+        ...text5.matchAll(
           /\$\$[\s\S]*?\$\$|\$(?!\s)[^$\n]*?\$|\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]/g
         )
       ];
-      const matches = [...text4.matchAll(/〔([1-9]\d*)〕/g)].filter(
+      const matches = [...text5.matchAll(/〔([1-9]\d*)〕/g)].filter(
         (match2) => entries.has(Number(match2[1])) && !math2.some(
           (range) => match2.index >= range.index && match2.index < range.index + range[0].length
         )
@@ -182,7 +182,7 @@ const enhance = function enhanceReferences(root) {
       const fragment = doc.createDocumentFragment();
       let offset = 0;
       for (const match2 of matches) {
-        fragment.append(text4.slice(offset, match2.index));
+        fragment.append(text5.slice(offset, match2.index));
         const sup2 = doc.createElement("sup");
         const link2 = doc.createElement("a");
         link2.textContent = match2[0];
@@ -191,7 +191,7 @@ const enhance = function enhanceReferences(root) {
         fragment.append(sup2);
         offset = match2.index + match2[0].length;
       }
-      fragment.append(text4.slice(offset));
+      fragment.append(text5.slice(offset));
       node2.parentNode.replaceChild(fragment, node2);
     }
   };
