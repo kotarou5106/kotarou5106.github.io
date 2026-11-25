@@ -13,7 +13,13 @@
 
 资产收益率的线性模型是本书的基石。它们灵活、可解释，在实际应用中表现良好，并有理论支持。此外，它们与均值—方差优化十分契合，也可以作为风险管理、业绩分析等若干重要任务的基础。你（读者）可能会在某个时候发现，这类模型在某些方面并不充分。但是，即使你的研究已经超出了这类模型的范围，也不意味着你会发现它们毫无用处。它们仍然能够帮助你思考整个投资过程，其中的一些理论也会派上用场。
 
+![image](image-8.png)
+
+***
+
 ## 4.1 因子模型
+
+![image](image-5.png)
 
 在第 2 章中，我们已经看到如何对单变量收益率建模。向多变量收益率的一种直接扩展，是将每只证券的收益率建模为一个独立过程。然而，这并不充分，因为收益率之间存在依赖关系。一个自然的步骤是，将股票之间的共同依赖关系建模为由少数共同的随机性来源所产生，这些来源称为 **因子（Factors）**；然后，为每只证券保留一个独立于因子的随机性来源。股票收益率的这一模型称为 **因子模型（Factor Model）** [^1]，其形式为：
 
@@ -30,13 +36,18 @@ $$
 - $\mathbf B$ 是一个 $n\times m$ 的 **载荷矩阵（Loadings Matrix）**。矩阵元素 $[\mathbf B]_{i,j}$ 是资产 $i$ 相对于因子 $j$ 的载荷。可以把 $\mathbf B$ 理解为存储数据的矩阵，其中的数据规定了因子收益率如何传导至资产收益率。
 - $\boldsymbol\epsilon_t$ 是由 $n$ 个 **特异性收益率（Idiosyncratic Returns）** [^2] 构成的随机向量。可以从两个方面解释这些收益率。正面的解释是，它们是资产所特有且与所有其他收益率不相关的收益率；反面的解释是，在移除普遍存在的风险来源之后，资产收益率中剩余的分量。
 
+{{< figure src="image-7.png" alt="image" class="bw-image-caption" caption="因子描述共同的市场变化，载荷描述不同企业对这种变化的敏感程度。" original="![image](image-7.png)" >}}
+
 如果随机向量 $\boldsymbol\epsilon_t$ 具有一般的分布，我们就无法在分析的易处理性方面获得任何好处。因此，我们假定：（i）向量 $\boldsymbol\epsilon_t$ 对所有 $s$ 都独立于因子收益率 $\mathbf f_s$；（ii）$E[\boldsymbol\epsilon_t]=0$；（iii）协方差矩阵 $\boldsymbol\Omega_{\epsilon,t}:=\operatorname{var}(\boldsymbol\epsilon_t)$ 是对角矩阵，或者至少在某种意义上是稀疏的。通常，具有对角协方差矩阵的模型称为严格因子模型（Strict Factor Models），具有稀疏协方差矩阵的模型称为近似因子模型（Approximate Factor Models）。向量 $\boldsymbol\epsilon_t$ 是资产收益率的特异性分量。
+
 
 我们通常将 $\mathbf B\mathbf f_t$ 称为资产收益率的 **系统性分量（Systematic Component）**。我们假定 $(\mathbf f_t,\boldsymbol\epsilon_t)$ 在不同时间区间内同分布，或者其分布缓慢变化，并且对于每个 $t$，$\mathbf f_t$ 与 $\boldsymbol\epsilon_t$ 相互独立。分别用 $\boldsymbol\Omega_f\in\mathbb R^{m\times m}$ 和 $\boldsymbol\Omega_\epsilon\in\mathbb R^{n\times n}$ 表示 $\mathbf f_t$ 和 $\boldsymbol\epsilon_t$ 的协方差矩阵。使用这些记号，资产的协方差矩阵为：
 
 $$
 \boldsymbol\Omega_r=\mathbf B\boldsymbol\Omega_f\mathbf B^T+\boldsymbol\Omega_\epsilon.\tag{4.2}
 $$
+
+{{< figure src="image-6.png" alt="image" class="bw-image-caption" caption="严格因子模型" original="![image](image-6.png)" >}}
 
 这一分解是线性收益率模型中波动率建模的核心，也是第 6 章和第 7 章的主题。
 
@@ -46,12 +57,7 @@ $$
 > 协方差矩阵 $\boldsymbol\Omega_r$ 不依赖于截距 $\boldsymbol\alpha$，而且 $\mathbf B\mathbf f_t$ 与 $\boldsymbol\epsilon_t$ 相互独立，因此 $\boldsymbol\Omega_r=\operatorname{cov}(\mathbf B\mathbf f_t)+\boldsymbol\Omega_\epsilon$。因子项是 $\mathbf f_t$ 的线性变换。对于任意具有协方差矩阵 $\boldsymbol\Omega_\xi$ 的随机向量 $\boldsymbol\xi$，有 $\operatorname{cov}(\mathbf B\boldsymbol\xi)=\mathbf B\boldsymbol\Omega_\xi\mathbf B^T$，因为：
 >
 > $$
-> \begin{aligned}
-> [\operatorname{cov}(\mathbf B\boldsymbol\xi)]_{i,j}
-> &=\operatorname{cov}\left(\sum_k[\mathbf B]_{i,k}\xi_k,\sum_l[\mathbf B]_{j,l}\xi_l\right)\\
-> &=\sum_{k,l}[\mathbf B]_{i,k}[\boldsymbol\Omega_\xi]_{k,l}[\mathbf B]_{j,l}\\
-> &=[\mathbf B\boldsymbol\Omega_\xi\mathbf B^T]_{i,j}.
-> \end{aligned}
+> [\operatorname{cov}(\mathbf B\boldsymbol\xi)]_{i,j} =\operatorname{cov}\left(\sum_k[\mathbf B]_{i,k}\xi_k,\sum_l[\mathbf B]_{j,l}\xi_l\right)=\sum_{k,l}[\mathbf B]_{i,k}[\boldsymbol\Omega_\xi]_{k,l}[\mathbf B]_{j,l}=[\mathbf B\boldsymbol\Omega_\xi\mathbf B^T]_{i,j}.
 > $$
 >
 > 在本章中，我们暂且搁置如何从数据估计式（4.1）的参数这一非常重要的问题，转而关注它的使用和解释。接下来几节的安排如下。首先，我们回顾式（4.1）的三种解释：
@@ -117,10 +123,7 @@ $$
 虽然这一公式很少在单项资产层面使用，但在将它应用于投资组合时，它却频繁出现。考虑一个投资组合 $\mathbf w\in\mathbb R^n$，其中 $w_i$ 是投资于资产 $i$ 的净市值（Net Market Value，NMV）[^6]；对于股票而言，这是股价乘以所持有的多头或空头股份数量。投资组合的预期损益为：
 
 $$
-\begin{aligned}
-E(\mathbf w^T\mathbf r\mid\mathbf f)&=E\left(\sum_i w_i r_i\mid\mathbf f\right)\\
-&=\sum_i[\alpha_i+\langle[\mathbf B]_{i,\bullet},\mathbf f\rangle]w_i.
-\end{aligned}
+E(\mathbf w^T\mathbf r\mid\mathbf f)=E\left(\sum_i w_i r_i\mid\mathbf f\right)=\sum_i[\alpha_i+\langle[\mathbf B]_{i,\bullet},\mathbf f\rangle]w_i.
 $$
 
 图 4.4 展示了 $\alpha_i=0$ 这一特殊情形下的关系。我们将在 4.5.1 节中解释 $\langle[\mathbf B]_{i,\bullet},\mathbf f\rangle w_i$ 这一项。它是可归因于因子收益率的损益。我们用标量积来解释投资组合的这种因子损益（Factor PnL），并在标量积中识别最大的贡献者、损益在各因子之间的分散程度，等等。这是业绩归因的出发点，本书后面将对此进行广泛讨论。
@@ -150,19 +153,13 @@ $$
 其收益为：
 
 $$
-\begin{aligned}
-\mathbf w^T\mathbf r_t&=\frac{1}{\|\boldsymbol\alpha_\perp\|}\boldsymbol\alpha_\perp^T\mathbf r_t\\
-&=\|\boldsymbol\alpha_\perp\|+\frac{\boldsymbol\alpha_\perp^T\boldsymbol\epsilon_t}{\|\boldsymbol\alpha_\perp\|}.
-\end{aligned}
+\mathbf w^T\mathbf r_t=\frac{1}{\|\boldsymbol\alpha_\perp\|}\boldsymbol\alpha_\perp^T\mathbf r_t=\|\boldsymbol\alpha_\perp\|+\frac{\boldsymbol\alpha_\perp^T\boldsymbol\epsilon_t}{\|\boldsymbol\alpha_\perp\|}.
 $$
 
 该投资组合的预期收益率和方差分别为：
 
 $$
-\begin{aligned}
-E(\mathbf w^T\mathbf r_t)&=\|\boldsymbol\alpha_\perp\|,\\
-\operatorname{var}(\mathbf w^T\mathbf r_t)&=\frac{\boldsymbol\alpha_\perp^T\boldsymbol\Omega_\epsilon\boldsymbol\alpha_\perp}{\|\boldsymbol\alpha_\perp\|^2}.
-\end{aligned}
+E(\mathbf w^T\mathbf r_t)=\|\boldsymbol\alpha_\perp\|,\quad \operatorname{var}(\mathbf w^T\mathbf r_t)=\frac{\boldsymbol\alpha_\perp^T\boldsymbol\Omega_\epsilon\boldsymbol\alpha_\perp}{\|\boldsymbol\alpha_\perp\|^2}.
 $$
 
 方差存在一个由算子范数（Operator Norm）给出的上界：
@@ -174,10 +171,7 @@ $$
 因此：
 
 $$
-\begin{aligned}
-\mathrm{SR}&=\frac{E(\mathbf w^T\mathbf r_t)}{\sqrt{\operatorname{var}(\mathbf w^T\mathbf r_t)}}\\
-&\geq\frac{\|\boldsymbol\alpha_\perp\|}{\sqrt{\|\boldsymbol\Omega_\epsilon\|}}.
-\end{aligned}
+\mathrm{SR}=\frac{E(\mathbf w^T\mathbf r_t)}{\sqrt{\operatorname{var}(\mathbf w^T\mathbf r_t)}}\geq\frac{\|\boldsymbol\alpha_\perp\|}{\sqrt{\|\boldsymbol\Omega_\epsilon\|}}.
 $$
 
 对于对角矩阵而言，$\|\boldsymbol\Omega_\epsilon\|$ 是对角线上的最大元素。假设它存在一个上界。[^7] 这具有一些有趣的含义。考虑这样一种情形，例如，每项资产的平均绝对正交收益率为正：
@@ -210,10 +204,7 @@ $$
 因子模型并不能被唯一识别。设 $\mathbf C$ 是一个 $m\times m$ 的可逆矩阵，并定义：
 
 $$
-\begin{aligned}
-\widetilde{\mathbf B}&=\mathbf B\mathbf C^{-1},\\
-\widetilde{\mathbf f}&=\mathbf C\mathbf f.
-\end{aligned}
+\widetilde{\mathbf B}=\mathbf B\mathbf C^{-1},\quad \widetilde{\mathbf f}=\mathbf C\mathbf f.
 $$
 
 $\widetilde{\mathbf B}$ 的各列与 $\mathbf B$ 的各列张成相同的子空间。模型
@@ -286,11 +277,15 @@ $$
 其中 $\boldsymbol\eta$ 与 $\mathbf f,\mathbf g$ 不相关。在模型（4.5）的设定中，我们要求 $\mathbf A^T\mathbf B=0$。否则，原模型的因子收益率就必须被修改。为说明这一点，假设 $\mathbf B^T\mathbf A\ne0$。那么，我们可以将 $\mathbf A$ 的各列分解为平行分量和正交分量之和。用矩阵表示，对于某个 $\mathbf C\in\mathbb R^{m\times p}$，有 $\mathbf A=\mathbf B\mathbf C+\mathbf H$。由此，模型 $\mathbf r=\mathbf B\mathbf f+\mathbf A\mathbf g+\boldsymbol\eta$ 可以写为 $\mathbf r=\mathbf B(\mathbf f+\mathbf C\mathbf g)+\mathbf H\mathbf g+\boldsymbol\eta$。
 
 $$
-\begin{aligned}
-\boldsymbol\epsilon^T\mathbf B\mathbf f&=0 &&\text{（原模型的正交条件）}\\
-\boldsymbol\eta^T\mathbf A\mathbf g&=0 &&\text{（残差模型的正交条件）}\\
-\boldsymbol\eta^T(\mathbf B\mathbf f+\mathbf A\mathbf g)&=0 &&\text{（最终模型的正交条件）}
-\end{aligned}
+\boldsymbol\epsilon^T\mathbf B\mathbf f=0 \quad \text{（原模型的正交条件）}
+$$
+
+$$
+\boldsymbol\eta^T\mathbf A\mathbf g=0 \quad \text{（残差模型的正交条件）}
+$$
+
+$$
+\boldsymbol\eta^T(\mathbf B\mathbf f+\mathbf A\mathbf g)=0 \quad \text{（最终模型的正交条件）}
 $$
 
 由第二个和第三个等式可得 $\boldsymbol\eta^T\mathbf B\mathbf f=0$；第一个等式可以重写为 $0=(\mathbf g^T\mathbf A^T+\boldsymbol\eta^T)\mathbf B\mathbf f=\mathbf g^T\mathbf A^T\mathbf B\mathbf f$，对于 $\mathbf f,\mathbf g$ 的所有实现值都成立，因此 $\mathbf A^T\mathbf B=0$。上面的例子假设每项资产的特异性收益率具有相同的波动率（同方差波动率，Homoskedastic Volatilities）。在第 9 章中，我们将看到，当特异性收益率具有异方差时，如何在特征模型框架内扩展一个风险模型。
@@ -302,11 +297,7 @@ $$
 投资组合在区间 $[t-1,t]$ 内的损益是多少？
 
 $$
-\begin{aligned}
-(\text{投资组合损益}_t)&=\mathbf w_t^T\mathbf r_t\\
-&=\mathbf w_t^T\mathbf B\mathbf f_t+\mathbf w_t^T(\boldsymbol\alpha_\perp+\boldsymbol\epsilon_t)\\
-&=\mathbf b_t^T\mathbf f_t+\mathbf w_t^T(\boldsymbol\alpha_\perp+\boldsymbol\epsilon_t)\quad(\mathbf b_t:=\mathbf B^T\mathbf w_t).
-\end{aligned}
+(\text{投资组合损益}_t)=\mathbf w_t^T\mathbf r_t=\mathbf w_t^T\mathbf B\mathbf f_t+\mathbf w_t^T(\boldsymbol\alpha_\perp+\boldsymbol\epsilon_t)=\mathbf b_t^T\mathbf f_t+\mathbf w_t^T(\boldsymbol\alpha_\perp+\boldsymbol\epsilon_t)\quad(\mathbf b_t:=\mathbf B^T\mathbf w_t).
 $$
 
 向量 $\mathbf b_t\in\mathbb R^m$ 表示投资组合在时刻 $t$ 的 **因子敞口（Factor Exposures）**。项 $[\mathbf b_t]_i$ 是每只股票因子 $i$ 的特征按照投资组合持仓加权后的总和；请记住，特征和权重都可以为负。项 $\mathbf b_t^T\mathbf f_t$ 是时间区间 $t$ 内的因子损益，而项 $\mathbf w_t^T(\boldsymbol\alpha_\perp+\boldsymbol\epsilon_t)$ 是特异性损益（Idiosyncratic PnL）。在时间区间 $[1,\ldots,T]$ 上求和，策略的损益为：
@@ -314,15 +305,12 @@ $$
 $$
 \mathrm{PnL}=(\text{因子损益})+(\text{特异性损益}).
 $$
+![image](image-9.png)
 
 我们也可以按照不同的方式分配求和：
 
 $$
-\begin{aligned}
-\mathrm{PnL}&=\sum_{t=1}^T\big[(\text{因子损益}_t)+(\text{特异性损益}_t)\big]\\
-&=\sum_{t=1}^T\sum_{j=1}^m[\mathbf b_t]_j[\mathbf f_t]_j+\sum_{t=1}^T\sum_{i=1}^n[\mathbf w_t]_i[\boldsymbol\alpha_\perp+\boldsymbol\epsilon_t]_i\\
-&=\sum_{j=1}^m(\text{因子 }j\text{ 的损益})+\sum_{i=1}^n(\text{股票 }i\text{ 的特异性损益}).
-\end{aligned}
+\mathrm{PnL}=\sum_{t=1}^T\big[(\text{因子损益}_t)+(\text{特异性损益}_t)\big]=\sum_{t=1}^T\sum_{j=1}^m[\mathbf b_t]_j[\mathbf f_t]_j+\sum_{t=1}^T\sum_{i=1}^n[\mathbf w_t]_i[\boldsymbol\alpha_\perp+\boldsymbol\epsilon_t]_i=\sum_{j=1}^m(\text{因子 }j\text{ 的损益})+\sum_{i=1}^n(\text{股票 }i\text{ 的特异性损益}).
 $$
 
 当然，人们随后可以将因子和股票划分为不同的组，以突出例如来自风格因子、行业因子或特定股票组的业绩。
@@ -338,11 +326,11 @@ $$
 我们可以将该公式应用于与因子模型相关的协方差矩阵：
 
 $$
-\begin{aligned}
-\operatorname{var}(\mathbf r^T\mathbf w)&=\mathbf w^T(\mathbf B\boldsymbol\Omega_f\mathbf B^T+\boldsymbol\Omega_\epsilon)\mathbf w\\
-&=\mathbf b^T\boldsymbol\Omega_f\mathbf b+\mathbf w^T\boldsymbol\Omega_\epsilon\mathbf w.
-\end{aligned}
+\operatorname{var}(\mathbf r^T\mathbf w)=\mathbf w^T(\mathbf B\boldsymbol\Omega_f\mathbf B^T+\boldsymbol\Omega_\epsilon)\mathbf w=\mathbf b^T\boldsymbol\Omega_f\mathbf b+\mathbf w^T\boldsymbol\Omega_\epsilon\mathbf w.
 $$
+
+![image](image-10.png)
+
 
 这一公式具有两种应用。第一种是估计任意时点投资组合的事前波动率（Ex-Ante Volatility）。对于风险管理人而言，这是一项重要的信息，因为他们根据这一度量监控波动率并分配风险。第二种应用是将方差分解为因子分量和特异性分量。与归因的情形一样，这一公式是一个出发点。例如，策略中一个经常被引用的统计量是特异性方差百分比（Percentage of Idiosyncratic Variance），定义为 $100\times(\text{以美元计量的特异性方差})/(\text{总方差})$；特异性方差和因子方差的百分比之和当然为 100。通过对因子进行分组，可以进一步分解因子方差。最细致的划分是每个因子各自构成一个单元素集合，但很常见的选择是（风格组）/（行业组）/（国家组），或者（子行业组）/（风格组）/（国家组）。这一度量及相关的敏感度经常用于监控策略。
 
@@ -361,12 +349,7 @@ $$
 **组 $i$ 占总方差的比例（Fraction of Total Variance）** 为：
 
 $$
-\begin{aligned}
-p_i&:=\frac{\text{组 }i\text{ 的方差}+\text{协方差贡献的一半}}{\text{投资组合方差}}\\
-&=\frac{\sum_j\boldsymbol\Omega_{i,j}}{v_{\mathrm{TOT}}^2}\\
-&=\frac{\operatorname{cov}(\mathbf r_i,\mathbf r_{\mathrm{TOT}})}{v_{\mathrm{TOT}}^2}\\
-&=\beta_i\quad\text{（第 }i\text{ 个因子组的损益相对于总损益的 Beta）}.
-\end{aligned}
+p_i:=\frac{\text{组 }i\text{ 的方差}+\text{协方差贡献的一半}}{\text{投资组合方差}}=\frac{\sum_j\boldsymbol\Omega_{i,j}}{v_{\mathrm{TOT}}^2}=\frac{\operatorname{cov}(\mathbf r_i,\mathbf r_{\mathrm{TOT}})}{v_{\mathrm{TOT}}^2}=\beta_i\quad\text{（第 }i\text{ 个因子组的损益相对于总损益的 Beta）}.
 $$
 
 因此 $\sum_i p_i=1$。组 $\mathcal S(i)$ 的方差百分比（再次强调，这包括单个因子和单项资产——也许是最常使用的划分！），就是该组收益率相对于整个投资组合的 Beta。
@@ -374,24 +357,13 @@ $$
 **组 $\mathcal S(i)$ 的边际风险贡献（Marginal Contribution to Risk，MCR）** 定义为：
 
 $$
-\begin{aligned}
-m_i&:=\frac{\text{买入集合 }\mathcal S(i)\text{ 的 100 万美元波动率时组合的波动率变化}}{\text{100 万美元}}\\
-&=\left.\frac{\partial}{\partial(x_iv_i)}\sqrt{\mathbf x^T\boldsymbol\Omega\mathbf x}\right|_{\mathbf x=\mathbf e}\\
-&=\frac{1}{v_i v_{\mathrm{TOT}}}\sum_j[\boldsymbol\Omega]_{i,j}\\
-&=\rho_i\quad\text{（第 }i\text{ 个因子组损益与总损益的相关系数）}\\
-&=\frac{v_{\mathrm{TOT}}}{v_i}p_i.
-\end{aligned}
+m_i:=\frac{\text{买入集合 }\mathcal S(i)\text{ 的 100 万美元波动率时组合的波动率变化}}{\text{100 万美元}}=\left.\frac{\partial}{\partial(x_iv_i)}\sqrt{\mathbf x^T\boldsymbol\Omega\mathbf x}\right|_{\mathbf x=\mathbf e}=\frac{1}{v_i v_{\mathrm{TOT}}}\sum_j[\boldsymbol\Omega]_{i,j}=\rho_i\quad\text{（第 }i\text{ 个因子组损益与总损益的相关系数）}=\frac{v_{\mathrm{TOT}}}{v_i}p_i.
 $$
 
 **夏普比率敏感度（Sharpe Ratio Sensitivity）。** 计算夏普比率对某个组的波动率变化的敏感度也是有用的。总投资组合的夏普比率相对于组 $i$ 波动率增加的敏感度由下式给出：
 
 $$
-\begin{aligned}
-\frac{\partial}{\partial(v_ix_i)}\frac{E(\mathrm{PnL})}{\operatorname{vol}(\mathrm{PnL})}
-&=\frac{\operatorname{vol}(\mathrm{PnL})\times\frac{\partial E(\mathrm{PnL})}{\partial(x_iv_i)}-\frac{\partial\operatorname{vol}(\mathrm{PnL})}{\partial(x_iv_i)}\times E(\mathrm{PnL})}{\operatorname{var}(\mathrm{PnL})}\\
-&=\frac{\operatorname{vol}(\mathrm{PnL})\times\frac{\partial E(\mathrm{PnL})}{\partial(x_iv_i)}-m_i\times\mathrm{SR}_{\mathrm{TOT}}\times\operatorname{vol}(\mathrm{PnL})}{\operatorname{var}(\mathrm{PnL})}\\
-&=\frac{\mathrm{SR}_{\mathrm{TOT}}}{v_{\mathrm{TOT}}}\left(\frac{\mathrm{SR}_i}{\mathrm{SR}_{\mathrm{TOT}}}-m_i\right).
-\end{aligned}
+\frac{\partial}{\partial(v_ix_i)}\frac{E(\mathrm{PnL})}{\operatorname{vol}(\mathrm{PnL})} =\frac{\operatorname{vol}(\mathrm{PnL})\times\frac{\partial E(\mathrm{PnL})}{\partial(x_iv_i)}-\frac{\partial\operatorname{vol}(\mathrm{PnL})}{\partial(x_iv_i)}\times E(\mathrm{PnL})}{\operatorname{var}(\mathrm{PnL})}=\frac{\operatorname{vol}(\mathrm{PnL})\times\frac{\partial E(\mathrm{PnL})}{\partial(x_iv_i)}-m_i\times\mathrm{SR}_{\mathrm{TOT}}\times\operatorname{vol}(\mathrm{PnL})}{\operatorname{var}(\mathrm{PnL})}=\frac{\mathrm{SR}_{\mathrm{TOT}}}{v_{\mathrm{TOT}}}\left(\frac{\mathrm{SR}_i}{\mathrm{SR}_{\mathrm{TOT}}}-m_i\right).
 $$
 
 如果一个组的夏普比率超过某个阈值，则它对总夏普比率的贡献为正。这个阈值就是它的边际风险贡献与总夏普比率的乘积。
@@ -432,7 +404,11 @@ $$
 
 正如波动率是风险管理人与投资组合管理人共同使用的语言，Alpha 也是信号研究人员与投资组合管理人共同理解的东西。如果不惜进行过度概括，可以说信号研究人员关心 $\boldsymbol\alpha$，风险管理人关心 $\mathbf B\mathbf f$，而投资组合管理人加入交易成本，试图将所有这些项结合为一个盈利策略。实际上，$\mathbf B\mathbf f$ 项中也包含值得交易的“有风险的”Alpha。我暂时宽泛地使用这些术语，目的是在接下来的章节中使其更加严谨。此外，有时这些人是同一个人，尽管在规模足够大、足够复杂的策略中，这些角色日益分离。因子模型从两个方面改进了 Alpha 研究。首先，$\mathbf B\mathbf f$ 很重要，对于某一类投资者而言，它是唯一重要的东西。[^12] 其次，基于因子的方法有助于区分投资组合预期收益率的两个来源。一个来源是持有因子敞口。这些收益率伴随着因子收益率变动所带来的相关风险。第二个来源是收益率的“真正截距”，即对 Alpha 向量具有敞口。
 
+![image](image-11.png)
+
 ## 4.6 因子模型的类型
+
+![image](image-12.png)
 
 从这里开始，我们使用的模型由式（4.1）给出。我们已经将这一模型视为理所当然。但模型的数据和参数来自哪里？对于因子模型而言，答案尤其重要，因为赋予各种符号的含义十分重要。实践者使用三种广泛的方法来识别方程中的全部参数：
 
@@ -479,11 +455,7 @@ $$
 由此得到估计值 $\widehat{\boldsymbol\gamma}_2,\widehat{\boldsymbol\eta}_2$。以下恒等式成立：
 
 $$
-\begin{aligned}
-\widehat{\boldsymbol\gamma}_1&=\widehat{\boldsymbol\beta}_1,\\
-\widehat{\boldsymbol\gamma}_2&=\widehat{\boldsymbol\beta}_2,\\
-\widehat{\boldsymbol\eta}_2&=\widehat{\boldsymbol\epsilon}.
-\end{aligned}
+\widehat{\boldsymbol\gamma}_1=\widehat{\boldsymbol\beta}_1,\quad \widehat{\boldsymbol\gamma}_2=\widehat{\boldsymbol\beta}_2,\quad \widehat{\boldsymbol\eta}_2=\widehat{\boldsymbol\epsilon}.
 $$
 
 **证明。** 我们使用 $\mathbf X_1$ 的帽子矩阵（Hat Matrix）：$\mathbf H=\mathbf X_1(\mathbf X_1^T\mathbf X_1)^{-1}\mathbf X_1^T$。该算子是一个投影，即 $\mathbf H^2=\mathbf H$，且 $(\mathbf I_n-\mathbf H)^2=\mathbf I_n-\mathbf H$。首先，我们刻画 $\widehat{\boldsymbol\beta}_1,\widehat{\boldsymbol\beta}_2$ 的解。我们使用如下性质：
@@ -493,37 +465,35 @@ $$
 $$
 
 $$
-\begin{aligned}
-\mathbf y&=\begin{bmatrix}\mathbf X_1&\widetilde{\mathbf X}_2\end{bmatrix}\begin{bmatrix}\boldsymbol\beta_1\\\boldsymbol\beta_2\end{bmatrix}+\boldsymbol\epsilon,\\
-\begin{bmatrix}\widehat{\boldsymbol\beta}_1\\\widehat{\boldsymbol\beta}_2\end{bmatrix}&=\begin{bmatrix}
-\mathbf X_1^T\mathbf X_1&\mathbf X_1^T\widetilde{\mathbf X}_2\\
-\widetilde{\mathbf X}_2^T\mathbf X_1&\widetilde{\mathbf X}_2^T\widetilde{\mathbf X}_2
-\end{bmatrix}^{-1}\begin{bmatrix}\mathbf X_1^T\\\widetilde{\mathbf X}_2^T\end{bmatrix}\mathbf y,\\
-\widehat{\boldsymbol\beta}_1&=(\mathbf X_1^T\mathbf X_1)^{-1}\mathbf X_1^T\mathbf y,\\
-\widehat{\boldsymbol\beta}_2&=(\widetilde{\mathbf X}_2^T\widetilde{\mathbf X}_2)^{-1}\widetilde{\mathbf X}_2^T\mathbf y.
-\end{aligned}
+\mathbf y=\begin{bmatrix}\mathbf X_1&\widetilde{\mathbf X}_2\end{bmatrix}\begin{bmatrix}\boldsymbol\beta_1\\\boldsymbol\beta_2\end{bmatrix}+\boldsymbol\epsilon,
+$$
+
+$$
+\begin{bmatrix}\widehat{\boldsymbol\beta}_1\\\widehat{\boldsymbol\beta}_2\end{bmatrix}=\begin{bmatrix} \mathbf X_1^T\mathbf X_1&\mathbf X_1^T\widetilde{\mathbf X}_2\\ \widetilde{\mathbf X}_2^T\mathbf X_1&\widetilde{\mathbf X}_2^T\widetilde{\mathbf X}_2 \end{bmatrix}^{-1}\begin{bmatrix}\mathbf X_1^T\\\widetilde{\mathbf X}_2^T\end{bmatrix}\mathbf y,
+$$
+
+$$
+\widehat{\boldsymbol\beta}_1=(\mathbf X_1^T\mathbf X_1)^{-1}\mathbf X_1^T\mathbf y,
+$$
+
+$$
+\widehat{\boldsymbol\beta}_2=(\widetilde{\mathbf X}_2^T\widetilde{\mathbf X}_2)^{-1}\widetilde{\mathbf X}_2^T\mathbf y.
 $$
 
 现在，让我们写出第一阶段的输出 $\widehat{\boldsymbol\beta}_1,\widetilde{\mathbf X}_2$：
 
 $$
-\begin{aligned}
-\widehat{\boldsymbol\eta}_1&=(\mathbf I_n-\mathbf H)\mathbf y,\\
-\widetilde{\mathbf X}_2&=(\mathbf I_n-\mathbf H)\mathbf X_2.
-\end{aligned}
+\widehat{\boldsymbol\eta}_1=(\mathbf I_n-\mathbf H)\mathbf y,\quad \widetilde{\mathbf X}_2=(\mathbf I_n-\mathbf H)\mathbf X_2.
 $$
 
 这些量用于产生 $\widehat{\boldsymbol\gamma}_1,\widehat{\boldsymbol\gamma}_2$。我们证明它们分别与 $\widehat{\boldsymbol\beta}_1,\widehat{\boldsymbol\beta}_2$ 相同：
 
 $$
-\begin{aligned}
-\widehat{\boldsymbol\gamma}_1&=(\mathbf X_1^T\mathbf X_1)^{-1}\mathbf X_1^T\mathbf y\\
-&=\widehat{\boldsymbol\beta}_1,\\
-\widehat{\boldsymbol\gamma}_2&=(\widetilde{\mathbf X}_2^T\widetilde{\mathbf X}_2)^{-1}\widetilde{\mathbf X}_2^T\widehat{\boldsymbol\eta}_1\\
-&=(\mathbf X_2^T(\mathbf I_n-\mathbf H)^2\mathbf X_2)^{-1}\mathbf X_2^T(\mathbf I_n-\mathbf H)\mathbf y\\
-&=(\widetilde{\mathbf X}_2^T\widetilde{\mathbf X}_2)^{-1}\widetilde{\mathbf X}_2^T\mathbf y\\
-&=\widehat{\boldsymbol\beta}_2.
-\end{aligned}
+\widehat{\boldsymbol\gamma}_1=(\mathbf X_1^T\mathbf X_1)^{-1}\mathbf X_1^T\mathbf y=\widehat{\boldsymbol\beta}_1,
+$$
+
+$$
+\widehat{\boldsymbol\gamma}_2=(\widetilde{\mathbf X}_2^T\widetilde{\mathbf X}_2)^{-1}\widetilde{\mathbf X}_2^T\widehat{\boldsymbol\eta}_1=(\mathbf X_2^T(\mathbf I_n-\mathbf H)^2\mathbf X_2)^{-1}\mathbf X_2^T(\mathbf I_n-\mathbf H)\mathbf y=(\widetilde{\mathbf X}_2^T\widetilde{\mathbf X}_2)^{-1}\widetilde{\mathbf X}_2^T\mathbf y=\widehat{\boldsymbol\beta}_2.
 $$
 
 $\widehat{\boldsymbol\eta}_2$ 与 $\widehat{\boldsymbol\epsilon}$ 相等，由式（4.20）—（4.22）得出。$\square$
