@@ -1,5 +1,5 @@
 ---
-{ title: 第八章 超额收益的评估, description: "", categories: [ 哲学 ], tags: [ 书, 量化 ], params: { lang: zh }, date: 2026-11-26T15:31:29+08:00, draft: false, slug: 第八章-超额收益的评估 }
+{ title: 第八章 超额收益的评估, description: "", categories: [ 经济 ], tags: [ 书, 量化 ], params: { lang: zh }, date: 2026-11-26T15:31:29+08:00, draft: false, slug: 第八章-超额收益的评估 }
 ---
 
 ## 本章问题
