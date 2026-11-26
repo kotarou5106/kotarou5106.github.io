@@ -1,5 +1,5 @@
 ---
-{ title: 第一章　地图与疆域, description: "", categories: [ 经济 ], tags: [ 量化 ], params: { lang: zh }, date: 2026-11-18T19:28:19+08:00, draft: false, slug: 第一章-地图与疆域 }
+{ title: 第一章　地图与疆域, description: "", categories: [ 经济 ], tags: [ 量化, 书 ], params: { lang: zh }, date: 2026-11-18T19:28:19+08:00, draft: false, slug: 第一章-地图与疆域 }
 ---
 
 ## 本章的问题（The Questions）
