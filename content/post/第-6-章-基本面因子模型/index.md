@@ -1,5 +1,5 @@
 ---
-{ title: 第六章 基本面因子模型, description: "", categories: [ 经济 ], tags: [ 书, 量化 ], params: { lang: zh }, date: 2026-11-26T14:49:26+08:00, draft: false, slug: 第-6-章-基本面因子模型 }
+{ title: 第六章 基本面因子模型, description: "", categories: [ 经济 ], tags: [ 书, 量化 ], params: { lang: zh }, date: 2026-11-26T14:49:26+08:00, draft: false, slug: 第六章-基本面因子模型 }
 ---
 
 ## 本章问题
