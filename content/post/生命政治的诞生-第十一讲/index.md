@@ -1,5 +1,5 @@
 ---
-{ title: 《生命政治的诞生》第十一讲, description: "", categories: [ 哲学 ], tags: [ 福柯, 生命政治的诞生 ], params: { lang: zh }, date: 2026-10-30, draft: false, slug: 生命政治的诞生-第十一讲 }
+{ title: 《生命政治的诞生》第十一讲, description: "", categories: [ 哲学 ], tags: [ 福柯, 书 ], params: { lang: zh }, date: 2026-10-30, draft: false, slug: 生命政治的诞生-第十一讲 }
 ---
 
 # 正文（1979年3月28日）

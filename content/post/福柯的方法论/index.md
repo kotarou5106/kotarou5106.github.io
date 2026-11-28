@@ -1,5 +1,5 @@
 ---
-{ title: 福柯的方法论, description: "", categories: [ 哲学 ], tags: [ 生命政治的诞生, 福柯 ], params: { lang: zh }, date: 2026-10-31, draft: false, slug: 福柯的方法论 }
+{ title: 福柯的方法论, description: "", categories: [ 哲学 ], tags: [ 福柯 ], params: { lang: zh }, date: 2026-10-31, draft: false, slug: 福柯的方法论 }
 ---
 
 ## 一、从普遍概念转向历史实践

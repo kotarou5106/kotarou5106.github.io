@@ -1,5 +1,5 @@
 ---
-{ title: 阿尔喀比亚德前篇, description: "", categories: [ 文章存档 ], tags: [ 书 ], params: { lang: zh }, date: 2026-11-18T17:29:57+08:00, draft: false, slug: 阿尔喀比亚德前篇 }
+{ title: 阿尔喀比亚德前篇, description: "", categories: [ 哲学 ], tags: [ 书, 柏拉图, 苏格拉底 ], params: { lang: zh }, date: 2026-11-18T17:29:57+08:00, draft: false, slug: 阿尔喀比亚德前篇 }
 ---
 
 # 正文

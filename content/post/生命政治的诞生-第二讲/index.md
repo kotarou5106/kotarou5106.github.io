@@ -1,5 +1,5 @@
 ---
-{ title: 《生命政治的诞生》第二讲, description: "", categories: [ 哲学 ], tags: [ 生命政治的诞生, 福柯 ], params: { lang: en }, date: 2026-10-26, draft: false, slug: 生命政治的诞生-第二讲 }
+{ title: 《生命政治的诞生》第二讲, description: "", categories: [ 哲学 ], tags: [ 福柯, 书 ], params: { lang: en }, date: 2026-10-26, draft: false, slug: 生命政治的诞生-第二讲 }
 ---
 
 # 前言

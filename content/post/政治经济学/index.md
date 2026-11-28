@@ -1,5 +1,5 @@
 ---
-{ title: 政治经济学, description: "", categories: [ 哲学 ], tags: [ 福柯, 生命政治的诞生 ], params: { lang: zh }, date: 2026-10-30, draft: false, slug: 政治经济学 }
+{ title: 政治经济学, description: "", categories: [ 哲学 ], tags: [ 福柯 ], params: { lang: zh }, date: 2026-10-30, draft: false, slug: 政治经济学 }
 ---
 
 ### 一、定义
