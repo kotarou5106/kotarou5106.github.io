@@ -1,6 +1,6 @@
 ---
 title: "《主体解释学》第五讲"
-description: "关心自己的黄金时代、终身修身实践、主体的批判与哲学治疗。"
+description: ""
 slug: "1982-01-20-lecture-01"
 categories: [ "哲学" ]
 tags: [ "书", "福柯" ]
