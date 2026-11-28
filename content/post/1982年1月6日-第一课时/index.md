@@ -1,6 +1,8 @@
 ---
-{ title: 1982年1月6日 第一课时, description: "", categories: [ 哲学 ], tags: [ 书, 福柯 ], params: { lang: zh }, date: 2026-11-28T19:25:34+08:00, draft: false, slug: 1982年1月6日-第一课时 }
+{ title: 《主体解释学》第一讲, description: "", categories: [ 哲学 ], tags: [ 书, 福柯 ], params: { lang: zh }, date: 2026-11-28T19:25:34+08:00, draft: false, slug: 1982年1月6日-第一课时 }
 ---
+
+# 正文（1982年1月6日）
 
 ## 讲座提要
 

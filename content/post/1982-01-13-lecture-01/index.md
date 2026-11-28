@@ -1,5 +1,5 @@
 ---
-title: "1982年1月13日 第一课时"
+title: "《主体解释学》第三讲"
 description: ""
 slug: "1982-01-13-lecture-01"
 categories: [ "哲学" ]
@@ -9,6 +9,8 @@ params:
 date: 2026-11-28T20:49:13+08:00
 draft: false
 ---
+
+# 正文（1982年1月13日）
 
 ## 讲座提要
 
